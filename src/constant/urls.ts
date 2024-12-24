@@ -1,9 +1,12 @@
 export const urls = {
   home: '/',
-  login: '/login',
-  register: '/register',
-  dashboard: '/dashboard',
+  signup: '/signup',
+  signin: '/signin',
+  product: '/product',
+  cart: '/cart',
+  favorite: '/favorite',
+  shoppingBag: '/shoppingBag',
   profile: '/profile',
-  settings: '/settings',
-  logout: '/logout',
+  searching: (slug: string) => `/searching/${slug}`,
+  productDetail: (slug: string) => `/product/${slug}`,
 };
