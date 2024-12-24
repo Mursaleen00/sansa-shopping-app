@@ -2,6 +2,9 @@ import Navbar from '@/Components/Navbar';
 
 export default function Home() {
   return (
+    <div>
+    <Navbar/>
+    
     <p>
       vel magni ab ipsum doloribus accusantium error dicta consequatur in
       deserunt pariatur nesciunt, reprehenderit tenetur! Nostrum, in. Voluptates
@@ -370,5 +373,6 @@ export default function Home() {
       distinctio sint numquam voluptatum aliquid natus! Aliquid suscipit debitis
       repellat obcaecati fuga!
     </p>
+      </div>
   );
 }
