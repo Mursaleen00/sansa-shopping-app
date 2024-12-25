@@ -1,10 +1,9 @@
-import Navbar from '@/Components/Navbar';
-
+// import {KochbhiTypes} from "@/types/icons";
+import Button from '../Components/Button';
 export default function Home() {
   return (
     <div>
-      <Navbar />
-
+      <Button />
       <p>
         vel magni ab ipsum doloribus accusantium error dicta consequatur in
         deserunt pariatur nesciunt, reprehenderit tenetur! Nostrum, in.

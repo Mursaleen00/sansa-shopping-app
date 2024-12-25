@@ -6,7 +6,9 @@ import Search from '@/../public/icons/search.svg';
 import Sansa from '@/../public/image/Sansa.png';
 import Image from 'next/image';
 import Link from 'next/link';
-// import { link } from 'fs';
+// import { CiAlignLeft } from 'react-icons/ci';
+// import { CiMenuBurger } from 'react-icons/ci';
+// import { FiMoreVertical } from "react-icons/fi";
 
 const icons = [
   { icon: Search, link: '/search' },
@@ -15,16 +17,20 @@ const icons = [
   { icon: Profile, link: '/profile' },
 ];
 const pages = [
-  { text: 'Home', link: '/home' },
+  { text: 'Home', link: '/' },
   { text: 'Product', link: '/product' },
-  { text: 'Blog', link: '/blog' },
   { text: 'About Us', link: '/about' },
   { text: 'Contact Us', link: '/contact' },
+
 ];
+export interface icon {
+  reacticon:string; 
+
+}
 
 const Navbar = () => {
   return (
-    <div className='flex bg-secondary justify-center items-center w-full h-12 gap-x-[200px] '>
+    <div className='flex bg-primary-length justify-center items-center w-auto h-12 gap-x-[200px] '>
       <Link href='/'>
         <Image
           alt=''
@@ -33,7 +39,11 @@ const Navbar = () => {
           className=''
         />
       </Link>
-      <div className='flex gap-x-4'>
+      <div className='hidden sm:flex  gap-x-4'>
+        {/* <CiAlignLeft /> */}
+        {/* <CiMenuBurger /> */}
+        {/* <FiMoreVertical />*/}
+
         {pages.map((item, index) => (
           <Link
             href={item.link}
@@ -42,14 +52,9 @@ const Navbar = () => {
             <p>{item.text}</p>
           </Link>
         ))}
-        {/* <p className='text-primary'>Home</p>
-        <p className=''>Product</p>
-        <p className=''>Blog</p>
-        <p className=''>About us</p>
-        <p className=''>Contact Us</p> */}
       </div>
 
-      <div className='flex gap-x-7 '>
+      <div className=' hidden lg:flex '>
         {icons.map((item, index) => (
           <Link
             href={item.link}
@@ -60,7 +65,6 @@ const Navbar = () => {
               src={item.icon}
               width={40}
               height={80}
-              className=' text-[0px] '
             />
           </Link>
         ))}
