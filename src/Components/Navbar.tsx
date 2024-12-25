@@ -21,11 +21,9 @@ const pages = [
   { text: 'Product', link: '/product' },
   { text: 'About Us', link: '/about' },
   { text: 'Contact Us', link: '/contact' },
-
 ];
 export interface icon {
-  reacticon:string; 
-
+  reacticon: string;
 }
 
 const Navbar = () => {
