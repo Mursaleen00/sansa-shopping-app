@@ -1,4 +1,4 @@
-import FavoriteView from '@/view/favorite/Index';
+import FavoriteView from '@/view/Favorite/Index';
 import React from 'react';
 
 const Page = () => {

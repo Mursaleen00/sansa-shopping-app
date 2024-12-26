@@ -1,4 +1,4 @@
-import AboutView from '@/view/about/Index';
+import AboutView from '@/view/About/Index';
 import React from 'react';
 
 const Page = () => {
