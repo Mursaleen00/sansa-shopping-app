@@ -6,6 +6,6 @@ export const urls = {
   cart: '/cart',
   favorite: '/favorite',
   profile: '/profile',
-  searching: (slug: string) => `/searching/${slug}`,
+  search: (slug: string) => `/search/${slug}`,
   productDetail: (slug: string) => `/product/${slug}`,
 };
