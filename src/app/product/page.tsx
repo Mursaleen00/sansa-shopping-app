@@ -1,4 +1,4 @@
-import ProductView from '@/view/product/Index';
+import ProductView from '@/view/Product/Index';
 import React from 'react';
 
 const Page = () => {

@@ -1,4 +1,4 @@
-import ContactView from '@/view/contact/Index';
+import ContactView from '@/view/Contact/Index';
 import React from 'react';
 
 const Page = () => {
