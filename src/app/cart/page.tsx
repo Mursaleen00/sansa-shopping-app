@@ -1,4 +1,4 @@
-import CartView from '@/view/cart/Index';
+import CartView from '@/view/Cart/Index';
 import React from 'react';
 
 const Page = () => {
