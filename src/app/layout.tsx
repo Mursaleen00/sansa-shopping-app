@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/Components/Navbar';
+import Navbar from '@/Components/Navbar/Navbar';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -26,10 +26,13 @@ export default function RootLayout({
       <body
         className={`antialiased flex h-full w-full flex-col min-h-screen justify-between gap-y-6 md:gap-y-10`}
       >
-        {/* <div className='sticky top-0 bg-white h-[72px] border'>Navbar</div> */}
         <Navbar />
-        <div className='!h-full min-h-[50dvh]'>{children}</div>
-        <div className='h-[450px] border'>Footer</div>
+        {/* <div className='sticky top-0 bg-white h-[72px] border'>Navbar</div> */}
+        <div className='!h-full min-h-[50dvh] px-6 md:px-12 xl:px-24'>
+          {children}
+        </div>
+        <div className='h-[450px] border  '>Footer</div>
+
       </body>
     </html>
   );
