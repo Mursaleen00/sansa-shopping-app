@@ -32,7 +32,6 @@ export default function RootLayout({
           {children}
         </div>
         <div className='h-[450px] border  '>Footer</div>
-
       </body>
     </html>
   );
