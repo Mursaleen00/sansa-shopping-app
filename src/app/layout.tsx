@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/Components/Navbar/Navbar';
+import Footer from '@/Components/footer/page';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -31,7 +32,8 @@ export default function RootLayout({
         <div className='!h-full min-h-[50dvh] px-6 md:px-12 xl:px-24'>
           {children}
         </div>
-        <div className='h-[450px] border  '>Footer</div>
+        {/* <div className='h-[450px] border  '>Footer</div> */}
+        <Footer />
       </body>
     </html>
   );
