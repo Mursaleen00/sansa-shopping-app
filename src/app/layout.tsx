@@ -28,11 +28,10 @@ export default function RootLayout({
       >
         <Navbar />
         {/* <div className='sticky top-0 bg-white h-[72px] border'>Navbar</div> */}
-        <div className='!h-full min-h-[50dvh] px-6 md:px-12 xl:px-24'>
-          {children}
-        </div>
+        <div className='!h-full min-h-[50dvh]'>{children}</div>
         <div className='h-[450px] border  '>Footer</div>
       </body>
     </html>
   );
 }
+// px-6 md:px-12 xl:px-24
