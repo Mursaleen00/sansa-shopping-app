@@ -1,4 +1,4 @@
-import ProfileView from '@/view/profile/Index';
+import ProfileView from '@/view/Profile/Index';
 import React from 'react';
 
 const Page = () => {

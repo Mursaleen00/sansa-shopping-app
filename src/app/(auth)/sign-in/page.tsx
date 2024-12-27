@@ -1,4 +1,4 @@
-import SignInView from '@/view/(auth)/sign-in/Index';
+import SignInView from '@/view/Auth/signin/Index';
 import React from 'react';
 
 const Page = () => {
