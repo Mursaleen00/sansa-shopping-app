@@ -4,7 +4,7 @@ interface ParagraphProps {
 }
 
 const Paragraph = ({ text }: ParagraphProps) => {
-  return <p className='text-secondary-500'>{text}</p>;
+  return <p className='text-secondary-500 md:text-base text-sm'>{text}</p>;
 };
 
 export default Paragraph;
