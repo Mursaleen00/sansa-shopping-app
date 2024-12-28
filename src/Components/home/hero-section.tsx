@@ -1,7 +1,7 @@
 import React from 'react';
 import hero from '@/../public/image/hero.png';
 import Image from 'next/image';
-import Button from '../button';
+import Button from '../common/button';
 
 const HeroSection = () => {
   return (

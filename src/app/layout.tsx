@@ -28,13 +28,12 @@ export default function RootLayout({
         className={`antialiased flex h-full w-full flex-col min-h-screen justify-between gap-y-6 md:gap-y-10`}
       >
         <Navbar />
-        {/* <div className='sticky top-0 bg-white h-[72px] border'>Navbar</div> */}
         <div className='!h-full min-h-[50dvh] px-6 md:px-12 xl:px-24'>
           {children}
         </div>
-        {/* <div className='h-[450px] border  '>Footer</div> */}
         <Footer />
       </body>
     </html>
   );
 }
+// px-6 md:px-12 xl:px-24
