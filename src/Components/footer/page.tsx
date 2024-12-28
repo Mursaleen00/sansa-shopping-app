@@ -1,15 +1,11 @@
+'use client';
 import React from 'react';
-// import { LuFacebook } from 'react-icons/lu';
-// import { PiInstagramLogo } from 'react-icons/pi';
-// import { CiTwitter } from 'react-icons/ci';
-// import { CiLinkedin } from 'react-icons/ci';
-// import visa from '@/../public/image/Visa.svg';
+import Switch from 'react-switch';
+import Googleplay from '@/../public/image/Googleplay.svg';
+import Link from 'next/link';
+import Sansa from '@/../public/image/Sansa.png';
 import Image from 'next/image';
-// import ApplePay from '@/../publpnpmic/image/ApplePay.svg';
-// import UnionPay from '@/../public/image/UnionPay.svg';
-// import PayPal from '@/../public/image/PayPal.svg';
-// import Mastercard from '@/../public/image/Mastercard.svg';
-// import GooglePay from '@/../public/image/GooglePay.svg';
+import { FooterData } from '@/constant/FooterData';
 
 const Footer = () => {
   return (
@@ -26,19 +22,19 @@ const Footer = () => {
     //     <h2 className='font-black'>Connects</h2>
     //     <div className='flex flex-col gap-y-1 '>
     //       <p className='flex  text-xs  gap-x-1'>
-    //         <LuFacebook />
+
     //         facebook
     //       </p>
     //       <p className='flex text-xs  gap-x-1 '>
-    //         <PiInstagramLogo />
+
     //         Instagram
     //       </p>
     //       <p className='flex text-xs  gap-x-1'>
-    //         <CiLinkedin />
+
     //         LinkedIn
     //       </p>
     //       <p className='flex text-xs  gap-x-1'>
-    //         <CiTwitter />X
+    //         X
     //       </p>
     //     </div>
     //   </div>
@@ -78,18 +74,18 @@ const Footer = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className='bg-gray px-6 md:px-12 xl:px-24 flex flex-col gap-y-10 py-10'>
+    <div className='bg-gray px-6 md:px-12 xl:px-24 flex flex-col gap-y-10 py-10  items-center'>
       {/* Upper Section */}
-      <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-y-10'>
-        {footerData.map((item, i) => (
+      <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-y-9'>
+        {FooterData.map((item, i) => (
           <div
             key={i}
-            className='flex flex-col gap-y-5 border'
+            className='flex flex-col gap-y-5 '
           >
-            <p className='text-primary'>{item.title}</p>
+            <p className='font-Roboto '>{item.title}</p>
 
             {item.title !== 'Payment Method' ? (
-              <div className='flex flex-col gap-y-3'>
+              <div className='flex flex-col gap-y-3 text-xs'>
                 {item.data.map((list, index) => (
                   <div
                     key={index}
@@ -109,18 +105,15 @@ const Footer = () => {
                 ))}
               </div>
             ) : (
-              <div className='grid grid-cols-4 gap-2'>
+              <div className='flex flex-wrap w-full gap-2'>
                 {item.data.map((list, index) => (
-                  <div
-                    className='relative'
+                  <Image
                     key={index}
-                  >
-                    <Image
-                      src={list.icon || ''}
-                      alt=''
-                      fill
-                    />
-                  </div>
+                    src={list.icon || ''}
+                    alt=''
+                    width={35}
+                    height={24}
+                  />
                 ))}
               </div>
             )}
@@ -132,48 +125,42 @@ const Footer = () => {
       <div className='border my-10 border-[#E1E4D5] w-full' />
 
       {/* Lower Section */}
-      <div className=''></div>
+      <div className='grid sm:grid-cols-2 md:grid-cols-3 justify-around gap-y-8 items-center '>
+        <div className=''>
+          <Link href='/'>
+            <Image
+              alt=''
+              src={Sansa}
+              width={100}
+            />
+          </Link>
+        </div>
+        <div className='flex gap-3 items-center'>
+          <p>English</p>
+          <Switch
+            onChange={() => {}}
+            checked={false}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            className='flex !bg-primary'
+            onColor='#8ac732'
+            offColor='#8ac732'
+          />
+          <p>Urdu</p>
+        </div>
+
+        <div className='flex md:flex-col  items-center gap-x-4 gap-y-3 '>
+          <p>Download App</p>
+          <Image
+            alt=''
+            src={Googleplay}
+            width={80}
+          />
+        </div>
+      </div>
+      <div className='flex justify-center pt-9'>Copyright 2024</div>
     </div>
   );
 };
 
 export default Footer;
-
-type list = {
-  title: string;
-  data: {
-    text?: string;
-    icon?: string;
-  }[];
-}[];
-
-const footerData: list = [
-  {
-    title: 'Make money with us',
-    data: [
-      { text: 'Sell product on Sansa' },
-      { text: 'Sell on Sansa Business' },
-      { text: 'Self-Publish with Us' },
-    ],
-  },
-  {
-    title: 'Connects',
-    data: [
-      { text: 'facebook', icon: '/' },
-      { text: 'Instagram', icon: '/' },
-      { text: 'LinkedIn', icon: '/' },
-      { text: 'X', icon: '/' },
-    ],
-  },
-  {
-    title: 'Payment Method',
-    data: [
-      { icon: '/' },
-      { icon: '/' },
-      { icon: '/' },
-      { icon: '/' },
-      { icon: '/' },
-      { icon: '/' },
-    ],
-  },
-];
