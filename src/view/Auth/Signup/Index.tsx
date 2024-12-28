@@ -1,5 +1,5 @@
 import Sansa from '@/../public/image/Sansa.png';
-import Button from '@/Components/button';
+import Button from '@/Components/common/button';
 import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
 import Paragraph from '@/Components/common/paragraph';

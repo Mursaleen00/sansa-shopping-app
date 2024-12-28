@@ -1,5 +1,4 @@
 'use client';
-import Button from '@/Components/button';
 import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
 import Paragraph from '@/Components/common/paragraph';
@@ -12,6 +11,7 @@ import Sansa from '@/../public/image/Sansa.png';
 import Image from 'next/image';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import Button from '@/Components/common/button';
 
 const initialValues = {
   email: '',
