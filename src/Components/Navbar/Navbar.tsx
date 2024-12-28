@@ -9,14 +9,15 @@ import { icons } from '@/constant/icons';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Sidebar from './Sidebar';
+import { urls } from '@/constant/urls';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   return (
-    <div className='flex bg-primary-length justify-between items-center py-3 px-6 md:px-12 xl:px-24 shadow-md sticky top-0'>
-      <Link href='/'>
+    <div className='flex bg-primary-length justify-between items-center py-3 px-6 md:px-12 xl:px-24 z-50 shadow-md sticky top-0'>
+      <Link href={urls.home}>
         <Image
           alt=''
           src={Sansa}
@@ -45,7 +46,7 @@ const Navbar = () => {
       <div className='hidden md:flex items-center gap-x-3'>
         {icons.map((item, index) => (
           <Link
-            href={item.link as string}
+            href={item.link}
             key={index}
           >
             <Image
