@@ -1,9 +1,6 @@
 'use client';
 import React from 'react';
 import Switch from 'react-switch';
-import Googleplay from '@/../public/image/Googleplay.svg';
-import googlePlay from '@/../public/image/google-play.png';
-import appleStore from '@/../public/image/apple-store.png';
 import Link from 'next/link';
 import Sansa from '@/../public/image/Sansa.png';
 import Image from 'next/image';
