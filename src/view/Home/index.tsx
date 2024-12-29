@@ -36,7 +36,7 @@ const HomeView = () => {
       </div>
 
       {/* Review Section */}
-      <div className='bg-white gap-y-10 flex flex-col items-center px-6 md:px-10 xl:px-24 py-10'>
+      <div className='bg-white gap-y-10 flex flex-col items-center  py-10'>
         <SecondaryHeading text='Review About Sansa' />
         <Marquee className='flex items-center gap-x-6 -z-0'>
           <div className='grid grid-cols-5 gap-6'>

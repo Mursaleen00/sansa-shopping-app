@@ -25,12 +25,10 @@ export default function RootLayout({
       className={roboto.className}
     >
       <body
-        className={`antialiased flex h-full w-full flex-col min-h-screen justify-between gap-y-6 md:gap-y-10`}
+        className={`antialiased flex h-full w-full flex-col min-h-screen justify-between`}
       >
         <Navbar />
-        <div className='!h-full min-h-[50dvh] px-6 md:px-12 xl:px-24'>
-          {children}
-        </div>
+        <div className='!h-full min-h-[50dvh]'>{children}</div>
         <Footer />
       </body>
     </html>

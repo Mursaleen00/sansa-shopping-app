@@ -5,7 +5,7 @@ import Button from '../common/button';
 
 const HeroSection = () => {
   return (
-    <div className='grid md:grid-cols-2 gap-10 py-6 px-6 md:px-10 xl:px-24'>
+    <div className='grid md:grid-cols-2 gap-10 px-6 md:px-10 xl:px-24 py-20'>
       <div className='flex items-center !order-2 md:!order-1'>
         <div className='flex flex-col gap-y-6'>
           <h3 className='text-secondary-700 lg:text-3xl sm:text-2xl text-xl'>
