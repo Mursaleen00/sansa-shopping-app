@@ -1,5 +1,4 @@
 'use client';
-import Button from '@/Components/button';
 import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
 import Paragraph from '@/Components/common/paragraph';
@@ -12,6 +11,7 @@ import Sansa from '@/../public/image/Sansa.png';
 import Image from 'next/image';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import Button from '@/Components/common/button';
 
 const initialValues = {
   email: '',
@@ -20,7 +20,18 @@ const initialValues = {
 
 const LoginSchema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email is required'),
-  password: yup.string().required('Password is required'),
+  // password: yup.string().required('Password is required'),
+  password: yup
+    .string()
+    .min(8, 'Password must be at least 8 characters')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number')
+    .matches(
+      /[@$!%*?&#]/,
+      'Password must contain at least one special character',
+    )
+    .required('Password is required'),
 });
 
 const SignInView = () => {
@@ -28,7 +39,7 @@ const SignInView = () => {
     initialValues,
     validationSchema: LoginSchema,
     onSubmit: () => {
-      // console.log('🚀 ~ SignInView ~ value: onSubmit', value);
+      console.log('🚀 ~ SignInView ~ value: onSubmit', values);
     },
   });
 
