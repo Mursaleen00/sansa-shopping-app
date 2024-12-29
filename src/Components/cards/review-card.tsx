@@ -20,7 +20,7 @@ const ReviewCard = ({
   review,
 }: IReviewCard) => {
   return (
-    <div className='border border-secondary-100 rounded-lg p-6 flex flex-col gap-y-6 max-w-[300px]'>
+    <div className='border border-secondary-100 rounded-lg p-6 flex flex-col gap-y-6 max-w-[300px] sm:max-w-[400px]'>
       <div className='flex items-center gap-x-3'>
         <Image
           alt=''

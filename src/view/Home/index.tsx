@@ -1,13 +1,16 @@
 'use client';
 
 import OrderCard from '@/Components/cards/order-card';
+import ProductCard from '@/Components/cards/product-card';
 import ReviewCard from '@/Components/cards/review-card';
 import Tab from '@/Components/common/tab';
 import HeroSection from '@/Components/home/hero-section';
 import SecondaryHeading from '@/Components/secondary-heading';
 import { orderCardData } from '@/constant/order-card';
+import { pickingData } from '@/constant/picking-data';
+import { discountProduct, ProductData } from '@/constant/product-data';
 import { reviewsData } from '@/constant/reviews';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 
 const HomeView = () => {
@@ -33,7 +36,7 @@ const HomeView = () => {
       </div>
 
       {/* Review Section */}
-      <div className='bg-white gap-y-10 flex flex-col items-center px-6 md:px-10 xl:px-24 py-10'>
+      <div className='bg-white gap-y-10 flex flex-col items-center  py-10'>
         <SecondaryHeading text='Review About Sansa' />
         <Marquee className='flex items-center gap-x-6 -z-0'>
           <div className='grid grid-cols-5 gap-6'>
@@ -72,25 +75,45 @@ const HomeView = () => {
             tabs={['Clothing', 'Shoes']}
             setTab={setTab}
             tab={tab}
-            className='!w-fit'
+            className='!w-full min-w-[200px]'
           />
           <div className='w-full h-1 bg-primary rounded-full' />
         </div>
-
         <Tab
           tabs={['Tops', 'Bottoms', 'Dresses', 'Outerwear', 'Activewear']}
           setTab={setTab2}
           tab={tab2}
         />
+
+        <div className='grid md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 gap-6 w-full'>
+          {ProductData.map((item, i) => (
+            <ProductCard
+              {...item}
+              key={i}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Discount Products */}
+      <div className='bg-gray gap-y-10 flex flex-col items-center px-6 w-full md:px-10 xl:px-24 py-10'>
+        <SecondaryHeading text='Discount Products' />
+        <div className='grid md:grid-cols-3 sm:grid-cols-2 gap-6 w-full'>
+          {discountProduct.map((item, i) => (
+            <ProductCard
+              {...item}
+              key={i}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Stay In Touch */}
+      <div className='bg-white gap-y-10 flex flex-col items-center px-6 md:px-10 xl:px-24 py-10'>
+        <SecondaryHeading text='Stay In Touch' />
       </div>
     </div>
   );
 };
 
 export default HomeView;
-
-const pickingData = [
-  { label: 'Brands', value: '1000+' },
-  { label: 'Customers', value: '35000+' },
-  { label: 'Partners', value: '350+' },
-];

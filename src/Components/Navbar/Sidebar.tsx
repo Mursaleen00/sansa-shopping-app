@@ -33,7 +33,7 @@ const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
       <div className='flex items-center gap-x-2'>
         {icons.map((item, index) => (
           <Link
-            href={item.link as string}
+            href={item.link}
             key={index}
             onClick={setIsOpen}
           >
