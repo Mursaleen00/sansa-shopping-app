@@ -24,7 +24,7 @@ const ProductCard = ({
   const discounted = Number(price) - Number(discount);
 
   return (
-    <div className='relative border border-border rounded-lg p-6 w-full bg-white'>
+    <div className='relative border border-border rounded-lg p-6 w-full min-w-[300px] bg-white'>
       <div className='flex justify-between items-center gap-x-6'>
         {discount && (
           <p className='bg-primary py-2.5 px-4 rounded-full text-white'>
@@ -35,9 +35,8 @@ const ProductCard = ({
         <div>
           {isLiked ? (
             <IoMdHeart
-              color='red'
               size={24}
-              className='absolute top-4 right-4 cursor-pointer z-20'
+              className='absolute text-error top-4 right-4 cursor-pointer z-20'
               onClick={() => setIsLiked(!isLiked)}
             />
           ) : (
@@ -62,7 +61,7 @@ const ProductCard = ({
       <div className='flex justify-between items-center gap-x-6'>
         <p className='text-secondary-700 text-lg font-medium'>
           {discounted ? discounted : price} USD{' '}
-          {discounted && (
+          {!Number.isNaN(discounted) && (
             <s className='text-secondary-300  text-base font-normal'>
               {price} USD
             </s>

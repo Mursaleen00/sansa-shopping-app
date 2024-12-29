@@ -52,7 +52,7 @@ const SignUpView = () => {
   const { errors, handleBlur, handleChange, values, handleSubmit, touched } =
     formik;
   return (
-    <div className='flex flex-col items-center h-screen gap-y-10'>
+    <div className='flex flex-col items-center gap-y-10 py-10'>
       <Image
         src={Sansa}
         alt='Sansa'
@@ -96,7 +96,7 @@ const SignUpView = () => {
         />
       </div>
       <p className='md:text-base text-sm'>
-        Already have account?
+        Already have account?{' '}
         <Link
           href={urls.signin}
           className='text-primary'

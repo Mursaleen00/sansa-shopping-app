@@ -48,7 +48,7 @@ const SignInView = () => {
   // console.log('🚀 ~ SignInView ~ values:', values);
 
   return (
-    <div className='flex flex-col items-center h-screen gap-y-10'>
+    <div className='flex flex-col items-center gap-y-10 py-10'>
       <Image
         src={Sansa}
         alt='Sansa'
@@ -93,7 +93,7 @@ const SignInView = () => {
         />
       </div>
       <p className='md:text-base text-sm'>
-        Have not had account yet?
+        Have not had account yet?{' '}
         <Link
           href={urls.signup}
           className='text-primary'
