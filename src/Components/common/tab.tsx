@@ -12,7 +12,7 @@ const Tab = ({ tabs, setTab, tab, className }: TabsProps) => {
 
   return (
     <div
-      className={`border border-secondary-100 rounded-lg p-1.5 flex w-full justify-between items-center gap-x-3 ${className}`}
+      className={`border border-secondary-100 rounded-lg p-1.5 flex-wrap flex w-full justify-between items-center gap-x-3 ${className}`}
     >
       {tabs.map((tab, i) => (
         <button
