@@ -8,8 +8,8 @@ import { pages } from '@/constant/pagelist';
 import { icons } from '@/constant/icons';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import Sidebar from './Sidebar';
 import { urls } from '@/constant/urls';
+import Sidebar from './Sidebar';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
