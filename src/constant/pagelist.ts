@@ -1,6 +1,13 @@
-export const pages = [
-  { text: 'Home', link: '/' },
-  { text: 'Product', link: '/product' },
-  { text: 'About Us', link: '/about' },
-  { text: 'Contact Us', link: '/contact' },
+import { urls } from './urls';
+
+type PageT = {
+  text: string;
+  link: string;
+};
+
+export const pages: PageT[] = [
+  { text: 'Home', link: urls.home },
+  { text: 'Product', link: urls.product },
+  { text: 'About Us', link: urls.about },
+  { text: 'Contact Us', link: urls.contact },
 ];
