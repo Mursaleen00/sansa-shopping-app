@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 const ProductView = () => {
   const [tab, setIsTab] = useState(0);
+
   return (
     <div className='px-6 md:px-12 xl:px-24 flex flex-col gap-y-10'>
       {/* All Product Categories */}
@@ -41,7 +42,7 @@ const ProductView = () => {
       {/* Best Selling Products */}
       <div className='flex justify-between items-center'>
         <SecondaryHeading text='Best Selling Products:' />
-        <p className='text-primary'>See more+</p>
+        <p className='text-primary cursor-pointer'>See more+</p>
       </div>
 
       <div className='flex gap-x-6 overflow-x-auto pb-2'>
@@ -56,7 +57,7 @@ const ProductView = () => {
       {/* New Products */}
       <div className='flex justify-between items-center'>
         <SecondaryHeading text='New Products:' />
-        <p className='text-primary'>See more+</p>
+        <p className='text-primary cursor-pointer'>See more+</p>
       </div>
 
       <div className='flex gap-x-6 overflow-x-auto pb-2'>
