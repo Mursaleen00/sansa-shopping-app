@@ -31,7 +31,7 @@ export default function RootLayout({
         <Navbar />
         <div className='!h-full min-h-[50dvh]'>{children}</div>
         <Footer />
-        <Notfound/>
+        <Notfound />
       </body>
     </html>
   );
