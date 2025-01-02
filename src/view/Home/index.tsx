@@ -12,10 +12,12 @@ import { discountProduct, ProductData } from '@/constant/product-data';
 import { reviewsData } from '@/constant/reviews';
 import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
+import { useTranslation } from 'react-i18next';
 
 const HomeView = () => {
   const [tab, setTab] = useState(0);
   const [tab2, setTab2] = useState(0);
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -110,7 +112,7 @@ const HomeView = () => {
 
       {/* Stay In Touch */}
       <div className='bg-white gap-y-10 flex flex-col items-center px-6 md:px-10 xl:px-24 py-10'>
-        <SecondaryHeading text='Stay In Touch' />
+        <SecondaryHeading text={t('Stay In Touch')} />
       </div>
     </div>
   );
