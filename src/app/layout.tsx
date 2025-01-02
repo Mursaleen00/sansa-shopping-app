@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google';
 import './globals.css';
 import Footer from '@/Components/common/footer';
 import Navbar from '@/Components/common/Navbar';
+import Notfound from '@/Components/common/notfound';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -28,8 +29,9 @@ export default function RootLayout({
         className={`antialiased flex h-full w-full flex-col min-h-screen justify-between`}
       >
         <Navbar />
-        <div className='!h-full min-h-[50dvh]'>{children}</div>
+        <div className='!h-full min-h-[50dvh] py-10'>{children}</div>
         <Footer />
+        <Notfound />
       </body>
     </html>
   );
