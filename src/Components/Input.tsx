@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ChangeEventHandler, FocusEventHandler } from 'react';
 
 interface InputProps {
   type: string;
@@ -10,8 +11,8 @@ interface InputProps {
   value?: string;
   error?: string;
   touched?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
 }
 
 const Input = ({

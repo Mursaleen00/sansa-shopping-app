@@ -1,15 +1,19 @@
+'use client';
 import React from 'react';
 import hero from '@/../public/image/hero.png';
 import Image from 'next/image';
 import Button from '../common/button';
+import { useTranslation } from 'react-i18next';
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <div className='grid md:grid-cols-2 gap-10 px-6 md:px-10 xl:px-24 py-20'>
       <div className='flex items-center !order-2 md:!order-1'>
         <div className='flex flex-col gap-y-6'>
           <h3 className='text-secondary-700 lg:text-3xl sm:text-2xl text-xl'>
-            Product Collection
+            {t('Product Collection')}
           </h3>
           <p className='text-secondary-500 lg:text-xl text-base sm:text-lg'>
             Welcome to our online fashion haven, where we invite you to embark

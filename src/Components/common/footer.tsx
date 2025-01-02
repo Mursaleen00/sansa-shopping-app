@@ -1,17 +1,26 @@
 'use client';
-import React from 'react';
-import Switch from 'react-switch';
-import Link from 'next/link';
 import Sansa from '@/../public/image/Sansa.png';
-import Image from 'next/image';
 import { FooterData } from '@/constant/FooterData';
+import { urls } from '@/constant/urls';
+import { languagesType } from '@/types/language';
+import { switchLanguage } from '@/utils/switch-language';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import Switch from 'react-switch';
 
 const Footer = () => {
+  const [language, setLanguage] = useState<languagesType['value']>('en');
+
+  useEffect(() => {
+    switchLanguage(language);
+  }, [language]);
+
   return (
     <div className='bg-gray px-6 md:px-12 xl:px-24 flex flex-col w-full gap-y-10  py-10'>
       {/* Upper Section */}
       <div className='flex items-center justify-between w-full'>
-        <Link href='/'>
+        <Link href={urls.home}>
           <Image
             alt=''
             src={Sansa}
@@ -21,15 +30,15 @@ const Footer = () => {
         <div className='flex gap-3 items-center'>
           <p>English</p>
           <Switch
-            onChange={() => {}}
-            checked={false}
+            onChange={() => setLanguage(language === 'en' ? 'sp' : 'en')}
+            checked={language === 'sp'}
             checkedIcon={false}
             uncheckedIcon={false}
             className='flex !bg-primary'
             onColor='#8ac732'
             offColor='#8ac732'
           />
-          <p>Urdu</p>
+          <p>Spanish</p>
         </div>
       </div>
 

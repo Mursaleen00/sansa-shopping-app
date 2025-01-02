@@ -1,14 +1,7 @@
-import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
-import './globals.css';
 import Footer from '@/Components/common/footer';
 import Navbar from '@/Components/common/Navbar';
 import Notfound from '@/Components/common/notfound';
-
-const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-});
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Sansa',
@@ -21,10 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang='en'
-      className={roboto.className}
-    >
+    <html lang='en'>
       <body
         className={`antialiased flex h-full w-full flex-col min-h-screen justify-between`}
       >
