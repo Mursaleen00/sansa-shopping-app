@@ -2,6 +2,7 @@ import Footer from '@/Components/common/footer';
 import Navbar from '@/Components/common/Navbar';
 import Notfound from '@/Components/common/notfound';
 import { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Sansa',
