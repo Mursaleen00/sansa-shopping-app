@@ -6,7 +6,7 @@ export const orderCardData = [
   {
     title: 'Select Product',
     description:
-      'Choosing product you want to purchase and pay with payment method such as credit card or google pays',
+      'Choosing product you want to purchase and pay with payment method such as credit card or google pays.',
     image: product.src,
   },
   {
