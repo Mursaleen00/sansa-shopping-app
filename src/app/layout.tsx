@@ -3,6 +3,7 @@ import Navbar from '@/Components/common/Navbar';
 import Notfound from '@/Components/common/notfound';
 import { Metadata } from 'next';
 import './globals.css';
+// import Shoppingbag from '../Components/common/shoppingbag';
 
 export const metadata: Metadata = {
   title: 'Sansa',
@@ -23,6 +24,7 @@ export default function RootLayout({
         <div className='!h-full min-h-[50dvh] py-10'>{children}</div>
         <Footer />
         <Notfound />
+        {/* <Shoppingbag /> */}
       </body>
     </html>
   );

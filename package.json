@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev ",
     "build": "next build",
-    "validate": "pnpm format; pnpm lint; pnpm build",
+    "validate": "pnpm format & pnpm lint & pnpm build",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "prepare": "husky"
