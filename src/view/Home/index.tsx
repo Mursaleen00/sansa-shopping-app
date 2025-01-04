@@ -26,11 +26,13 @@ const HomeView = () => {
 
       {/* Order Section */}
       <div className='bg-gray gap-y-10 flex flex-col items-center px-6 md:px-10 xl:px-24 py-10'>
-        <SecondaryHeading text='How To Order Our Products' />
+        <SecondaryHeading text={t('How To Order Our Products')} />
         <div className='grid lg:grid-cols-3 sm:grid-cols-2 gap-6'>
           {orderCardData.map((item, i) => (
             <OrderCard
               {...item}
+              title={t(item.title)}
+              description={t(item.description)}
               key={i}
             />
           ))}
@@ -61,8 +63,10 @@ const HomeView = () => {
               className='border p-6 rounded-xl border-border text-center w-full h-full'
               key={i}
             >
-              <h3 className='text-primary font-bold text-6xl'>{item.value}</h3>
-              <p className='text-secondary-300'>{item.label}</p>
+              <h3 className='text-primary font-bold text-6xl'>
+                {t(item.value)}
+              </h3>
+              <p className='text-secondary-300'>{t(item.label)}</p>
             </div>
           ))}
         </div>
