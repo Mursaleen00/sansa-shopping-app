@@ -10,10 +10,12 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { urls } from '@/constant/urls';
 import Sidebar from './Sidebar';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   return (
     <div className='flex bg-primary-length justify-between items-center py-3 px-6 md:px-12 xl:px-24 z-50 shadow-md sticky top-0'>
@@ -38,7 +40,7 @@ const Navbar = () => {
             key={index}
             className={`${pathname === item.link ? 'text-primary' : 'text-secondary-700'}`}
           >
-            {item.text}
+            {t(item.text)}
           </Link>
         ))}
       </div>
