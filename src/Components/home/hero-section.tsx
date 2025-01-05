@@ -4,9 +4,13 @@ import hero from '@/../public/image/hero.png';
 import Image from 'next/image';
 import Button from '../common/button';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
+import { urls } from '@/constant/urls';
 
 const HeroSection = () => {
   const { t } = useTranslation();
+
+  const route = useRouter();
 
   return (
     <div className='grid md:grid-cols-2 gap-10 px-6 md:px-10 xl:px-24 py-20'>
@@ -22,10 +26,14 @@ const HeroSection = () => {
           </p>
 
           <div className='flex gap-x-4 items-center'>
-            <Button text={t('Shop Now')} />
+            <Button
+              text={t('Shop Now')}
+              onClick={() => route.push(urls.product)}
+            />
             <Button
               text={t('Learn more')}
               isOutline
+              onClick={() => route.push(urls.about)}
             />
           </div>
         </div>

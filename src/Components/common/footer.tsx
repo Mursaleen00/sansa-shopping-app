@@ -7,6 +7,7 @@ import { switchLanguage } from '@/utils/switch-language';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Switch from 'react-switch';
 
 const Footer = () => {
@@ -15,6 +16,8 @@ const Footer = () => {
   useEffect(() => {
     switchLanguage(language);
   }, [language]);
+
+  const { t } = useTranslation();
 
   return (
     <div className='bg-gray px-6 md:px-12 xl:px-24 flex flex-col w-full gap-y-10  py-10'>
@@ -48,7 +51,7 @@ const Footer = () => {
             key={i}
             className='flex flex-col gap-y-5 '
           >
-            <p className='font-Roboto '>{item.title}</p>
+            <p className='font-Roboto '>{t(item.title)}</p>
 
             {item.title !== 'Payment Method' ? (
               <div className='flex flex-col gap-y-3 text-xs'>
@@ -66,7 +69,7 @@ const Footer = () => {
                       />
                     )}
 
-                    <p>{list.text}</p>
+                    <p>{t(list.text || '')}</p>
                   </div>
                 ))}
               </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface TabsProps {
   tabs: string[];
@@ -10,6 +11,8 @@ interface TabsProps {
 const Tab = ({ tabs, setTab, tab, className }: TabsProps) => {
   const isSelected = (i: number) => tab == i;
 
+  const { t } = useTranslation();
+
   return (
     <div
       className={`border border-secondary-100 rounded-lg p-1.5 flex-wrap flex w-full justify-between items-center gap-x-3 ${className}`}
@@ -18,9 +21,9 @@ const Tab = ({ tabs, setTab, tab, className }: TabsProps) => {
         <button
           key={i}
           onClick={() => setTab(i)}
-          className={`${isSelected(i) ? 'bg-primary text-white rounded-lg' : 'text-secondary-700'} py-2.5 px-4`}
+          className={`${isSelected(i) ? 'bg-primary text-white rounded-lg' : 'text-secondary-700'} py-2.5 px-4 capitalize`}
         >
-          {tab}
+          {t(tab)}
         </button>
       ))}
     </div>
