@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import Image from 'next/image';
@@ -8,62 +9,85 @@ import { IoMdHeart } from 'react-icons/io';
 interface ProductCardProps {
   title: string;
   description: string;
-  price: string;
-  image: string;
-  discount?: string;
+  price: number;
+  thumbnail: string;
+  discount?: number;
 }
 
 const ProductCard = ({
   title,
   description,
-  image,
+  thumbnail,
   price,
   discount,
 }: ProductCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
-  const discounted = Number(price) - Number(discount);
+
+  const calculateDiscountedPrice = (
+    price: number,
+    discountPercentage: number,
+  ) => {
+    const discount = discountPercentage;
+    const discountAmount = (price * discount) / 100;
+    return Math.round(price - discountAmount);
+  };
 
   return (
-    <div className='relative border border-border rounded-lg p-6 w-full min-w-[300px] bg-white'>
+    <div className='relative border border-border rounded-lg p-6 w-full bg-white'>
       <div className='flex justify-between items-center gap-x-6'>
         {discount && (
           <p className='bg-primary py-2.5 px-4 rounded-full text-white'>
-            {discount}% Off
+            {Math.round(discount)}% Off
           </p>
         )}
 
-        <div>
+        <div className='bg-white rounded-full !z-30'>
           {isLiked ? (
             <IoMdHeart
               size={24}
-              className='absolute text-error top-4 right-4 cursor-pointer z-20'
+              className='absolute text-error top-4 right-4 cursor-pointer z-40'
               onClick={() => setIsLiked(!isLiked)}
             />
           ) : (
             <GoHeart
-              className='absolute top-4 right-4 cursor-pointer z-20'
+              className='absolute top-4 right-4 cursor-pointer z-40'
               size={24}
               onClick={() => setIsLiked(!isLiked)}
             />
           )}
         </div>
       </div>
+      <div className='bg-white'>
+        <Image
+          src={thumbnail || ''}
+          alt='t-shirt'
+          width={800}
+          height={800}
+          className='z-10 py-4 !mix-blend-multiply bg-white'
+        />
+      </div>
+      <h1
+        className='text-secondary-700 text-2xl line-clamp-2 pb-1'
+        title={title}
+      >
+        {title}
+      </h1>
 
-      <Image
-        src={image}
-        alt='t-shirt'
-        width={800}
-        height={800}
-        className='z-10'
-      />
-      <h1 className='text-secondary-700 text-3xl line-clamp-1'>{title}</h1>
-      <p className='text-secondary-500 line-clamp-3'>{description}</p>
-      <div className='flex justify-between items-center gap-x-6'>
+      <p
+        className='text-secondary-500 line-clamp-2'
+        title={description}
+      >
+        {description}
+      </p>
+      <div className='flex justify-between items-center gap-x-6 pt-2'>
         <p className='text-secondary-700 text-lg font-medium'>
-          {discounted ? discounted : price} USD{' '}
-          {!Number.isNaN(discounted) && (
+          {discount
+            ? calculateDiscountedPrice(price, discount)
+            : Math.round(price)}{' '}
+          USD{' '}
+          {discount && calculateDiscountedPrice(price, discount) && (
             <s className='text-secondary-300  text-base font-normal'>
-              {price} USD
+              {Math.round(price)} USD
             </s>
           )}
         </p>
