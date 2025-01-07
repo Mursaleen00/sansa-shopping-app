@@ -1,9 +1,8 @@
 import Footer from '@/Components/common/footer';
 import Navbar from '@/Components/common/Navbar';
-import Notfound from '@/Components/common/notfound';
+import Providers from '@/providers';
 import { Metadata } from 'next';
 import './globals.css';
-import Providers from '@/providers';
 
 export const metadata: Metadata = {
   title: 'Sansa',
@@ -25,7 +24,6 @@ export default function RootLayout({
             <Navbar />
             <div className='!h-full min-h-[50dvh] py-10'>{children}</div>
             <Footer />
-            <Notfound />
           </div>
         </Providers>
       </body>

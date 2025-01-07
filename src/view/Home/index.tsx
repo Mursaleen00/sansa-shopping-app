@@ -1,8 +1,10 @@
 'use client';
 
+import Input from '@/Components/Input';
 import OrderCard from '@/Components/cards/order-card';
 import ProductCard from '@/Components/cards/product-card';
 import ReviewCard from '@/Components/cards/review-card';
+import Button from '@/Components/common/button';
 import Loader from '@/Components/common/loader';
 import Tab from '@/Components/common/tab';
 import HeroSection from '@/Components/home/hero-section';
@@ -10,6 +12,7 @@ import SecondaryHeading from '@/Components/secondary-heading';
 import { orderCardData } from '@/constant/order-card';
 import { pickingData } from '@/constant/picking-data';
 import { reviewsData } from '@/constant/reviews';
+import { SignUpData } from '@/constant/signup';
 import { useGetAllProductsHook } from '@/services/products/get-all-products';
 import { useGetProductsByCategoryHook } from '@/services/products/get-products-by-category';
 import { useState } from 'react';
@@ -162,8 +165,32 @@ const HomeView = () => {
       </div>
 
       {/* Stay In Touch */}
-      <div className='bg-white gap-y-10 flex flex-col items-center px-6 md:px-10 xl:px-24 py-10'>
+      <div className='bg-white px-6 md:px-10 xl:px-24 py-10 flex flex-col items-center w-full gap-y-6'>
         <SecondaryHeading text={t('Stay In Touch')} />
+        <div className='gap-y-10 flex flex-col items-center max-w-[600px] justify-center border w-full border-secondary-100 rounded-3xl p-10'>
+          <div className='w-full flex items-center flex-col gap-y-4'>
+            <div>
+              <h1 className='text-secondary-700 text-3xl'>
+                {t('Sign up as our customer')}
+              </h1>
+              <p className='text-secondary-500 text-center'>
+                {t('Please enter your information')}
+              </p>
+            </div>
+            {SignUpData.map((item, index) => (
+              <div
+                key={index}
+                className='w-full'
+              >
+                <Input {...item} />
+              </div>
+            ))}
+          </div>
+          <Button
+            text='Sign up'
+            className='w-full border-none'
+          />
+        </div>
       </div>
     </div>
   );
