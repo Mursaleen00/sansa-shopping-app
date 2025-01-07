@@ -8,23 +8,21 @@ const images = ['image 111', 'image 22', 'image 24', 'image 25'];
 
 const Productdetials = () => {
   return (
-    <div
-      className='grid md:
-    grid-cols-5  p-3 gap-10 px-6 md:px-12 xl:px-24'
-    >
-      <div className=' flex flex-col gap-y-9 bg-gray border-2 col-span-3 justify-center items-center rounded-lg'>
+    <div className='grid  sm:grid-cols-2 md:grid-cols-5  p-3  px-6 md:px-12 xl:px-24'>
+      <div className=' flex flex-col gap-y-9 bg-gray border-2 col-span-3 justify-center items-center rounded-lg m-7'>
         <div>
           <Image
             alt={''}
             src={search}
             width={200}
             height={200}
+            className='mt-9'
           />
         </div>
-        <div className='flex gap-4 '>
+        <div className='grid grid-cols-2 sm:grid-cols-4 py-5 gap-4 '>
           {images.map((item, index) => (
             <div
-              className='flex border-2 h-[80px] border-[#E1E4D5] rounded-lg justify-center items-center'
+              className='grid  border-2 h-[80px] border-[#E1E4D5] rounded-lg justify-center items-center'
               key={index}
             >
               {item}
@@ -64,7 +62,7 @@ const Productdetials = () => {
         {/* button */}
         <div className='sm:flex gap-x-5 gap-y-5 p-y-9'>
           <Button
-            className='m-4 w-[200px] '
+            className='m-4 w-[250px] '
             text='Add to card'
           />
           <Button
