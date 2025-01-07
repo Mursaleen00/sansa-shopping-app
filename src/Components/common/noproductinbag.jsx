@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Button from './button';
 import noproduct from '@/../public/image/no_product.svg';
 
-const No_product_in_bag = () => {
+const Noproductinbag = () => {
   return (
     <div className='flex flex-col justify-around items-center bg-gray  h-[400px] rounded-2xl m-9 '>
       <Image
@@ -26,4 +26,4 @@ const No_product_in_bag = () => {
   );
 };
 
-export default No_product_in_bag;
+export default Noproductinbag;
