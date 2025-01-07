@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 interface IButton {
-  text?: string;
+  text: string;
   type?: 'submit' | 'button';
   onClick?: () => void;
   className?: string;
