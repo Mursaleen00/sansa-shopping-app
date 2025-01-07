@@ -1,8 +1,8 @@
 import Footer from '@/Components/common/footer';
 import Navbar from '@/Components/common/Navbar';
+import Providers from '@/providers';
 import { Metadata } from 'next';
 import './globals.css';
-import Providers from '@/providers';
 
 export const metadata: Metadata = {
   title: 'Sansa',

@@ -95,7 +95,7 @@ const Footer = () => {
 
       {/* Lower Section */}
 
-      <div className='flex justify-center'>Copyright 2024</div>
+      <div className='flex justify-center'>{t('Copyright')} 2024</div>
     </div>
   );
 };
