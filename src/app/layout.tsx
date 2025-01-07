@@ -24,7 +24,7 @@ export default function RootLayout({
             className={`antialiased flex h-full w-full flex-col min-h-screen justify-between`}
           >
             <Navbar />
-            <div className='!h-full min-h-[50dvh] py-10'>{children}</div>
+            <div className='!h-full min-h-[60dvh]'>{children}</div>
             <Footer />
           </div>
         </Providers>
