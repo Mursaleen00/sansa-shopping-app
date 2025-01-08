@@ -37,6 +37,30 @@ export const ProductData = [
     price: 100,
     thumbnail: tShirt.src,
   },
+  {
+    title: 'T-Shirt',
+    description: 'New style for men',
+    price: 100,
+    thumbnail: tShirt.src,
+  },
+  {
+    title: 'T-Shirt',
+    description: 'New style for men',
+    price: 100,
+    thumbnail: tShirt.src,
+  },
+  {
+    title: 'T-Shirt',
+    description: 'New style for men',
+    price: 100,
+    thumbnail: tShirt.src,
+  },
+  {
+    title: 'T-Shirt',
+    description: 'New style for men',
+    price: 100,
+    thumbnail: tShirt.src,
+  },
 ];
 
 export const discountProduct = [

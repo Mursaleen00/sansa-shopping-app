@@ -1,17 +1,17 @@
 'use client';
 import Picture from '@/../public/icons/picture.svg';
-import ProductCard from '@/Components/cards/product-card';
-import Tab from '@/Components/common/tab';
 import Input from '@/Components/Input';
-import SecondaryHeading from '@/Components/secondary-heading';
-import { ProductData } from '@/constant/product-data';
-import { useState } from 'react';
 
 const ProductView = () => {
-  const [tab, setIsTab] = useState(0);
+  // function formatString(input: string) {
+  //   return input
+  //     .split('-')
+  //     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  //     .join(' ');
+  // }
 
   return (
-    <div className='px-6 md:px-12 xl:px-24 flex flex-col gap-y-10'>
+    <div className='px-6 md:px-12 xl:px-24 flex flex-col gap-y-10 py-10'>
       {/* All Product Categories */}
       <div className='flex justify-between items-center'>
         <p className='text-secondary-700 text-3xl'>All Product Categories</p>
@@ -24,50 +24,43 @@ const ProductView = () => {
         />
       </div>
 
-      {/* Tabs */}
-      <Tab
-        setTab={setIsTab}
-        tab={tab}
-        tabs={[
-          'Cloth',
-          'Shoes',
-          'Hats',
-          'Skincare',
-          'Electronic',
-          'Arts',
-          'Book',
-        ]}
-      />
+      {/* {categoryList.map((item, i) => {
+        const { data, isPending } = useGetProductsByCategoryHook({
+          limit: 3,
+          select: ['title', 'price', 'thumbnail', 'description'],
+          category: item,
+        });
 
-      {/* Best Selling Products */}
-      <div className='flex justify-between items-center'>
-        <SecondaryHeading text='Best Selling Products:' />
-        <p className='text-primary cursor-pointer'>See more+</p>
-      </div>
-
-      <div className='flex gap-x-6 overflow-x-auto pb-2'>
-        {ProductData.map((item, i) => (
-          <ProductCard
-            {...item}
-            key={i}
-          />
-        ))}
-      </div>
-
-      {/* New Products */}
-      <div className='flex justify-between items-center'>
-        <SecondaryHeading text='New Products:' />
-        <p className='text-primary cursor-pointer'>See more+</p>
-      </div>
-
-      <div className='flex gap-x-6 overflow-x-auto pb-2'>
-        {ProductData.map((item, i) => (
-          <ProductCard
-            {...item}
-            key={i}
-          />
-        ))}
-      </div>
+        return (
+          <Fragment key={i}>
+            <div className='flex justify-between items-center'>
+              <SecondaryHeading text={formatString(item) + ':'} />
+              <Link
+                href={urls.productCategory(item)}
+                className='text-primary cursor-pointer'
+              >
+                See more+
+              </Link>
+            </div>
+            {isPending ? (
+              <div className='flex justify-center items-center'>
+                <Loader />
+              </div>
+            ) : (
+              <div className='flex gap-x-6 overflow-x-auto pb-2'>
+                {data?.products.map((item, i) => (
+                  <ProductCard
+                    {...item}
+                    key={i}
+                    className='min-w-[350px]'
+                    link={urls.productDetails(item.id)}
+                  />
+                ))}
+              </div>
+            )}
+          </Fragment>
+        );
+      })} */}
     </div>
   );
 };

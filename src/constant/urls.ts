@@ -8,5 +8,6 @@ export const urls = {
   profile: '/profile',
   about: '/about',
   contact: '/contact',
-  productDetail: (slug: string) => `/product/${slug}`,
+  productCategory: (slug: string) => `/product/category/${slug}`,
+  productDetails: (id: number) => `/product/${id}`,
 };
