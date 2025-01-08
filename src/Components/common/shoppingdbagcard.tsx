@@ -4,13 +4,14 @@ import blackshirt from '@/../public/image/blackshirt.svg';
 import Image from 'next/image';
 import Input from '@/Components/Input';
 import shirtTag from '@/../public/icons/shirt tag.svg';
-// import Button from './button';
+import Button from './button';
+import { ShoppingData } from '@/constant/shoppingData';
 const Shoppingdbagcard = () => {
   return (
-    <div className='grid md:grid-cols-2 '>
-      <div className='grid grid-row bg-gray w-full m-10 h-auto rounded-2xl'>
+    <div className='grid lg:grid-cols-2  px-2 md:px-7 md:gap-x-5 py-6 gap-y-7'>
+      <div className='grid grid-row bg-gray w-full h-fit rounded-2xl py-6 gap-y-5'>
         {/* White shirt */}
-        <div className='flex md:flex-row flex-col border justify-start items-center p-11 gap-x-11 border-black m-7 rounded-md'>
+        <div className='flex sm:flex-row flex-col border justify-start items-center p-8  border-black mx-7 rounded-md sm:gap-x-9'>
           <Image
             alt={''}
             src={blackshirt}
@@ -18,7 +19,7 @@ const Shoppingdbagcard = () => {
           <div>
             <h1 className='flex font-bold text-lg'>White shirt 9.50 USD</h1>
             <p className='text-lg'>Description</p>
-            <div className='grid sm:grid-cols-2 p-4'>
+            <div className='flex sm:flex-row flex-col p-4 sm:gap-x-4 md:gap-x-9'>
               {/* SIZE */}
               <div className='flex gap-2'>
                 size
@@ -28,7 +29,7 @@ const Shoppingdbagcard = () => {
               </div>
               {/* Quantity */}
               <div className='flex gap-1 items-center'>
-                Qty :
+                Qty:
                 <button className='flex border-2 size-5 rounded-full items-center justify-center bg-[#E5E5E5]'>
                   -
                 </button>
@@ -43,7 +44,7 @@ const Shoppingdbagcard = () => {
           </div>
         </div>
         {/* blackshirt */}
-        <div className='flex md:flex-row flex-col border justify-start items-center p-11 gap-x-11 border-black m-7 rounded-md'>
+        <div className='flex sm:flex-row flex-col border justify-start items-center p-8  border-black mx-7 rounded-md sm:gap-x-9'>
           <Image
             alt={''}
             src={blackshirt}
@@ -51,7 +52,7 @@ const Shoppingdbagcard = () => {
           <div>
             <h1 className='flex font-bold text-lg'>White shirt 9.50 USD</h1>
             <p className='text-lg'>Description</p>
-            <div className='grid sm:grid-cols-2 p-4'>
+            <div className='flex sm:flex-row flex-col p-4 sm:gap-x-4 md:gap-x-9'>
               {/* SIZE */}
               <div className='flex gap-2'>
                 size
@@ -75,9 +76,10 @@ const Shoppingdbagcard = () => {
             </div>
           </div>
         </div>
-
-        <div className=' flex border  border-[#dddddc] items-center m-7'></div>
-        <div className='flex justify-between items-center '>
+        {/* border */}
+        <div className='flex border border-[#dddddc] items-center m-7'></div>
+        {/* Inout */}
+        <div className='flex items-center m-auto justify-around w-full '>
           <Input
             label=''
             placeholder='Enter promotion code to get discount'
@@ -87,35 +89,55 @@ const Shoppingdbagcard = () => {
           />
         </div>
       </div>
-      {/* 2nd section  */}
+      <div className='grid  items-center rounded-xl gap-y-6 top-11'>
+        {/* 2nd section  */}
+        <div className='flex flex-col  py-[40px] gap-y-6 sm:h-full bg-gray rounded-lg'>
+          <h1 className='font-semibold text-lg px-9  '>Summary ( 2 items )</h1>
 
-      {/* <div className='flex '>
-        <div className='flex flex-col items-center justify-center m-auto'>
-          <h1 className='flex font-semibold text-gl text '>Summary ( 2 items )</h1>
-          <div>
-            <div className='grid grid-cols-2 justify-between items-center'>
-              <p>Subtotal</p>
-              <p className='font-bold text-sm'>16.25 USD</p>
-              <p className=''>Shipping</p>
-              <p className='font-bold text-sm'>Free</p>
+          <div className='flex justify-between px-9 '>
+            <p className='text-[#44483D]'>Subtotal</p>
+            <p className='font-bold text-sm'>16.25 USD</p>
+          </div>
+          <div className='flex justify-between  items-center px-9 '>
+            <p className='text-[#44483D]'>Shipping</p>
+            <p className='font-bold text-sm'>Free</p>
+          </div>
+          <div className=' flex border  border-[#dddddc] items-center mx-7'></div>
+          {/* total price */}
+          <div className='flex justify-between  px-6'>
+            <p className='text-[#44483D]'>Total</p>
+            <p className='font-bold'>16.25 USD</p>
+          </div>
+          {/* Button */}
+          <div className='flex justify-around gap-x-6'>
+            <Button
+              className='w-[301px]'
+              text='continue'
+            />
+          </div>
+        </div>
+        {/* 3rd section */}
+        <div className='flex flex-col grid-rows-1 bg-gray sm:h-full rounded-xl justify-around items-center py-7 gap-y-7'>
+          <div className='flex flex-col sm:flex-row md:px-7 sm:py-10 sm:gap-x-5 '>
+            <p>Payment accepted :</p>
+            <div className='flex flex-wrap gap-2 justify-around'>
+              {ShoppingData.map((list, index) => (
+                <Image
+                  key={index}
+                  src={list.icon || ''}
+                  alt=''
+                  width={35}
+                  height={24}
+                />
+              ))}
             </div>
-            <div className=' flex border border-[#dddddc] w-full justify-around items-center m-auto'></div> */}
-      {/* total price */}
-      {/* <div className='flex justify-between'>
-              <p>Total</p>
-              <p className='font-bold'>16.25 USD</p>
-            </div> */}
-      {/* Button */}
-      {/* <Button
-            className='m-4 w-[300px] '
-            text='continue'
-          /> */}
-
-      {/* </div>
-        </div> */}
-      {/* 3rd section */}
-      {/* <div></div> */}
-      {/* </div> */}
+          </div>
+          <div className='flex flex-col sm:flex-row md:px-7 pb-4 sm:gap-x-5'>
+            <p>Customer services :</p>
+            <p className='font-bold'> 24/7 +855 (240) 389 328</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
