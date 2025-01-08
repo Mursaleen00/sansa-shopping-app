@@ -10,7 +10,7 @@ const CartView = () => {
       <Notfound />
       <Shoppingbag />
       <Shoppingbagcard />
-      <ShoppingBagPayment/>
+      <ShoppingBagPayment />
     </div>
   );
 };

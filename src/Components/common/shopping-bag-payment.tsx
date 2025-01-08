@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '../Input';
 import Profile from '@/../public/icons/profile.svg';
-import ExpiredDate from '@/../public/icons/Expired date.svg' 
+import ExpiredDate from '@/../public/icons/Expired date.svg';
 
 const ShoppingBagPayment = () => {
   return (
