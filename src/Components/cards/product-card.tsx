@@ -5,6 +5,7 @@ import { FiPlus } from 'react-icons/fi';
 import Image from 'next/image';
 import { GoHeart } from 'react-icons/go';
 import { IoMdHeart } from 'react-icons/io';
+import Link from 'next/link';
 
 interface ProductCardProps {
   title: string;
@@ -12,6 +13,8 @@ interface ProductCardProps {
   price: number;
   thumbnail: string;
   discount?: number;
+  className?: string;
+  link?: string;
 }
 
 const ProductCard = ({
@@ -20,6 +23,8 @@ const ProductCard = ({
   thumbnail,
   price,
   discount,
+  className,
+  link,
 }: ProductCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
 
@@ -33,7 +38,9 @@ const ProductCard = ({
   };
 
   return (
-    <div className='relative border border-border rounded-lg p-6 w-full bg-white'>
+    <div
+      className={`relative border border-border rounded-lg ${className} p-6 w-full bg-white`}
+    >
       <div className='flex justify-between items-center gap-x-6'>
         {discount && (
           <p className='bg-primary py-2.5 px-4 rounded-full text-white'>
@@ -57,7 +64,10 @@ const ProductCard = ({
           )}
         </div>
       </div>
-      <div className='bg-white'>
+      <Link
+        href={link || ''}
+        className='bg-white'
+      >
         <Image
           src={thumbnail || ''}
           alt='t-shirt'
@@ -65,7 +75,7 @@ const ProductCard = ({
           height={800}
           className='z-10 py-4 !mix-blend-multiply bg-white'
         />
-      </div>
+      </Link>
       <h1
         className='text-secondary-700 text-2xl line-clamp-2 pb-1'
         title={title}
