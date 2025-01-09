@@ -2,7 +2,7 @@ import React from 'react';
 import search from '@/../public/image/Search.svg';
 import Image from 'next/image';
 
-const Notfound = () => {
+const ProductNotfound = () => {
   return (
     <div className='flex-col block align-center pt-3'>
       <div className='flex text-center justify-around'>
@@ -21,4 +21,4 @@ const Notfound = () => {
   );
 };
 
-export default Notfound;
+export default ProductNotfound;

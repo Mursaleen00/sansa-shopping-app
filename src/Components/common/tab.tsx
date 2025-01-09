@@ -1,3 +1,4 @@
+import { formatString } from '@/utils/format-string';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -12,13 +13,6 @@ const Tab = ({ tabs, setTab, tab, className }: TabsProps) => {
   const isSelected = (i: number) => tab == i;
 
   const { t } = useTranslation();
-
-  function formatString(input: string) {
-    return input
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  }
 
   return (
     <div

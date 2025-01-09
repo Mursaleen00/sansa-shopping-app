@@ -31,7 +31,9 @@
     "react-i18next": "^15.4.0",
     "react-icons": "^5.4.0",
     "react-loader-spinner": "^6.1.6",
+    "react-responsive-pagination": "^2.10.0",
     "react-switch": "^7.1.0",
+    "use-debounce": "^10.0.4",
     "yup": "^1.6.1"
   },
   "devDependencies": {
