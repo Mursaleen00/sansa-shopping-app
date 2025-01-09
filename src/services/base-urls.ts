@@ -20,7 +20,7 @@ export const URLS = {
   // ---------------------------------- Products ------------------------------------
   // All Products
   GET_ALL_PRODUCTS: ({ search, limit, skip, select, sort, order }: filters) => {
-    let url = `${baseUrl}/products?limit=${limit || 10}`;
+    let url = `${baseUrl}/products${search ? `/search?q=${search}&` : '?'}limit=${limit || 10}`;
     if (select) url += `&select=${select.join(',')}`;
     if (search) url += `&search=${search}`;
     if (order) url += `&order=${order}`;

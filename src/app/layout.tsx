@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`antialiased flex h-full w-full flex-col min-h-screen justify-between`}
+        className={`antialiased flex h-full w-full flex-col min-h-screen justify-between scroll-smooth`}
       >
         <Providers>
           <div
