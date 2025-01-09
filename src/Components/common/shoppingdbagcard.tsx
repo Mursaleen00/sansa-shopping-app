@@ -6,12 +6,13 @@ import Input from '@/Components/Input';
 import shirtTag from '@/../public/icons/shirt tag.svg';
 import Button from './button';
 import { ShoppingData } from '@/constant/shoppingData';
+
 const Shoppingdbagcard = () => {
   return (
     <div className='grid lg:grid-cols-2  px-2 md:px-7 md:gap-x-5 py-6 gap-y-7'>
       <div className='grid grid-row bg-gray w-full h-fit rounded-2xl py-6 gap-y-5'>
         {/* White shirt */}
-        <div className='flex sm:flex-row flex-col border justify-start items-center p-8  border-black mx-7 rounded-md sm:gap-x-9'>
+        <div className='flex sm:flex-row flex-col border justify-start items-center p-8  border-black mx-5 rounded-md sm:gap-x-9'>
           <Image
             alt={''}
             src={blackshirt}
@@ -19,10 +20,10 @@ const Shoppingdbagcard = () => {
           <div>
             <h1 className='flex font-bold text-lg'>White shirt 9.50 USD</h1>
             <p className='text-lg'>Description</p>
-            <div className='flex sm:flex-row flex-col p-4 sm:gap-x-4 md:gap-x-9'>
+            <div className='flex sm:flex-row flex-col  p-4 sm:gap-x-4 md:gap-x-6 items-center'>
               {/* SIZE */}
-              <div className='flex gap-2'>
-                size
+              <div className='flex gap-1 items-center'>
+                size:
                 <button className='flex border-2 size-5 w-12 bg-[#E5E5E5] items-center justify-center'>
                   L
                 </button>
@@ -44,25 +45,25 @@ const Shoppingdbagcard = () => {
           </div>
         </div>
         {/* blackshirt */}
-        <div className='flex sm:flex-row flex-col border justify-start items-center p-8  border-black mx-7 rounded-md sm:gap-x-9'>
+        <div className='flex sm:flex-row flex-col border justify-start items-center p-8  border-black mx-5 rounded-md sm:gap-x-9'>
           <Image
             alt={''}
             src={blackshirt}
           />
           <div>
-            <h1 className='flex font-bold text-lg'>White shirt 9.50 USD</h1>
+            <h1 className='flex font-bold text-lg'>Black shirt 9.50 USD</h1>
             <p className='text-lg'>Description</p>
-            <div className='flex sm:flex-row flex-col p-4 sm:gap-x-4 md:gap-x-9'>
+            <div className='flex sm:flex-row flex-col p-3 sm:gap-x-4 md:gap-x-6'>
               {/* SIZE */}
-              <div className='flex gap-2'>
-                size
+              <div className='flex gap-1'>
+                size:
                 <button className='flex border-2 size-5 w-12 bg-[#E5E5E5] items-center justify-center'>
                   L
                 </button>
               </div>
               {/* Quantity */}
               <div className='flex gap-1 items-center'>
-                Qty :
+                Qty:
                 <button className='flex border-2 size-5 rounded-full items-center justify-center bg-[#E5E5E5]'>
                   -
                 </button>
@@ -89,9 +90,9 @@ const Shoppingdbagcard = () => {
           />
         </div>
       </div>
-      <div className='grid  items-center rounded-xl gap-y-6 top-11'>
+      <div className='grid  items-center gap-y-6 top-11'>
         {/* 2nd section  */}
-        <div className='flex flex-col  py-[40px] gap-y-6 sm:h-full bg-gray rounded-lg'>
+        <div className='flex flex-col  py-[40px] gap-y-6 sm:h-full bg-gray rounded-2xl'>
           <h1 className='font-semibold text-lg px-9  '>Summary ( 2 items )</h1>
 
           <div className='flex justify-between px-9 '>
@@ -111,13 +112,13 @@ const Shoppingdbagcard = () => {
           {/* Button */}
           <div className='flex justify-around gap-x-6'>
             <Button
-              className='w-[301px]'
+              className='w-[220px]'
               text='continue'
             />
           </div>
         </div>
         {/* 3rd section */}
-        <div className='flex flex-col grid-rows-1 bg-gray sm:h-full rounded-xl justify-around items-center py-7 gap-y-7'>
+        <div className='flex flex-col grid-rows-1 bg-gray sm:h-full rounded-2xl justify-around items-center py-7 gap-y-7'>
           <div className='flex flex-col sm:flex-row md:px-7 sm:py-10 sm:gap-x-5 '>
             <p>Payment accepted :</p>
             <div className='flex flex-wrap gap-2 justify-around'>
