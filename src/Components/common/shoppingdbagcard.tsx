@@ -110,9 +110,9 @@ const Shoppingdbagcard = () => {
             <p className='font-bold'>16.25 USD</p>
           </div>
           {/* Button */}
-          <div className='flex justify-around gap-x-6'>
+          <div className='flex justify-around '>
             <Button
-              className='w-[220px]'
+              className='sm:w-full w-40 sm:mx-20'
               text='continue'
             />
           </div>
