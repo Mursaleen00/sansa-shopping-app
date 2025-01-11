@@ -3,10 +3,10 @@ import { ChangeEventHandler, FocusEventHandler } from 'react';
 
 interface InputProps {
   type: string;
-  placeholder: string;
+  placeholder?: string;
   label: string;
   icon: string;
-  legend: string;
+  legend?: string;
   name?: string;
   value?: string;
   error?: string;
@@ -39,7 +39,7 @@ const Input = ({
         <div className=' flex items-center justify-center pb-1'>
           <Image
             src={icon}
-            alt={icon}
+            alt={''}
             width={100}
             height={100}
             className='md:w-10 w-6 md:h-10 h-6'
