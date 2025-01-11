@@ -7,7 +7,6 @@ import shirtTag from '@/../public/icons/shirt tag.svg';
 import Button from './button';
 import { ShoppingData } from '@/constant/shoppingData';
 
-
 const Shoppingdbagcard = () => {
   return (
     <div className='grid lg:grid-cols-2  px-2 md:px-7 md:gap-x-5 py-6 gap-y-7'>
