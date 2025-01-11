@@ -2,10 +2,11 @@
 import React from 'react';
 import blackshirt from '@/../public/image/blackshirt.svg';
 import Image from 'next/image';
-import Input from '@/Components/Input';
+// import Input from '@/Components/Input';
 import shirtTag from '@/../public/icons/shirt tag.svg';
 import Button from './button';
 import { ShoppingData } from '@/constant/shoppingData';
+import Input from '../Input';
 
 const Shoppingdbagcard = () => {
   return (
@@ -84,7 +85,7 @@ const Shoppingdbagcard = () => {
           <Input
             label=''
             placeholder='Enter promotion code to get discount'
-            legend='code'
+            legend='Code'
             type='number'
             icon={shirtTag.src}
           />
@@ -110,9 +111,9 @@ const Shoppingdbagcard = () => {
             <p className='font-bold'>16.25 USD</p>
           </div>
           {/* Button */}
-          <div className='flex justify-around gap-x-6'>
+          <div className='flex justify-around '>
             <Button
-              className='w-[220px]'
+              className='sm:w-full w-40 sm:mx-20'
               text='continue'
             />
           </div>
@@ -120,7 +121,7 @@ const Shoppingdbagcard = () => {
         {/* 3rd section */}
         <div className='flex flex-col grid-rows-1 bg-gray sm:h-full rounded-2xl justify-around items-center py-7 gap-y-7'>
           <div className='flex flex-col sm:flex-row md:px-7 sm:py-10 sm:gap-x-5 '>
-            <p>Payment accepted :</p>
+            <p>Payment accepted:</p>
             <div className='flex flex-wrap gap-2 justify-around'>
               {ShoppingData.map((list, index) => (
                 <Image
@@ -134,7 +135,7 @@ const Shoppingdbagcard = () => {
             </div>
           </div>
           <div className='flex flex-col sm:flex-row md:px-7 pb-4 sm:gap-x-5'>
-            <p>Customer services :</p>
+            <p>Customer services:</p>
             <p className='font-bold'> 24/7 +855 (240) 389 328</p>
           </div>
         </div>
