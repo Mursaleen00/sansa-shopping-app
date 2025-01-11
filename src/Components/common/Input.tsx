@@ -43,7 +43,7 @@ const Input = ({
         {label}
         {required && <span className='text-red'>*</span>}
       </p>
-      <Input
+      <input
         type={type}
         // id="input"
         name={name}

@@ -4,6 +4,7 @@ import profilePicture from '@/../public/image/profile picture.svg';
 import Image from 'next/image';
 import Button from '@/Components/common/button';
 import Input from '@/Components/Input';
+
 const ProfileView = () => {
   return (
     <div className='grid  items-center flex-col gap-y-4 justify-evenly border-2 py-9 sm:mx-14 rounded-3xl border-gray'>
