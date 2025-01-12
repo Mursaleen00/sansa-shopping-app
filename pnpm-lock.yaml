@@ -50,6 +50,9 @@ importers:
       next:
         specifier: 15.1.2
         version: 15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      next-i18next:
+        specifier: ^15.4.1
+        version: 15.4.1(i18next@24.2.0(typescript@5.7.2))(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-i18next@15.4.0(i18next@24.2.0(typescript@5.7.2))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
@@ -797,6 +800,9 @@ packages:
     peerDependencies:
       next: '>=15.0.0'
 
+  core-js@3.40.0:
+    resolution: {integrity: sha512-7vsMc/Lty6AGnn7uFpYT56QesI5D2Y/UkgKounk87OP9Z2H9Z8kj6jzcSGAxFmUtDOS0ntK6lbQz+Nsa0Jj6mQ==}
+
   core-util-is@1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
 
@@ -1328,6 +1334,9 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  i18next-fs-backend@2.6.0:
+    resolution: {integrity: sha512-3ZlhNoF9yxnM8pa8bWp5120/Ob6t4lVl1l/tbLmkml/ei3ud8IWySCHt2lrY5xWRlSU5D9IV2sm5bEbGuTqwTw==}
+
   i18next@24.2.0:
     resolution: {integrity: sha512-ArJJTS1lV6lgKH7yEf4EpgNZ7+THl7bsGxxougPYiXRTJ/Fe1j08/TBpV9QsXCIYVfdE/HWG/xLezJ5DOlfBOA==}
     peerDependencies:
@@ -1671,6 +1680,15 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  next-i18next@15.4.1:
+    resolution: {integrity: sha512-n3cFqBKDpEDLXZVYD52H6k2QzLAnUSuBie02BmVpfywNZGxcNgq6QXdpVpvONQ7WkBVntPtldt867ZgtEcP1Og==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      i18next: '>= 23.7.13'
+      next: '>= 12.0.0'
+      react: '>= 17.0.2'
+      react-i18next: '>= 13.5.0'
 
   next@15.1.2:
     resolution: {integrity: sha512-nLJDV7peNy+0oHlmY2JZjzMfJ8Aj0/dd3jCwSZS8ZiO5nkQfcZRqDrRN3U5rJtqVTQneIOGZzb6LCNrk7trMCQ==}
@@ -3123,6 +3141,8 @@ snapshots:
       cookie: 1.0.2
       next: 15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
+  core-js@3.40.0: {}
+
   core-util-is@1.0.2: {}
 
   cross-spawn@7.0.6:
@@ -3836,6 +3856,8 @@ snapshots:
 
   husky@9.1.7: {}
 
+  i18next-fs-backend@2.6.0: {}
+
   i18next@24.2.0(typescript@5.7.2):
     dependencies:
       '@babel/runtime': 7.26.0
@@ -4179,6 +4201,17 @@ snapshots:
   nanoid@3.3.8: {}
 
   natural-compare@1.4.0: {}
+
+  next-i18next@15.4.1(i18next@24.2.0(typescript@5.7.2))(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-i18next@15.4.0(i18next@24.2.0(typescript@5.7.2))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0):
+    dependencies:
+      '@babel/runtime': 7.26.0
+      core-js: 3.40.0
+      hoist-non-react-statics: 3.3.2
+      i18next: 24.2.0(typescript@5.7.2)
+      i18next-fs-backend: 2.6.0
+      next: 15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-i18next: 15.4.0(i18next@24.2.0(typescript@5.7.2))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
 
   next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:

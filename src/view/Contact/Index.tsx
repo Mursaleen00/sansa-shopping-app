@@ -1,7 +1,7 @@
 'use client';
-import Button from '@/Components/common/button';
+import Button from '@/Components/buttons/button';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const ContactView = () => {
   const { t } = useTranslation();

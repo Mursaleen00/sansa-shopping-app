@@ -7,11 +7,13 @@ import Pagination from '@/Components/common/pagination';
 import Input from '@/Components/Input';
 import { urls } from '@/constant/urls';
 import { useGetAllProductsHook } from '@/services/products/get-all-products';
+import { useSearchParams } from 'next/navigation';
 import { Fragment, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
 const ProductView = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const step = useSearchParams().get('step');
+  const [currentPage, setCurrentPage] = useState(Number(step) || 1);
   const [search, setSearch] = useState('');
   const [searchValue] = useDebounce(search, 500);
 
@@ -22,6 +24,14 @@ const ProductView = () => {
     });
 
     setCurrentPage(page);
+
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('step', page.toString());
+    window.history.pushState(
+      {},
+      '',
+      `${window.location.pathname}?${searchParams.toString()}`,
+    );
   }
 
   const { data, isPending } = useGetAllProductsHook({
@@ -32,9 +42,6 @@ const ProductView = () => {
     order: 'asc',
     search: searchValue,
   });
-
-  console.log('🚀 ~ ProductView ~ data:', data);
-  // console.log('🚀 ~ ProductView ~ data:', data);
 
   const totalPage = data ? Math.round(data?.total / 16) : 10;
 
@@ -81,44 +88,6 @@ const ProductView = () => {
         setCurrentPage={componentDidMount}
         totalPages={totalPage}
       />
-
-      {/* {categoryList.map((item, i) => {
-        const { data, isPending } = useGetProductsByCategoryHook({
-          limit: 3,
-          select: ['title', 'price', 'thumbnail', 'description'],
-          category: item,
-        });
-
-        return (
-          <Fragment key={i}>
-            <div className='flex justify-between items-center'>
-              <SecondaryHeading text={formatString(item) + ':'} />
-              <Link
-                href={urls.productCategory(item)}
-                className='text-primary cursor-pointer'
-              >
-                See more+
-              </Link>
-            </div>
-            {isPending ? (
-              <div className='flex justify-center items-center'>
-                <Loader />
-              </div>
-            ) : (
-              <div className='flex gap-x-6 overflow-x-auto pb-2'>
-                {data?.products.map((item, i) => (
-                  <ProductCard
-                    {...item}
-                    key={i}
-                    className='min-w-[350px]'
-                    link={urls.productDetails(item.id)}
-                  />
-                ))}
-              </div>
-            )}
-          </Fragment>
-        );
-      })} */}
     </div>
   );
 };

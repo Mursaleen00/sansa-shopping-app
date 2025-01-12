@@ -2,8 +2,8 @@
 import React from 'react';
 import hero from '@/../public/image/hero.png';
 import Image from 'next/image';
-import Button from '../common/button';
-import { useTranslation } from 'react-i18next';
+import Button from '../buttons/button';
+import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/navigation';
 import { urls } from '@/constant/urls';
 

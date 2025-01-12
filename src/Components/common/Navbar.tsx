@@ -4,18 +4,21 @@ import Sansa from '@/../public/image/Sansa.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiMenuAlt3 } from 'react-icons/hi';
-import { pages } from '@/constant/pagelist';
+import { authPages, pages } from '@/constant/pagelist';
 import { icons } from '@/constant/icons';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { urls } from '@/constant/urls';
 import Sidebar from './Sidebar';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
+import { getCookie } from 'cookies-next';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { t } = useTranslation();
+
+  const token = getCookie('token');
 
   return (
     <div className='flex bg-primary-length justify-between items-center py-3 px-6 md:px-12 xl:px-24 z-50 shadow-md sticky top-0'>
@@ -45,21 +48,35 @@ const Navbar = () => {
         ))}
       </div>
 
-      <div className='hidden md:flex items-center gap-x-3'>
-        {icons.map((item, index) => (
-          <Link
-            href={item.link}
-            key={index}
-          >
-            <Image
-              alt=''
-              src={item.icon}
-              width={item.width}
-              height={item.height}
-            />
-          </Link>
-        ))}
-      </div>
+      {token ? (
+        <div className='hidden md:flex items-center gap-x-3'>
+          {icons.map((item, index) => (
+            <Link
+              href={item.link}
+              key={index}
+            >
+              <Image
+                alt=''
+                src={item.icon}
+                width={item.width}
+                height={item.height}
+              />
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div className='hidden md:flex gap-x-8'>
+          {authPages.map((item, index) => (
+            <Link
+              href={item.link}
+              key={index}
+              className={`${pathname === item.link ? 'text-primary' : 'text-secondary-700'}`}
+            >
+              {t(item.text)}
+            </Link>
+          ))}
+        </div>
+      )}
 
       <Sidebar
         isOpen={isOpen}
