@@ -2,7 +2,7 @@
 import Picture from '@/../public/icons/picture.svg';
 import ProductCard from '@/Components/cards/product-card';
 import Loader from '@/Components/common/loader';
-import ProductNotfound from '@/Components/common/notfound';
+import ProductNotfound from '@/Components/common/not-found';
 import Pagination from '@/Components/common/pagination';
 import Input from '@/Components/Input';
 import { urls } from '@/constant/urls';

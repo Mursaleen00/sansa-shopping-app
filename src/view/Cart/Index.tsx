@@ -1,13 +1,11 @@
-import ProductNotfound from '@/Components/common/notfound';
-import Shoppingbag from '@/Components/common/shoppingbag';
-import React from 'react';
-import Shoppingbagcard from '@/Components/common/shoppingdbagcard';
 import ShoppingBagPayment from '@/Components/common/shopping-bag-payment';
+import Shoppingbag from '@/Components/common/shoppingbag';
+import Shoppingbagcard from '@/Components/common/shoppingdbagcard';
 
 const CartView = () => {
   return (
     <div>
-      <ProductNotfound />
+      {/* <ProductNotfound /> */}
       <Shoppingbag />
       <Shoppingbagcard />
       <ShoppingBagPayment />
