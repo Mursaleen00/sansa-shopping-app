@@ -1,13 +1,5 @@
 import ProductView from '@/view/Product/Index';
 
-const Page = () => {
-  return (
-    <div>
-      <ProductView />
-      {/* <Productdetials />
-      <NoProductInBag /> */}
-    </div>
-  );
-};
+const Page = () => <ProductView />;
 
 export default Page;

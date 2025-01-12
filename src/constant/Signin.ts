@@ -3,12 +3,12 @@ import Email from '@/../public/icons/email.svg';
 
 export const SignInData = [
   {
-    legend: 'Email',
-    type: 'email',
-    placeholder: 'Enter Email',
+    legend: 'username',
+    type: 'username',
+    placeholder: 'Enter username',
     icon: Email.src,
-    label: 'email',
-    name: 'email',
+    label: 'username',
+    name: 'username',
   },
   {
     legend: 'Password',

@@ -8,9 +8,24 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.dummyjson.com',
+        // port: '',
+        // pathname: '/images/**',
       },
     ],
   },
 };
 
 export default nextConfig;
+
+// const nextConfig = {
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: 'http',
+//         hostname: 'forkify-api.herokuapp.com',
+//         port: '',
+//         pathname: '/images/**',
+//       },
+//     ],
+//   },
+// };

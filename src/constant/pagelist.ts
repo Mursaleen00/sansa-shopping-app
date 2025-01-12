@@ -11,3 +11,8 @@ export const pages: PageT[] = [
   { text: 'About Us', link: urls.about },
   { text: 'Contact Us', link: urls.contact },
 ];
+
+export const authPages: PageT[] = [
+  { text: 'Login', link: urls.signin },
+  { text: 'Sign Up', link: urls.signup },
+];

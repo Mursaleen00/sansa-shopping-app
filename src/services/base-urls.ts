@@ -30,7 +30,8 @@ export const URLS = {
   },
 
   // Single Product
-  GET_SINGLE_PRODUCT: (id: string) => `${baseUrl}/products/${id}`,
+  GET_SINGLE_PRODUCT: (id: string, select?: string[]) =>
+    `${baseUrl}/products/${id}${select ? `?select=${select.join(',')}` : ''}`,
 
   // All Products Categories
   GET_ALL_CATEGORIES: `${baseUrl}/categories`,
@@ -38,11 +39,7 @@ export const URLS = {
   // Category List
   GET_CATEGORY_LIST: `${baseUrl}/products/category-list`,
 
-  // Products By A Category
-  //   GET_PRODUCTS_BY_CATEGORY: (slug: string) =>
-  //     `${baseUrl}products/category/${slug}`,
-
-  // /products?limit=${limit || 10}`;
+  // Products By Category
   GET_PRODUCTS_BY_CATEGORY: ({
     search,
     limit,
@@ -66,5 +63,8 @@ export const URLS = {
   GET_ME: `${baseUrl}/user/me`,
 
   // Register User
-  REGISTER_USER: `${baseUrl}users/add`,
+  REGISTER_USER: `${baseUrl}/users/add`,
+
+  // Login User
+  LOGIN_USER: `${baseUrl}/user/login`,
 };

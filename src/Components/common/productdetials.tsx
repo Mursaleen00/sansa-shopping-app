@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
-import Button from './button';
+import Button from '../buttons/button';
 const images = ['image 111', 'image 22', 'image 24', 'image 25'];
 
 const Productdetials = () => {

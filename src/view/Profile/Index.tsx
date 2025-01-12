@@ -1,9 +1,8 @@
-import { profileData } from '@/constant/profileData';
-import React from 'react';
 import profilePicture from '@/../public/image/profile picture.svg';
-import Image from 'next/image';
-import Button from '@/Components/common/button';
 import Input from '@/Components/Input';
+import Button from '@/Components/buttons/button';
+import { profileData } from '@/constant/profileData';
+import Image from 'next/image';
 
 const ProfileView = () => {
   return (

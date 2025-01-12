@@ -4,7 +4,7 @@ import blackshirt from '@/../public/image/blackshirt.svg';
 import Image from 'next/image';
 // import Input from '@/Components/Input';
 import shirtTag from '@/../public/icons/shirt tag.svg';
-import Button from './button';
+import Button from '../buttons/button';
 import { ShoppingData } from '@/constant/shoppingData';
 import Input from '../Input';
 
