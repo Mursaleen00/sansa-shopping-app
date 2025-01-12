@@ -1,16 +1,17 @@
 'use client';
 import Sansa from '@/../public/image/Sansa.png';
-import Button from '@/Components/common/button';
+import Button from '@/Components/buttons/button';
 import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
 import Paragraph from '@/Components/common/paragraph';
 import Input from '@/Components/Input';
 import { CheckBoxData, SignUpData } from '@/constant/signup';
 import { urls } from '@/constant/urls';
+import { SignUpSchema } from '@/schema/register-scheama';
+import { useRegisterMutation } from '@/services/auth/sign-up';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
-import * as yup from 'yup';
 
 const initialValues = {
   email: '',
@@ -19,38 +20,30 @@ const initialValues = {
   confirmPassword: '',
 };
 
-const SignUpSchema = yup.object().shape({
-  email: yup.string().email('Invalid email').required('Email is required'),
-  name: yup.string().required('Name is required'),
-  // password: yup.string().required('Password is required'),
-  // confirmPassword: yup.string().required('Confirm Password is required'),
-  password: yup
-    .string()
-    .min(8, 'Password must be at least 8 characters')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(
-      /[@$!%*?&#]/,
-      'Password must contain at least one special character',
-    )
-    .required('Password is required'),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password')], 'Passwords must match')
-    .required('Confirm Password is required'),
-});
-
 const SignUpView = () => {
+  const { mutateAsync, isPending } = useRegisterMutation();
+
   const formik = useFormik({
     initialValues,
     validationSchema: SignUpSchema,
-    onSubmit: () => {
-      console.log('🚀 ~ SignUpView ~ value: onSubmit', values);
+    onSubmit: async value => {
+      const { email, name, password } = value;
+      try {
+        await mutateAsync({
+          email,
+          password,
+          firstName: name,
+          username: name.toLocaleLowerCase().replaceAll(' ', ''),
+        });
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
+
   const { errors, handleBlur, handleChange, values, handleSubmit, touched } =
     formik;
+
   return (
     <div className='flex flex-col items-center gap-y-10 py-10'>
       <Image
@@ -93,6 +86,7 @@ const SignUpView = () => {
           text='Sign up'
           className='w-full border-none'
           onClick={handleSubmit}
+          disabled={isPending}
         />
       </div>
       <p className='md:text-base text-sm'>

@@ -1,5 +1,5 @@
 import noFound from '@/../public/image/404.svg';
-import Button from '@/Components/common/button';
+import Button from '@/Components/buttons/button';
 import { urls } from '@/constant/urls';
 import Image from 'next/image';
 import Link from 'next/link';

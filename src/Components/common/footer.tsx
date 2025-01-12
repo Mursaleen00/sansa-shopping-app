@@ -7,7 +7,7 @@ import { switchLanguage } from '@/utils/switch-language';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import Switch from 'react-switch';
 
 const Footer = () => {

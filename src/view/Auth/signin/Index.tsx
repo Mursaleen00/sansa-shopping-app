@@ -1,51 +1,54 @@
 'use client';
+import Sansa from '@/../public/image/Sansa.png';
+import Button from '@/Components/buttons/button';
 import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
 import Paragraph from '@/Components/common/paragraph';
 import Input from '@/Components/Input';
 import { CheckBoxData, SignInData } from '@/constant/Signin';
 import { urls } from '@/constant/urls';
-import Link from 'next/link';
-import React from 'react';
-import Sansa from '@/../public/image/Sansa.png';
-import Image from 'next/image';
+import { LoginSchema } from '@/schema/login-schema';
+import { useLoginMutation } from '@/services/auth/login';
+import { LoginType } from '@/types/users/login-user';
+import { setCookie } from 'cookies-next';
 import { useFormik } from 'formik';
-import * as yup from 'yup';
-import Button from '@/Components/common/button';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const initialValues = {
-  email: '',
+  username: '',
   password: '',
 };
 
-const LoginSchema = yup.object().shape({
-  email: yup.string().email('Invalid email').required('Email is required'),
-  // password: yup.string().required('Password is required'),
-  password: yup
-    .string()
-    .min(8, 'Password must be at least 8 characters')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(
-      /[@$!%*?&#]/,
-      'Password must contain at least one special character',
-    )
-    .required('Password is required'),
-});
-
 const SignInView = () => {
+  const { mutateAsync, isPending } = useLoginMutation();
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues,
     validationSchema: LoginSchema,
-    onSubmit: () => {
-      console.log('🚀 ~ SignInView ~ value: onSubmit', values);
+    onSubmit: async values => {
+      const { username, password } = values;
+      try {
+        const res = (await mutateAsync({
+          username,
+          password,
+          expiresInMins: 60,
+        })) as LoginType;
+
+        if (res) {
+          setCookie('token', res?.accessToken);
+          router.push(urls.home);
+        }
+      } catch (error) {
+        console.log('🚀 ~ SignInView ~ error:', error);
+      }
     },
   });
 
   const { values, errors, handleSubmit, handleChange, handleBlur, touched } =
     formik;
-  // console.log('🚀 ~ SignInView ~ values:', values);
 
   return (
     <div className='flex flex-col items-center gap-y-10 py-10'>
@@ -85,11 +88,14 @@ const SignInView = () => {
               />
             ))}
           </div>
+          <p>Username: jamesd</p>
+          <p>Password: jamesdpass</p>
         </div>
         <Button
-          text='Sign up'
+          text='Sign In'
           className='w-full border-none'
           onClick={handleSubmit}
+          disabled={isPending}
         />
       </div>
       <p className='md:text-base text-sm'>
