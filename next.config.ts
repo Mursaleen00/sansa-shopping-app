@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         // port: '',
         // pathname: '/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'dummyjson.com',
+      },
     ],
   },
 };

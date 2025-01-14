@@ -7,9 +7,9 @@ import Input from './Input';
 
 const ShoppingBagPayment = () => {
   return (
-    <div className='border-2 w-full'>
-      <div className='flex font-bold mx-12'>Payment Method</div>
-      <div>
+    <div className='border-2 '>
+      <div className='flex font-bold'>Payment Method</div>
+      <div className='grid grid-cols-2 sm:grid-cols-4  sm:w-full '>
         {chooseCard.map((item, index) => (
           <div
             key={index}

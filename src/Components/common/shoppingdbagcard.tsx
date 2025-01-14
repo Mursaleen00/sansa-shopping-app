@@ -1,12 +1,10 @@
 'use client';
-import React from 'react';
 import blackshirt from '@/../public/image/blackshirt.svg';
 import Image from 'next/image';
 // import Input from '@/Components/Input';
-import shirtTag from '@/../public/icons/shirt tag.svg';
-import Button from '../buttons/button';
 import { ShoppingData } from '@/constant/shoppingData';
-import Input from '../Input';
+import Button from '../buttons/button';
+import Input from './Input';
 
 const Shoppingdbagcard = () => {
   return (
@@ -21,7 +19,7 @@ const Shoppingdbagcard = () => {
           <div>
             <h1 className='flex font-bold text-lg'>White shirt 9.50 USD</h1>
             <p className='text-lg'>Description</p>
-            <div className='flex sm:flex-row flex-col  p-4 sm:gap-x-4 md:gap-x-6 items-center'>
+            <div className='flex sm:flex-row flex-col lg:flex-col xl:flex-row p-4 sm:gap-x-4 md:gap-x-6 items-center gap-y-3'>
               {/* SIZE */}
               <div className='flex gap-1 items-center'>
                 size:
@@ -40,8 +38,6 @@ const Shoppingdbagcard = () => {
                   +
                 </button>
               </div>
-              {/* colour */}
-              <div></div>
             </div>
           </div>
         </div>
@@ -54,7 +50,7 @@ const Shoppingdbagcard = () => {
           <div>
             <h1 className='flex font-bold text-lg'>Black shirt 9.50 USD</h1>
             <p className='text-lg'>Description</p>
-            <div className='flex sm:flex-row flex-col p-3 sm:gap-x-4 md:gap-x-6'>
+            <div className='flex sm:flex-row flex-col lg:flex-col xl:flex-row p-3 sm:gap-x-4 md:gap-x-6'>
               {/* SIZE */}
               <div className='flex gap-1'>
                 size:
@@ -73,25 +69,22 @@ const Shoppingdbagcard = () => {
                   +
                 </button>
               </div>
-              {/* colour */}
-              <div></div>
             </div>
           </div>
         </div>
         {/* border */}
         <div className='flex border border-[#dddddc] items-center m-7'></div>
-        {/* Inout */}
-        <div className='flex items-center m-auto justify-around w-full '>
+        {/* Input */}
+        <div className='grid items-center justify-around w-full '>
           <Input
-            label=''
+            label='Code'
             placeholder='Enter promotion code to get discount'
-            legend='Code'
             type='number'
-            icon={shirtTag.src}
+            className='w-full'
           />
         </div>
       </div>
-      <div className='grid  items-center gap-y-6 top-11'>
+      <div className='grid items-center gap-y-6 top-11'>
         {/* 2nd section  */}
         <div className='flex flex-col  py-[40px] gap-y-6 sm:h-full bg-gray rounded-2xl'>
           <h1 className='font-semibold text-lg px-9  '>Summary ( 2 items )</h1>

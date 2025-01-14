@@ -2,8 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import Button from '../buttons/button';
 import noproduct from '@/../public/image/no_product.svg';
+import { t } from 'i18next';
 
-const Noproductinbag = () => {
+const NoProductInBag = () => {
   return (
     <div className='flex flex-col justify-around items-center bg-gray  h-[400px] rounded-2xl m-9 '>
       <Image
@@ -13,7 +14,7 @@ const Noproductinbag = () => {
         height={100}
       />
       <div className='flex flex-col items-center gap-y-3'>
-        <h1 className='flex font-bold text-lg '>No product in Bag</h1>
+        <h1 className='flex font-bold text-lg '>{t('No product in Bag')}</h1>
         <p className=' text-xs'>Ordered product will appear here</p>
       </div>
       <div>
@@ -26,4 +27,4 @@ const Noproductinbag = () => {
   );
 };
 
-export default Noproductinbag;
+export default NoProductInBag;
