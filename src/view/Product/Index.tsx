@@ -48,6 +48,9 @@ const ProductView = () => {
   return (
     <div className='px-6 md:px-12 xl:px-24 flex flex-col gap-y-10 py-10'>
       {/* All Product Categories */}
+      <div className='flex gap-1'>
+        <div className='text-[#B3B7B1]'>Home</div>/<div>Product</div>
+      </div>
       <div className='flex justify-between items-center'>
         <p className='text-secondary-700 text-3xl'>All Product Categories</p>
         <Input
