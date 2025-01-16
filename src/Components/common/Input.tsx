@@ -55,7 +55,7 @@ const Input = ({
           'w-full  h-11',
           'outline-none ring-0 border border-divider',
           'rounded-lg shadow-box-shadow',
-          'px-3 py-2',
+          'px-3 py-2 ',
           className,
           isError && '!border-red',
         )}

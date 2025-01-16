@@ -7,7 +7,7 @@ import { switchLanguage } from '@/utils/switch-language';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 import Switch from 'react-switch';
 
 const Footer = () => {
@@ -22,7 +22,7 @@ const Footer = () => {
   return (
     <div className='bg-gray px-6 md:px-12 xl:px-24 flex flex-col w-full gap-y-10  py-10'>
       {/* Upper Section */}
-      <div className='flex items-center justify-between w-full'>
+      <div className='flex flex-wrap gap-4 items-center justify-between w-full'>
         <Link href={urls.home}>
           <Image
             alt=''

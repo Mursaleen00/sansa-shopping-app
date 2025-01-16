@@ -16,7 +16,7 @@ import { SignUpData } from '@/constant/signup';
 import { useGetAllProductsHook } from '@/services/products/get-all-products';
 import { useGetProductsByCategoryHook } from '@/services/products/get-products-by-category';
 import { getCookie } from 'cookies-next';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import ContactView from '../Contact/Index';

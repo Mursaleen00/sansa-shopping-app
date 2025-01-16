@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { urls } from '@/constant/urls';
 import Sidebar from './Sidebar';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'react-i18next';
 import { getCookie } from 'cookies-next';
 
 const Navbar = () => {

@@ -9,6 +9,7 @@ const images = ['image 111', 'image 22', 'image 24', 'image 25'];
 const Productdetials = () => {
   return (
     <div className='grid  sm:grid-cols-2 md:grid-cols-5  p-3  px-6 md:px-12 xl:px-24'>
+      {/* 1st section  */}
       <div className=' flex flex-col gap-y-9 bg-gray border-2 col-span-3 justify-center items-center rounded-lg m-7'>
         <div>
           <Image
