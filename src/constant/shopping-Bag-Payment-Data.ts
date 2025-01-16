@@ -2,32 +2,6 @@ import Profile from '@/../public/icons/profile.svg';
 import ExpiredDate from '@/../public/icons/Expired date.svg';
 import Star from '@/../public/icons/3 Star.svg';
 import IdCard from '@/../public/icons/Id card.svg';
-import GooglePay from '@/../public/image/GooglePay.svg';
-import PayPal from '@/../public/image/PayPal.svg';
-import ApplePay from '@/../public/image/ApplePay.svg';
-
-export const chooseCard = [
-  {
-    icon: IdCard.src,
-    placeholder: 'card',
-    button: '',
-  },
-  {
-    icon: PayPal.src,
-    placeholder: 'Paypal',
-    button: '',
-  },
-  {
-    icon: GooglePay.src,
-    placeholder: 'G pay',
-    button: '',
-  },
-  {
-    icon: ApplePay.src,
-    placeholder: 'A Pay',
-    button: '',
-  },
-];
 
 export const ShoppingBagPaymentData = [
   {

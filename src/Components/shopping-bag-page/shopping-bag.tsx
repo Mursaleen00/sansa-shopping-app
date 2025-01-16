@@ -1,13 +1,11 @@
 import React from 'react';
-import Heading from './shopping-bag-heading';
-
 const step = ['Card', 'Shipping', 'Payment'];
 
-const Shoppingbag = () => {
+const ShoppingBag = () => {
   const count = 0;
   return (
     <div>
-      <Heading />
+      <h1 className='text-2xl font-bold py-6'>Shopping bag</h1>
       <div className='relative flex justify-around items-center w-full'>
         <div className='border border-secondary-300 w-full absolute -z-10 top-2' />
 
@@ -27,4 +25,4 @@ const Shoppingbag = () => {
   );
 };
 
-export default Shoppingbag;
+export default ShoppingBag;

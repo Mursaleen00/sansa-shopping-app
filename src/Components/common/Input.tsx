@@ -1,37 +1,24 @@
-// Utils
+'use client';
 import { cn } from '@/lib/cn-utils';
+import React, { Fragment, useState } from 'react';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
-// React
-
-import React from 'react';
-
-export interface IInput {
-  label?: string;
-  name?: string;
-  type?: HTMLInputElement['type'];
-  className?: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onBlur?: React.ChangeEventHandler<HTMLInputElement>;
-  value?: string | number;
-  placeholder?: string;
-  error?: string | undefined;
+interface InputProps {
+  label: string;
+  error?: string;
   touched?: boolean;
-  required?: boolean;
 }
 
 const Input = ({
-  className,
   label,
-  name,
   type,
-  onChange,
   error,
-  onBlur,
-  placeholder,
-  value,
   touched,
   required,
-}: IInput) => {
+  className,
+  ...res
+}: React.InputHTMLAttributes<HTMLInputElement> & InputProps) => {
+  const [isVisible, setIsVisible] = useState(false);
   const isError = error && touched;
 
   return (
@@ -39,28 +26,47 @@ const Input = ({
       htmlFor='input'
       className='space-y-1'
     >
-      <p className='text-text-primary text-sm font-normal'>
+      <p className='text-secondary-600 text-sm font-normal capitalize'>
         {label}
         {required && <span className='text-red'>*</span>}
       </p>
-      <input
-        type={type}
-        // id="input"
-        name={name}
-        onChange={onChange}
-        placeholder={placeholder}
-        value={value}
-        onBlur={onBlur}
+      <div
         className={cn(
-          'w-full  h-11',
-          'outline-none ring-0 border border-divider',
+          'w-full h-11',
+          'bg-white',
+          'border !border-border',
           'rounded-lg shadow-box-shadow',
-          'px-3 py-2 ',
+          'pr-3',
+          'flex justify-between items-center',
           className,
-          isError && '!border-red',
+          isError && '!border-red-400',
         )}
-      />
-      {isError && <p className='text-error text-red text-xs'>{error}</p>}
+      >
+        <input
+          type={type === 'password' ? (isVisible ? 'text' : 'password') : type}
+          id='input'
+          className='w-full h-full px-3 py-2 outline-none ring-0 rounded-xl'
+          {...res}
+        />
+        {type === 'password' && (
+          <Fragment>
+            {isVisible ? (
+              <FiEye
+                size={24}
+                onClick={() => setIsVisible(!isVisible)}
+                className='cursor-pointer text-secondary-300'
+              />
+            ) : (
+              <FiEyeOff
+                size={24}
+                onClick={() => setIsVisible(!isVisible)}
+                className='cursor-pointer text-secondary-300'
+              />
+            )}
+          </Fragment>
+        )}
+      </div>
+      {isError && <p className='text-red-600 text-xs'>{error}</p>}
     </label>
   );
 };
