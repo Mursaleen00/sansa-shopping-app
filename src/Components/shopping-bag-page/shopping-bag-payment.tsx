@@ -44,10 +44,7 @@ const ShoppingBagPayment = () => {
         </div>
         <div>
           {ShoppingBagPaymentData.map((item, i) => (
-            <div
-              key={i}
-              className={''}
-            >
+            <div key={i}>
               <Input {...item} />
             </div>
           ))}
