@@ -1,8 +1,8 @@
 import React from 'react';
 import ShoppingBag from '../shopping-bag-page/shopping-bag';
 import { ShippingAddress, UserDetails } from '@/constant/user-details-data';
-import Input from '../common/input';
 import PriceSection from '../shopping-bag-page/price-section';
+import Input from '../common/input';
 
 const Details = () => {
   return (
@@ -11,7 +11,7 @@ const Details = () => {
         <div className='text-[#B3B7B1]'>Home</div>/<div>Shopping bag</div>
       </div>
       <ShoppingBag />
-      <div className='grid grid-cols-2 gap-x-6'>
+      <div className='grid md:grid-cols-2 gap-6 py-7'>
         {/* 1st section  */}
         <div className=' bg-gray rounded-xl'>
           {/* user details  */}

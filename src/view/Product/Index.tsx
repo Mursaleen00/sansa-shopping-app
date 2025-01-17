@@ -1,10 +1,9 @@
 'use client';
-import Picture from '@/../public/icons/picture.svg';
 import ProductCard from '@/Components/cards/product-card';
+import Input from '@/Components/common/input';
 import Loader from '@/Components/common/loader';
 import ProductNotfound from '@/Components/common/not-found';
 import Pagination from '@/Components/common/pagination';
-import Input from '@/Components/Input';
 import { urls } from '@/constant/urls';
 import { useGetAllProductsHook } from '@/services/products/get-all-products';
 import { useSearchParams } from 'next/navigation';
@@ -56,8 +55,6 @@ const ProductView = () => {
         <Input
           label='Search'
           placeholder='Search all assets'
-          icon={Picture.src}
-          legend='Search'
           type='text'
           value={search}
           onChange={e => setSearch(e.target.value)}
