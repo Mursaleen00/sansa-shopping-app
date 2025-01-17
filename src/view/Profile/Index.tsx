@@ -6,7 +6,6 @@ import { useGetMeHook } from '@/services/user/get-all-products';
 import { MeTypes } from '@/types/users/me';
 import Button from '@/Components/buttons/button';
 import Input from '@/Components/common/input';
-// import Input from '@/Components/common/Input';
 
 const ProfileView = () => {
   const { data } = useGetMeHook();
