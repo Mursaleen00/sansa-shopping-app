@@ -1,6 +1,6 @@
 'use client';
 import ProductCard from '@/Components/cards/product-card';
-import Input from '@/Components/common/input';
+import Input from '@/Components/inputs/input';
 import Loader from '@/Components/common/loader';
 import ProductNotfound from '@/Components/common/not-found';
 import Pagination from '@/Components/common/pagination';

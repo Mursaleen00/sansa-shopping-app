@@ -2,7 +2,7 @@
 import blackshirt from '@/../public/image/blackshirt.svg';
 import Image from 'next/image';
 import PriceSection from './price-section';
-import Input from '../common/input';
+import Input from '../inputs/input';
 
 const Shoppingdbagcard = () => {
   return (

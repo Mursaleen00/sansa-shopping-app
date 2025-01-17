@@ -6,7 +6,7 @@ import Paypal from '@/../public/image/PayPal.svg';
 import GooglePay from '@/../public/image/GooglePay.svg';
 import ApplePay from '@/../public/image/ApplePay.svg';
 import Card from '@/../public/image/Id card.svg';
-import Input from '../common/input';
+import Input from '../inputs/input';
 
 const ShoppingBagPayment = () => {
   return (

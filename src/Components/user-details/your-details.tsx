@@ -2,7 +2,7 @@ import React from 'react';
 import ShoppingBag from '../shopping-bag-page/shopping-bag';
 import { ShippingAddress, UserDetails } from '@/constant/user-details-data';
 import PriceSection from '../shopping-bag-page/price-section';
-import Input from '../common/input';
+import Input from '../inputs/input';
 
 const Details = () => {
   return (
