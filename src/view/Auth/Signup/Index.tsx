@@ -4,7 +4,8 @@ import Button from '@/Components/buttons/button';
 import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
 import Paragraph from '@/Components/common/paragraph';
-import Input from '@/Components/Input';
+import Input from '@/Components/inputs/input';
+
 import { CheckBoxData, SignUpData } from '@/constant/signup';
 import { urls } from '@/constant/urls';
 import { SignUpSchema } from '@/schema/register-scheama';
@@ -60,9 +61,7 @@ const SignUpView = () => {
           {SignUpData.map((item, index) => (
             <Input
               key={index}
-              icon={item.icon}
               label={item.label}
-              legend={item.legend}
               placeholder={item.placeholder}
               type={item.type}
               name={item.name}

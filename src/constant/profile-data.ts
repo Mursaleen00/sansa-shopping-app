@@ -34,7 +34,7 @@ export const profileData = ({
   {
     label: 'Email',
     type: 'email',
-    placeholder: 'Enter you email address',
+    placeholder: 'Enter your email address',
     value: email,
   },
   {

@@ -3,8 +3,9 @@ import Sansa from '@/../public/image/Sansa.png';
 import Button from '@/Components/buttons/button';
 import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
+import Input from '@/Components/inputs/input';
 import Paragraph from '@/Components/common/paragraph';
-import Input from '@/Components/Input';
+
 import { CheckBoxData, SignInData } from '@/constant/Signin';
 import { urls } from '@/constant/urls';
 import { LoginSchema } from '@/schema/login-schema';
@@ -66,9 +67,7 @@ const SignInView = () => {
           {SignInData.map((item, index) => (
             <Input
               key={index}
-              icon={item.icon}
               label={item.label}
-              legend={item.legend}
               placeholder={item.placeholder}
               type={item.type}
               name={item.name}

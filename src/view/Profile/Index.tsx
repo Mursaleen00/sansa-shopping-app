@@ -2,10 +2,10 @@
 import { profileData } from '@/constant/profile-data';
 import React from 'react';
 import Image from 'next/image';
-import Input from '@/Components/common/Input';
 import { useGetMeHook } from '@/services/user/get-all-products';
 import { MeTypes } from '@/types/users/me';
 import Button from '@/Components/buttons/button';
+import Input from '@/Components/inputs/input';
 
 const ProfileView = () => {
   const { data } = useGetMeHook();

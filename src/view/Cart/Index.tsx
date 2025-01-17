@@ -1,6 +1,6 @@
 import ShoppingBagPayment from '@/Components/shopping-bag-page/shopping-bag-payment';
-import Shoppingbag from '@/Components/shopping-bag-page/shopping-bag';
 import Shoppingdbagcard from '@/Components/shopping-bag-page/shopping-bag-card';
+import ShoppingBag from '@/Components/shopping-bag-page/shopping-bag';
 
 const CartView = () => {
   return (
@@ -9,7 +9,7 @@ const CartView = () => {
         <div className='text-[#B3B7B1]'>Home</div>/<div>Shopping bag</div>
       </div>
       {/* <ProductNotfound /> */}
-      <Shoppingbag />
+      <ShoppingBag />
       <Shoppingdbagcard />
       <ShoppingBagPayment />
     </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import Input from '@/Components/Input';
 import Button from '@/Components/buttons/button';
 import OrderCard from '@/Components/cards/order-card';
 import ProductCard from '@/Components/cards/product-card';
@@ -20,6 +19,7 @@ import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import ContactView from '../Contact/Index';
+import Input from '@/Components/inputs/input';
 
 const HomeView = () => {
   const [tab, setTab] = useState(0);

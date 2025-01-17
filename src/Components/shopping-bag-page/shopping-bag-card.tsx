@@ -1,8 +1,8 @@
 // 'use client';
 import blackshirt from '@/../public/image/blackshirt.svg';
 import Image from 'next/image';
-import Input from '../common/Input';
 import PriceSection from './price-section';
+import Input from '../inputs/input';
 
 const Shoppingdbagcard = () => {
   return (
@@ -73,7 +73,7 @@ const Shoppingdbagcard = () => {
         {/* border */}
         <div className='flex border border-[#dddddc] items-center mx-7'></div>
         {/* Input */}
-        <div className='grid items-center justify-around w-full '>
+        <div className='grid px-6 '>
           <Input
             label='Code'
             placeholder='Enter promotion code to get discount'
