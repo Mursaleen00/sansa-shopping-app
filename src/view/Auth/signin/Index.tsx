@@ -3,7 +3,7 @@ import Sansa from '@/../public/image/Sansa.png';
 import Button from '@/Components/buttons/button';
 import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
-import Input from '@/Components/common/input';
+import Input from '@/Components/inputs/input';
 import Paragraph from '@/Components/common/paragraph';
 
 import { CheckBoxData, SignInData } from '@/constant/Signin';

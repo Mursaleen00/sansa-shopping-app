@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useGetMeHook } from '@/services/user/get-all-products';
 import { MeTypes } from '@/types/users/me';
 import Button from '@/Components/buttons/button';
-import Input from '@/Components/common/input';
+import Input from '@/Components/inputs/input';
 
 const ProfileView = () => {
   const { data } = useGetMeHook();
