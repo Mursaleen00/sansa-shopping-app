@@ -1,11 +1,9 @@
-import { ShoppingBagPaymentData } from '@/constant/shopping-Bag-Payment-Data';
-import React from 'react';
-import PriceSection from './price-section';
-import Button from '../buttons/button';
-import Paypal from '@/../public/image/PayPal.svg';
-import GooglePay from '@/../public/image/GooglePay.svg';
 import ApplePay from '@/../public/image/ApplePay.svg';
+import GooglePay from '@/../public/image/GooglePay.svg';
 import Card from '@/../public/image/Id card.svg';
+import Paypal from '@/../public/image/PayPal.svg';
+import { ShoppingBagPaymentData } from '@/constant/shopping-Bag-Payment-Data';
+import Button from '../buttons/button';
 import Input from '../inputs/input';
 
 const ShoppingBagPayment = () => {
@@ -54,10 +52,6 @@ const ShoppingBagPayment = () => {
             <p>Where is my CVV?</p>
           </div>
         </div>
-      </div>
-      {/* Second section  */}
-      <div className='grid w-full'>
-        <PriceSection />
       </div>
     </div>
   );

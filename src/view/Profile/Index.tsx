@@ -9,11 +9,9 @@ import Input from '@/Components/inputs/input';
 
 const ProfileView = () => {
   const { data } = useGetMeHook();
-  console.log('🚀 ~ ProfileView ~ data:', data);
 
   const { firstName, lastName, email, address, phone, age, password } =
     (data as MeTypes) || [];
-  console.log('🚀 ~ ProfileView ~ address:', address);
 
   const userData = profileData({
     firstName,
@@ -27,7 +25,7 @@ const ProfileView = () => {
   });
 
   return (
-    <div className=''>
+    <div>
       <div className='flex gap-1 sm:p-9 p-4'>
         <div className='text-[#B3B7B1]  '>Home</div>/<div>Profile</div>
       </div>
