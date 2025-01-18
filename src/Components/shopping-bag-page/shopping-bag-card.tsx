@@ -44,7 +44,7 @@ const ShoppingBagCard = ({ data, price, totalPrice, setPrice }: Props) => {
                 {item.name} {item.price} USD
               </h1>
               <p className='text-lg'>Description</p>
-              <div className='flex sm:flex-row flex-col lg:flex-col xl:flex-row p-4 sm:gap-x-4 md:gap-x-6 items-center gap-y-3'>
+              <div className='grid sm:grid-cols-2 p-4 sm:gap-x-4 md:gap-x-6 items-center gap-y-3'>
                 {/* SIZE */}
                 <div className='flex gap-1 items-center'>
                   size:

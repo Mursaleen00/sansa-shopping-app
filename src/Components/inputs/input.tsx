@@ -24,10 +24,10 @@ const Input = ({
   return (
     <label
       htmlFor='input'
-      className='space-y-1'
+      className='space-y-1 '
     >
       {label && (
-        <p className='text-secondary-600 text-sm font-normal capitalize'>
+        <p className='text-secondary-700 text-sm font-normal capitalize'>
           {label}
           {required && <span className='text-red'>*</span>}
         </p>
