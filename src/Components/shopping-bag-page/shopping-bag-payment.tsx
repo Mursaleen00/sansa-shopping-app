@@ -3,8 +3,27 @@ import GooglePay from '@/../public/image/GooglePay.svg';
 import Card from '@/../public/image/Id card.svg';
 import Paypal from '@/../public/image/PayPal.svg';
 import { ShoppingBagPaymentData } from '@/constant/shopping-Bag-Payment-Data';
-import Button from '../buttons/button';
 import Input from '../inputs/input';
+import Radio from '../inputs/radio';
+
+const cardData = [
+  {
+    name: 'Card',
+    icon: Card,
+  },
+  {
+    name: 'Paypal',
+    icon: Paypal,
+  },
+  {
+    name: 'Google Pay',
+    icon: GooglePay,
+  },
+  {
+    name: 'Apple Pay',
+    icon: ApplePay,
+  },
+];
 
 const ShoppingBagPayment = () => {
   return (
@@ -13,32 +32,17 @@ const ShoppingBagPayment = () => {
       <div className=' grid grid-col bg-gray border-2 gap-y-2 md:gap-y-0 lg:gap-y-2  p-2 sm:px-4 w-full border-gray rounded-xl md:h-[400px] xl:h-[350px] '>
         <div className='grid font-bold p-2 text-2xl '>Payment Method</div>
         <div className='grid grid-cols sm:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 gap-x-2 gap-y-1'>
-          <Button
-            text='card'
-            isOutline
-            className='flex justify-around text-slate-500  !border-border  bg-white w-full rounded-lg '
-            icon={Card}
-          />
-
-          <Button
-            text='Paypal'
-            isOutline
-            className='flex justify-around text-slate-500  !border-border  bg-white w-full rounded-lg text-2xl  '
-            icon={Paypal}
-          />
-
-          <Button
-            text='G Pay'
-            isOutline
-            className='flex justify-around text-slate-500  !border-border  bg-white w-full rounded-lg '
-            icon={GooglePay}
-          />
-          <Button
-            text='A Pay'
-            isOutline
-            className='flex justify-around text-slate-500  !border-border  bg-white w-full rounded-lg '
-            icon={ApplePay}
-          />
+          {cardData.map((item, index) => (
+            <div
+              key={index}
+              className='flex flex-col justify-center items-center gap-y-2'
+            >
+              <Radio
+                label={item.name}
+                image={item.icon}
+              />
+            </div>
+          ))}
         </div>
         <div>
           {ShoppingBagPaymentData.map((item, i) => (
@@ -46,6 +50,7 @@ const ShoppingBagPayment = () => {
               <Input {...item} />
             </div>
           ))}
+
           <div className='flex flex-col sm:flex-row justify-end sm:gap-x-2 py-1'>
             <p>Where is Card number?</p>
             <p>Where is Expired date?</p>
