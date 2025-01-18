@@ -16,9 +16,7 @@ const Details = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: DetailsSchema,
-    onSubmit: () => {
-      
-    },
+    onSubmit: () => {},
   });
 
   const { values, errors, touched, handleChange, handleSubmit } = formik;
