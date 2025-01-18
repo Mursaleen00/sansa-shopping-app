@@ -4,7 +4,7 @@ import React, { Fragment, useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 interface InputProps {
-  label: string;
+  label?: string;
   error?: string;
   touched?: boolean;
 }
@@ -26,10 +26,13 @@ const Input = ({
       htmlFor='input'
       className='space-y-1'
     >
-      <p className='text-secondary-600 text-sm font-normal capitalize'>
-        {label}
-        {required && <span className='text-red'>*</span>}
-      </p>
+      {label && (
+        <p className='text-secondary-600 text-sm font-normal capitalize'>
+          {label}
+          {required && <span className='text-red'>*</span>}
+        </p>
+      )}
+
       <div
         className={cn(
           'w-full h-11',

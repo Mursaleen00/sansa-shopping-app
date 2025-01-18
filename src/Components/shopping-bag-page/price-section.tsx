@@ -3,7 +3,12 @@ import Image from 'next/image';
 import React from 'react';
 import Button from '../buttons/button';
 
-const PriceSection = () => {
+interface PriceSectionProps {
+  price: number;
+  setStep: () => void;
+}
+
+const PriceSection = ({ price, setStep }: PriceSectionProps) => {
   return (
     <div>
       <div className='grid items-center gap-y-6 top-11 w-full'>
@@ -13,7 +18,7 @@ const PriceSection = () => {
 
           <div className='flex justify-between px-9 '>
             <p className='text-[#44483D]'>Subtotal</p>
-            <p className='font-bold text-sm'>16.25 USD</p>
+            <p className='font-bold text-sm'>{price} USD</p>
           </div>
           <div className='flex justify-between  items-center px-9 '>
             <p className='text-[#44483D]'>Shipping</p>
@@ -23,13 +28,14 @@ const PriceSection = () => {
           {/* total price */}
           <div className='flex justify-between  px-6'>
             <p className='text-[#44483D]'>Total</p>
-            <p className='font-bold'>16.25 USD</p>
+            <p className='font-bold'>{price} USD</p>
           </div>
           {/* Button */}
           <div className='flex justify-around '>
             <Button
               className='sm:w-full w-40 sm:mx-20'
               text='Pay Now'
+              onClick={setStep}
             />
           </div>
         </div>
