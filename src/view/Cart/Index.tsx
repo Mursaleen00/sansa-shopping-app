@@ -6,24 +6,18 @@ import ShoppingBagPayment from '@/Components/shopping-bag-page/shopping-bag-paym
 import StepBar from '@/Components/shopping-bag-page/step-bar';
 import Details from '@/Components/user-details/your-details';
 import { FaArrowLeft } from 'react-icons/fa6';
-
 import { useState } from 'react';
 
 const selectedCardItems = [
   {
-    name: 'White shirt',
+    name: 'black shirt',
     price: 5,
-    image: blackshirt,
-  },
-  {
-    name: 'White shirt',
-    price: 10,
     quantity: 1,
     image: blackshirt,
   },
   {
     name: 'White shirt',
-    price: 8,
+    price: 10,
     quantity: 1,
     image: blackshirt,
   },
@@ -40,7 +34,7 @@ const CartView = () => {
   const [price, setPrice] = useState<number>(totalPrice);
 
   return (
-    <div>
+    <div className=''>
       {step !== 0 && (
         <button
           onClick={() => setStep(step <= 0 ? step : step - 1)}
@@ -52,7 +46,7 @@ const CartView = () => {
 
       <StepBar step={step} />
 
-      <div className='grid grid-cols-2 gap-6 pt-6'>
+      <div className='grid lg:grid-cols-2 gap-6 pt-6'>
         {step == 0 && (
           <ShoppingBagCard
             data={selectedCardItems}
@@ -67,7 +61,7 @@ const CartView = () => {
         {step == 2 && <ShoppingBagPayment />}
 
         <PriceSection
-          price={100}
+          price={price}
           setStep={() => setStep(step >= 2 ? step : step + 1)}
         />
       </div>
