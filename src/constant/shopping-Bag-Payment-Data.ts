@@ -14,7 +14,7 @@ export const ShoppingBagPaymentData = [
   {
     legend: 'Name on Card',
     type: 'text',
-    placeholder: 'card name',
+    placeholder: 'Card name',
     icon: ExpiredDate.src,
     label: '',
   },
