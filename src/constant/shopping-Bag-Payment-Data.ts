@@ -1,35 +1,46 @@
-import Profile from '@/../public/icons/profile.svg';
-import ExpiredDate from '@/../public/icons/Expired date.svg';
-import Star from '@/../public/icons/3 Star.svg';
-import IdCard from '@/../public/icons/Id card.svg';
+import ApplePay from '@/../public/image/ApplePay.svg';
+import GooglePay from '@/../public/image/GooglePay.svg';
+import Card from '@/../public/image/Id card.svg';
+import Paypal from '@/../public/image/PayPal.svg';
+
+export const cardData = [
+  {
+    name: 'Card',
+    icon: Card,
+  },
+  {
+    name: 'Paypal',
+    icon: Paypal,
+  },
+  {
+    name: 'Google Pay',
+    icon: GooglePay,
+  },
+  {
+    name: 'Apple Pay',
+    icon: ApplePay,
+  },
+];
 
 export const ShoppingBagPaymentData = [
   {
-    legend: 'Name on Card',
     type: 'text',
-    placeholder: ' Card Name',
-    icon: Profile.src,
-    label: '',
+    placeholder: 'Enter on Card Name',
+    label: 'Name on Card',
   },
   {
-    legend: 'Name on Card',
     type: 'text',
-    placeholder: 'Card name',
-    icon: ExpiredDate.src,
-    label: '',
+    placeholder: 'Enter on Card name',
+    label: 'Expired date',
   },
   {
-    legend: 'Card Number ',
-    type: 'text',
-    placeholder: 'Number',
-    icon: IdCard.src,
-    label: '',
+    type: 'Number',
+    placeholder: 'Enter Number',
+    label: 'Card Number ',
   },
   {
-    legend: 'CVV',
     type: 'text',
     placeholder: 'Enter CVV ',
-    icon: Star.src,
-    label: '',
+    label: 'CVV',
   },
 ];
