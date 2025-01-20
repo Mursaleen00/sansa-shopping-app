@@ -1,12 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
-import { FiPlus } from 'react-icons/fi';
+import {
+  addLikedProduct,
+  removeLikedProduct,
+} from '@/store/Slice/liked-product-slice';
+import { addProduct, removeProduct } from '@/store/Slice/product-slice';
+import { RootState } from '@/store/store';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FiPlus } from 'react-icons/fi';
 import { GoHeart } from 'react-icons/go';
 import { IoMdHeart } from 'react-icons/io';
-import Link from 'next/link';
-
+import { RxCross2 } from 'react-icons/rx';
+import { useDispatch, useSelector } from 'react-redux';
 interface ProductCardProps {
   title: string;
   description: string;
@@ -15,6 +21,7 @@ interface ProductCardProps {
   discount?: number;
   className?: string;
   link?: string;
+  id: number;
 }
 
 const ProductCard = ({
@@ -25,8 +32,35 @@ const ProductCard = ({
   discount,
   className,
   link,
+  id,
 }: ProductCardProps) => {
-  const [isLiked, setIsLiked] = useState(false);
+  const products = useSelector(
+    (state: RootState) => state.productSlice.product,
+  );
+  const likedProducts = useSelector(
+    (state: RootState) => state.likedProductSlice.likedProducts,
+  );
+
+  const dispatch = useDispatch();
+
+  const isAdded = products?.some(product => product.id === id);
+  const isProductLiked = likedProducts?.some(product => product.id === id);
+
+  const handleAddProduct = () => {
+    if (!isAdded) {
+      dispatch(addProduct({ id, title, description, thumbnail, price }));
+    } else {
+      dispatch(removeProduct(id));
+    }
+  };
+
+  const handleLikeProduct = () => {
+    if (!isProductLiked) {
+      dispatch(addLikedProduct({ id, title, description, thumbnail, price }));
+    } else {
+      dispatch(removeLikedProduct(id));
+    }
+  };
 
   const calculateDiscountedPrice = (
     price: number,
@@ -48,21 +82,22 @@ const ProductCard = ({
           </p>
         )}
 
-        <div className='bg-white rounded-full !z-30'>
-          {isLiked ? (
+        <button
+          onClick={handleLikeProduct}
+          className='bg-white rounded-full !z-30'
+        >
+          {isProductLiked ? (
             <IoMdHeart
               size={24}
               className='absolute text-error top-4 right-4 cursor-pointer z-40'
-              onClick={() => setIsLiked(!isLiked)}
             />
           ) : (
             <GoHeart
               className='absolute top-4 right-4 cursor-pointer z-40'
               size={24}
-              onClick={() => setIsLiked(!isLiked)}
             />
           )}
-        </div>
+        </button>
       </div>
       <Link
         href={link || ''}
@@ -77,7 +112,7 @@ const ProductCard = ({
         />
       </Link>
       <h1
-        className='text-secondary-700 text-2xl line-clamp-2 pb-1'
+        className='text-secondary-700 text-2xl pb-1 line-clamp-1'
         title={title}
       >
         {title}
@@ -101,11 +136,21 @@ const ProductCard = ({
             </s>
           )}
         </p>
-        <button className='bg-primary size-8 rounded-full flex justify-center items-center'>
-          <FiPlus
-            size={19}
-            className='text-white'
-          />
+        <button
+          className='bg-primary size-8 rounded-full flex justify-center items-center'
+          onClick={handleAddProduct}
+        >
+          {isAdded ? (
+            <RxCross2
+              size={19}
+              className='text-white'
+            />
+          ) : (
+            <FiPlus
+              size={19}
+              className='text-white'
+            />
+          )}
         </button>
       </div>
     </div>
