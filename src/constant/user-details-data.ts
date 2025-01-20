@@ -51,7 +51,7 @@ export const ShippingAddress = [
     placeholder: 'Enter country',
   },
   {
-    name: 'zip code',
+    name: 'ZipCode',
     label: 'Enter Code',
     type: 'text',
     placeholder: 'Enter zip code',

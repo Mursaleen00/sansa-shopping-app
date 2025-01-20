@@ -24,7 +24,7 @@ const selectedCardItems = [
 ];
 
 const CartView = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
 
   const totalPrice = selectedCardItems.reduce(
     (acc, item) => acc + item.price,

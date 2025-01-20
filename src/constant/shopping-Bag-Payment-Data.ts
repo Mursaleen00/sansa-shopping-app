@@ -24,21 +24,25 @@ export const cardData = [
 
 export const ShoppingBagPaymentData = [
   {
+    name: 'CardName',
     type: 'text',
     placeholder: 'Enter on Card Name',
     label: 'Name on Card',
   },
   {
-    type: 'text',
+    name: 'ExpiredDate',
+    type: 'number',
     placeholder: 'Enter on Card name',
     label: 'Expired date',
   },
   {
+    name: 'CardNumber',
     type: 'Number',
     placeholder: 'Enter Number',
     label: 'Card Number ',
   },
   {
+    name: 'Cvv',
     type: 'text',
     placeholder: 'Enter CVV ',
     label: 'CVV',

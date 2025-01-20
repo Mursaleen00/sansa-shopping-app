@@ -1,27 +1,35 @@
 'use client';
 import { ShippingAddress, UserDetails } from '@/constant/user-details-data';
-import { DetailsSchema } from '@/schema/details-schema';
+import { UserDetailsSchema } from '@/schema/details-schema';
 import { useFormik } from 'formik';
 import Input from '../inputs/input';
 import Button from '../buttons/button';
 
 const initialValues = {
   email: '',
-  contact: 0,
+  contact: '',
   firstName: '',
   lastName: '',
+  Address: '',
+  City: '',
+  state: '',
+  country: '',
+  ZipCode: '',
+  prefix: '',
 };
 
 const Details = () => {
   const formik = useFormik({
     initialValues,
-    validationSchema: DetailsSchema,
+    validationSchema: UserDetailsSchema,
+
     onSubmit: () => {},
   });
 
   const { values, errors, touched, handleChange, handleSubmit } = formik;
   console.log('🚀 ~ Details ~ errors:', errors);
   console.log('🚀 ~ Details ~ values:', values);
+  console.log('🚀 ~ Details ~ touched:', touched);
 
   return (
     <div>
@@ -43,10 +51,6 @@ const Details = () => {
                 touched={touched[item.name as keyof typeof touched]}
               />
             ))}
-            <Button
-              text='Submit'
-              onClick={handleSubmit}
-            />
           </div>
         </div>
 
@@ -57,9 +61,19 @@ const Details = () => {
             {ShippingAddress.map((item, index) => (
               <Input
                 key={index}
+                onChange={handleChange}
+                value={values[item.name as keyof typeof values]}
+                error={errors[item.name as keyof typeof errors]}
+                touched={touched[item.name as keyof typeof touched]}
                 {...item}
               />
             ))}
+
+            <Button
+              text='Submit'
+              onClick={handleSubmit}
+            />
+            {/* [item.name as keyof typeof values] as string | number}  */}
           </div>
         </div>
       </div>

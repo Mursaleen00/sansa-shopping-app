@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export const DetailsSchema = yup.object().shape({
+export const UserDetailsSchema = yup.object().shape({
   email: yup.string().email().required('Email is required'),
   contact: yup
     .number()
@@ -9,4 +9,10 @@ export const DetailsSchema = yup.object().shape({
     .required('Contact Number is required'),
   firstName: yup.string().required('First Name is required'),
   lastName: yup.string().required('Last Name is required'),
+  Address: yup.string().required('Address is required'),
+  City: yup.string().required('City Name is required'),
+  state: yup.string().required('state Name is required'),
+  country: yup.string().required('country Name is required'),
+  ZipCode: yup.string().required('Zip code Name is required'),
+  prefix: yup.string().required('prefix is required'),
 });

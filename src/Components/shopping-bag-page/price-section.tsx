@@ -36,6 +36,7 @@ const PriceSection = ({ price, setStep }: PriceSectionProps) => {
               className='sm:w-full w-40 sm:mx-20'
               text='Pay Now'
               onClick={setStep}
+              // onSubmit={}
             />
           </div>
         </div>
