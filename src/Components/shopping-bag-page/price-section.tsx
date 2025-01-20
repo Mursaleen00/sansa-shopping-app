@@ -14,7 +14,7 @@ const PriceSection = ({ price, setStep }: PriceSectionProps) => {
       <div className='grid items-center gap-y-6 top-11 w-full'>
         {/* 2nd section  */}
         <div className='flex flex-col  py-[40px] gap-y-6 sm:h-full bg-gray rounded-2xl w-full'>
-          <h1 className='font-semibold text-lg px-9  '>Summary ( 2 items )</h1>
+          <h1 className='text-lg px-9  '>Summary ( 2 items )</h1>
 
           <div className='flex justify-between px-9 '>
             <p className='text-[#44483D]'>Subtotal</p>
@@ -36,6 +36,7 @@ const PriceSection = ({ price, setStep }: PriceSectionProps) => {
               className='sm:w-full w-40 sm:mx-20'
               text='Pay Now'
               onClick={setStep}
+              // onSubmit={}
             />
           </div>
         </div>

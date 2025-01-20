@@ -6,7 +6,18 @@ import { useGetMeHook } from '@/services/user/get-all-products';
 import { MeTypes } from '@/types/users/me';
 import Button from '@/Components/buttons/button';
 import Input from '@/Components/inputs/input';
-
+import { useFormik } from 'formik';
+import { ProfileSchema } from '@/schema/profile-schema';
+const initialValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  address: '',
+  contact: '',
+  city: '',
+  age: '',
+  password: '',
+};
 const ProfileView = () => {
   const { data } = useGetMeHook();
 
@@ -23,6 +34,16 @@ const ProfileView = () => {
     age,
     password,
   });
+  const formik = useFormik({
+    initialValues,
+    validationSchema: ProfileSchema,
+    onSubmit: () => {},
+  });
+
+  const { values, errors, touched, handleChange, handleSubmit } = formik;
+  console.log('🚀 ~ Details ~ errors:', errors);
+  console.log('🚀 ~ Details ~ values:', values);
+  console.log('🚀 ~ Details ~ touched:', touched);
 
   return (
     <div>
@@ -50,7 +71,13 @@ const ProfileView = () => {
               key={index}
               className={`${item.type == 'email' || item.type == 'password' ? 'md:!col-span-2' : ''}`}
             >
-              <Input {...item} />
+              <Input
+                {...item}
+                onChange={handleChange}
+                value={values[item.name as keyof typeof values]}
+                error={errors[item.name as keyof typeof errors]}
+                touched={touched[item.name as keyof typeof touched]}
+              />
             </div>
           ))}
         </div>
@@ -63,6 +90,7 @@ const ProfileView = () => {
           <Button
             text='Save'
             className='w-full text-xl'
+            onClick={handleSubmit}
           />
         </div>
       </div>
