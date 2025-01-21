@@ -21,9 +21,7 @@ const ShoppingBagPayment = () => {
     onSubmit: () => {},
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
-  console.log('🚀 ~ Details ~ errors:', errors);
-  console.log('🚀 ~ Details ~ values:', values);
-  console.log('🚀 ~ Details ~ tou:', touched);
+
   return (
     <div className='flex flex-col md:flex-row gap-y-4 sm:gap-x-4 justify-around w-full '>
       {/* first section  */}

@@ -33,6 +33,7 @@ const Button = ({
         px-6 py-2.5
         rounded-full
         flex items-center justify-center gap-x-3
+        disabled:!bg-secondary-100
         ${className}
       `}
     >
