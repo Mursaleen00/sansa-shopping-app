@@ -8,6 +8,8 @@ import Details from '@/Components/user-details/your-details';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { useState } from 'react';
 
+// import {productSlice} from '@/store/Slice/product-slice'
+
 const selectedCardItems = [
   {
     name: 'black shirt',
@@ -24,7 +26,7 @@ const selectedCardItems = [
 ];
 
 const CartView = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(0);
 
   const totalPrice = selectedCardItems.reduce(
     (acc, item) => acc + item.price,
@@ -37,7 +39,7 @@ const CartView = () => {
     <div className=''>
       {step !== 0 && (
         <button
-          onClick={() => setStep(step <= 0 ? step : step - 1)}
+          onClick={() => setStep(step >= 0 ? step : step - 1)}
           className='flex gap-2 items-center'
         >
           <FaArrowLeft /> Back

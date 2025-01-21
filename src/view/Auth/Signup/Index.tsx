@@ -8,7 +8,7 @@ import Input from '@/Components/inputs/input';
 
 import { CheckBoxData, SignUpData } from '@/constant/signup';
 import { urls } from '@/constant/urls';
-import { SignUpSchema } from '@/schema/register-scheama';
+import { SignUpSchema } from '@/schema/register-schema';
 import { useRegisterMutation } from '@/services/auth/sign-up';
 import { useFormik } from 'formik';
 import Image from 'next/image';
