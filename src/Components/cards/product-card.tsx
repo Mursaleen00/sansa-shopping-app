@@ -37,6 +37,8 @@ const ProductCard = ({
   const products = useSelector(
     (state: RootState) => state.productSlice.product,
   );
+  // console.log(products);
+
   const likedProducts = useSelector(
     (state: RootState) => state.likedProductSlice.likedProducts,
   );
