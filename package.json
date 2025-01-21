@@ -11,6 +11,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
     "@smastrom/react-rating": "^1.5.0",
     "@tanstack/react-query": "^5.62.15",
     "@tanstack/react-query-devtools": "^5.62.15",
@@ -33,8 +34,11 @@
     "react-i18next": "^15.4.0",
     "react-icons": "^5.4.0",
     "react-loader-spinner": "^6.1.6",
+    "react-redux": "^9.2.0",
     "react-responsive-pagination": "^2.10.0",
     "react-switch": "^7.1.0",
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
     "tailwind-merge": "^2.6.0",
     "use-debounce": "^10.0.4",
     "yup": "^1.6.1"
