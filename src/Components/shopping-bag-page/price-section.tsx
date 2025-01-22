@@ -5,16 +5,20 @@ import Button from '../buttons/button';
 
 interface PriceSectionProps {
   price: number;
+  totalItems?: number;
   setStep: () => void;
 }
 
-const PriceSection = ({ price, setStep }: PriceSectionProps) => {
+const PriceSection = ({ price, setStep, totalItems }: PriceSectionProps) => {
   return (
     <div>
       <div className='grid items-center gap-y-6 top-11 w-full'>
         {/* 2nd section  */}
         <div className='flex flex-col  py-[40px] gap-y-6 sm:h-full bg-gray rounded-2xl w-full'>
-          <h1 className='text-lg px-9  '>Summary ( 2 items )</h1>
+          <h1 className='text-lg px-9  '>
+            Summary ( {totalItems} item
+            {totalItems && totalItems > 1 ? 's' : ''} )
+          </h1>
 
           <div className='flex justify-between px-9 '>
             <p className='text-[#44483D]'>Subtotal</p>

@@ -53,7 +53,6 @@ const ProductView = () => {
       <div className='flex justify-between items-center'>
         <p className='text-secondary-700 text-3xl'>All Product Categories</p>
         <Input
-          label='Search'
           placeholder='Search all assets'
           type='text'
           value={search}

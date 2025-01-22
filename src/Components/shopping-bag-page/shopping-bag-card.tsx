@@ -1,102 +1,55 @@
 'use client';
-import Image from 'next/image';
+import { ProductState } from '@/store/Slice/product-slice';
 import { useState } from 'react';
 import Button from '../buttons/button';
+import AddToCard from '../cards/add-to-card';
 import Input from '../inputs/input';
-import { RootState } from '@/store/store';
-import { useSelector } from 'react-redux';
 
-interface CardItem {
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+// interface CardItem {
+//   name: string;
+//   price: number;
+//   quantity: number;
+//   image: string;
+// }
 
 interface Props {
-  data: CardItem[];
+  products: ProductState[];
   totalPrice: number;
   setPrice: (price: number) => void;
   price: number;
 }
 
-const ShoppingBagCard = ({ price, totalPrice, setPrice }: Props) => {
+const ShoppingBagCard = ({ price, totalPrice, setPrice, products }: Props) => {
   const [code, setCode] = useState<number>(0);
+  const [applied, setApplied] = useState<boolean>(false);
 
   const handleApplyCode = () => {
-    if (code === 12345) setPrice(price - 10);
-    else setPrice(totalPrice);
+    if (code === 12345) {
+      setPrice(price - price * 0.1);
+      setApplied(true);
+    } else setPrice(totalPrice);
   };
-  const products = useSelector(
-    (state: RootState) => state.productSlice.product,
-  );
-  console.log(products);
-
-  const [Quantity, setQuantity] = useState(0);
 
   return (
-    <div className='md:gap-x-5 gap-y-7 '>
+    <div>
       <div className='grid grid-row bg-gray w-full  h-fit rounded-2xl py-6 gap-y-5'>
         {/* White shirt */}
-        {products?.map((item, i) => (
-          <div
-            key={i}
-            className='flex sm:flex-row flex-col border justify-start items-center p-8  border-border mx-5 rounded-md sm:gap-x-9'
-          >
-            <Image
-              alt={''}
-              src={item.thumbnail}
-              width={100}
-              height={100}
+
+        <div className='flex flex-col gap-y-5 w-full max-h-[45dvh] overflow-y-auto'>
+          {products.map((item, i) => (
+            <AddToCard
+              key={i}
+              {...item}
             />
-            <div>
-              <h1 className='flex font-bold text-lg'>
-                {item.title}
-                <br /> {item.price} USD
-              </h1>
-              <p className='text-lg'>Description {item.description}</p>
-              <div className='grid sm:grid-cols-2 p-4 sm:gap-x-4 md:gap-x-6 items-center gap-y-3'>
-                {/* SIZE */}
-                {/* <div className='flex gap-1 items-center'>
-                  size:
-                  <button className='flex size-5 w-12 bg-[#E5E5E5] items-center justify-center'></button>
-                </div> */}
-                {/* Quantity */}
-                <div className='flex gap-1 items-center'>
-                  Qty:
-                  {Quantity !== 1 && (
-                    <button
-                      className='flex size-5 rounded-full items-center justify-center bg-[#E5E5E5]'
-                      onClick={() =>
-                        setQuantity(Quantity >= 0 ? Quantity : Quantity - 1)
-                      }
-                    >
-                      -
-                    </button>
-                  )}
-                  {Quantity !== 1 && (
-                    <button
-                      className='flex size-5 rounded-full items-center justify-center bg-[#E5E5E5]'
-                      onClick={() =>
-                        setQuantity(Quantity >= 0 ? Quantity : Quantity + 1)
-                      }
-                    >
-                      +
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className='grid text-[#BA1A1A]'>remove</div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* border */}
         <div className='flex border border-[#dddddc] items-center mx-7'></div>
         {/* Input */}
         <div className='grid px-6 gap-y-3'>
           <Input
-            label='Code'
+            label='Promotion Code'
             placeholder='Enter promotion code to get discount'
             type='number'
             className='w-full'
@@ -105,12 +58,12 @@ const ShoppingBagCard = ({ price, totalPrice, setPrice }: Props) => {
           <Button
             text='Apply'
             onClick={handleApplyCode}
+            disabled={applied || code === 0}
           />
-          <p>Your dummy code is: 12345</p>
+          <p>Your promotion code to get a 10% discount is: 12345</p>
         </div>
       </div>
     </div>
   );
 };
-
 export default ShoppingBagCard;
