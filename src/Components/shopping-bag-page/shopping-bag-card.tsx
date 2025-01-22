@@ -5,21 +5,23 @@ import Button from '../buttons/button';
 import AddToCard from '../cards/add-to-card';
 import Input from '../inputs/input';
 
-// interface CardItem {
-//   name: string;
-//   price: number;
-//   quantity: number;
-//   image: string;
-// }
-
 interface Props {
   products: ProductState[];
   totalPrice: number;
   setPrice: React.Dispatch<React.SetStateAction<number>>;
   price: number;
+  quantities: number[];
+  setQuantities: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-const ShoppingBagCard = ({ price, totalPrice, setPrice, products }: Props) => {
+const ShoppingBagCard = ({
+  price,
+  totalPrice,
+  setPrice,
+  products,
+  quantities,
+  setQuantities,
+}: Props) => {
   const [code, setCode] = useState<number>(0);
   const [applied, setApplied] = useState<boolean>(false);
 
@@ -40,6 +42,9 @@ const ShoppingBagCard = ({ price, totalPrice, setPrice, products }: Props) => {
             <AddToCard
               key={i}
               {...item}
+              index={i}
+              quantities={quantities}
+              setQuantities={setQuantities}
             />
           ))}
         </div>
