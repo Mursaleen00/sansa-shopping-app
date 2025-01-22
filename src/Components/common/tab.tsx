@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 interface TabsProps {
   tabs: string[];
   tab: number;
-  setTab: (tab: number) => void;
+  setTab: React.Dispatch<React.SetStateAction<number>>;
   className?: string;
 }
 

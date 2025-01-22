@@ -1,10 +1,22 @@
 'use client';
 import Button from '@/Components/buttons/button';
+// import { contactSchema } from '@/schema/contact-schema';
+// import { useFormik } from 'formik';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+// const initialValues = {
+//   email: '',
+//   massage: '',
+// };
 const ContactView = () => {
   const { t } = useTranslation();
+  // const formik = useFormik({
+  //   initialValues,
+  //   validationSchema: contactSchema,
+  //   onSubmit: () => {},
+  // });
+  // const { values, errors, touched, handleChange, handleSubmit } = formik;
 
   return (
     <section className='text-gray-600 body-font relative'>
@@ -33,6 +45,10 @@ const ContactView = () => {
               Email
             </label>
             <input
+              // onChange={handleChange}
+              // value={values.email}
+              // error={errors.email}
+              // touched={touched.email}
               type='email'
               id='email'
               name='email'
@@ -48,6 +64,9 @@ const ContactView = () => {
             </label>
             <textarea
               id='message'
+              // value={values.massage}
+              // error={errors.massage}
+              // touched={touched.massage}
               name='message'
               className='w-full bg-white rounded border border-gray-300 focus:border-primary focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out'
             ></textarea>
@@ -55,6 +74,7 @@ const ContactView = () => {
           <Button
             text='Submit'
             className='w-full'
+            // onClick={handleSubmit}
           />
         </div>
       </div>

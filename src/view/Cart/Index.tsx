@@ -20,11 +20,20 @@ const CartView = () => {
     (state: RootState) => state.productSlice.product,
   );
 
-  const totalPrice = products?.reduce((acc, item) => acc + item.price, 0) || 0;
+  const [quantities, setQuantities] = useState<number[]>(
+    products?.map(() => {
+      return 1;
+    }) || [],
+  );
+
+  const totalPrice = products?.reduce(
+    (acc, item, i) => acc + item.price * quantities?.[i],
+    0,
+  );
 
   const router = useRouter();
 
-  const [price, setPrice] = useState<number>(totalPrice);
+  const [price, setPrice] = useState<number>(totalPrice || 0);
 
   return (
     <div>
@@ -44,8 +53,10 @@ const CartView = () => {
             <ShoppingBagCard
               products={products || []}
               price={price}
-              totalPrice={totalPrice}
+              totalPrice={totalPrice || 0}
               setPrice={setPrice}
+              quantities={quantities}
+              setQuantities={setQuantities}
             />
           )}
 
@@ -54,9 +65,11 @@ const CartView = () => {
           {step == 2 && <ShoppingBagPayment />}
 
           <PriceSection
-            price={Number(price.toFixed(2))}
             setStep={() => setStep(step >= 2 ? step : step + 1)}
             totalItems={products?.length}
+            quantities={quantities}
+            products={products}
+            price={price}
           />
         </div>
       ) : (

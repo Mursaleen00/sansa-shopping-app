@@ -43,7 +43,7 @@ const SignInView = () => {
           router.push(urls.home);
         }
       } catch (error) {
-        console.log('🚀 ~ SignInView ~ error:', error);
+        return error;
       }
     },
   });
