@@ -12,6 +12,8 @@ import { urls } from '@/constant/urls';
 import Sidebar from './Sidebar';
 import { useTranslation } from 'react-i18next';
 import { getCookie } from 'cookies-next';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +21,10 @@ const Navbar = () => {
   const { t } = useTranslation();
 
   const token = getCookie('token');
+
+  const products = useSelector(
+    (state: RootState) => state.productSlice.product,
+  );
 
   return (
     <div className='flex bg-primary-length justify-between items-center py-3 px-6 md:px-12 xl:px-24 z-50 shadow-md sticky top-0'>
@@ -54,6 +60,7 @@ const Navbar = () => {
             <Link
               href={item.link}
               key={index}
+              className='relative '
             >
               <Image
                 alt=''
@@ -61,6 +68,12 @@ const Navbar = () => {
                 width={item.width}
                 height={item.height}
               />
+
+              {products && products?.length > 0 && index == 1 && (
+                <div className='!size-3 text-[10px] flex items-center justify-center absolute rounded-full bg-primary top-0 -right-1'>
+                  {products?.length}
+                </div>
+              )}
             </Link>
           ))}
         </div>
