@@ -33,7 +33,7 @@ const ShoppingBagCard = ({ price, totalPrice, setPrice, products }: Props) => {
   return (
     <div>
       <div className='grid grid-row bg-gray w-full  h-fit rounded-2xl py-6 gap-y-5'>
-        {/* White shirt */}
+        {/* image */}
 
         <div className='flex flex-col gap-y-5 w-full max-h-[45dvh] overflow-y-auto'>
           {products.map((item, i) => (

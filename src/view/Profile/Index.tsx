@@ -7,7 +7,7 @@ import { MeTypes } from '@/types/users/me';
 import Button from '@/Components/buttons/button';
 import Input from '@/Components/inputs/input';
 import { useFormik } from 'formik';
-import { ProfileSchema } from '@/schema/profile-schema';
+import { profileSchema } from '@/schema/profile-schema';
 const initialValues = {
   firstName: '',
   lastName: '',
@@ -36,7 +36,7 @@ const ProfileView = () => {
   });
   const formik = useFormik({
     initialValues,
-    validationSchema: ProfileSchema,
+    validationSchema: profileSchema,
     onSubmit: () => {},
   });
 

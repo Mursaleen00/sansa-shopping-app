@@ -131,7 +131,7 @@ const ProductCard = ({
           {discount
             ? calculateDiscountedPrice(price, discount)
             : Math.round(price)}{' '}
-          USD{' '}
+          USD
           {discount && calculateDiscountedPrice(price, discount) && (
             <s className='text-secondary-300  text-base font-normal'>
               {Math.round(price)} USD
