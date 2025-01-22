@@ -1,39 +1,63 @@
 import { ShoppingData } from '@/constant/shoppingData';
+import { ProductState } from '@/store/Slice/product-slice';
 import Image from 'next/image';
-import React from 'react';
 import Button from '../buttons/button';
 
 interface PriceSectionProps {
-  price: number;
   totalItems?: number;
   setStep: () => void;
+  quantities: number[];
+  products?: ProductState[];
+  price: number;
 }
 
-const PriceSection = ({ price, setStep, totalItems }: PriceSectionProps) => {
+const PriceSection = ({
+  setStep,
+  totalItems,
+  products,
+  quantities,
+  price,
+}: PriceSectionProps) => {
   return (
     <div>
       <div className='grid items-center gap-y-6 top-11 w-full'>
         {/* 2nd section  */}
-        <div className='flex flex-col  py-[40px] gap-y-6 sm:h-full bg-gray rounded-2xl w-full'>
+        <div className='flex flex-col py-[40px] gap-y-3 sm:h-full bg-gray rounded-2xl w-full'>
           <h1 className='text-lg px-9  '>
             Summary ( {totalItems} item
             {totalItems && totalItems > 1 ? 's' : ''} )
           </h1>
-
-          <div className='flex justify-between px-9 '>
+          {products?.map((item, i) => {
+            return (
+              <div
+                className='flex justify-between px-9'
+                key={i}
+              >
+                <p className='text-[#44483D]'>
+                  {item.title} x {quantities?.[i]}
+                </p>
+                <p className='font-bold text-sm'>
+                  {(item.price * (quantities?.[i] || 0)).toFixed(2)} USD
+                </p>
+              </div>
+            );
+          })}
+          {/* <div className='flex justify-between px-9 '>
             <p className='text-[#44483D]'>Subtotal</p>
             <p className='font-bold text-sm'>{price} USD</p>
-          </div>
+          </div> */}
           <div className='flex justify-between  items-center px-9 '>
             <p className='text-[#44483D]'>Shipping</p>
             <p className='font-bold text-sm'>Free</p>
           </div>
           <div className=' flex border  border-[#dddddc] items-center mx-7'></div>
+
           {/* total price */}
           <div className='flex justify-between  px-6'>
             <p className='text-[#44483D]'>Total</p>
-            <p className='font-bold'>{price} USD</p>
+            <p className='font-bold'>{price?.toFixed(2)} USD</p>
           </div>
+
           {/* Button */}
           <div className='flex justify-around '>
             <Button
