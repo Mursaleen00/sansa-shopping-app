@@ -15,7 +15,7 @@ import Input from '../inputs/input';
 interface Props {
   products: ProductState[];
   totalPrice: number;
-  setPrice: (price: number) => void;
+  setPrice: React.Dispatch<React.SetStateAction<number>>;
   price: number;
 }
 

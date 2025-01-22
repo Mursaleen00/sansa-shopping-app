@@ -5,7 +5,7 @@ import { FaAnglesRight, FaAnglesLeft } from 'react-icons/fa6';
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
-  setCurrentPage: (page: number) => void;
+  setCurrentPage: (_page: number) => void;
 }
 
 const Pagination = ({

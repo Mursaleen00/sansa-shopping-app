@@ -37,7 +37,7 @@ const SignUpView = () => {
           username: name.toLocaleLowerCase().replaceAll(' ', ''),
         });
       } catch (error) {
-        console.log(error);
+        return error;
       }
     },
   });
