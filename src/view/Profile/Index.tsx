@@ -41,9 +41,6 @@ const ProfileView = () => {
   });
 
   const { values, errors, touched, handleChange, handleSubmit } = formik;
-  console.log('🚀 ~ Details ~ errors:', errors);
-  console.log('🚀 ~ Details ~ values:', values);
-  console.log('🚀 ~ Details ~ touched:', touched);
 
   return (
     <div>
