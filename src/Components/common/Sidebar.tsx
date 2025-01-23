@@ -1,10 +1,16 @@
 'use client';
-import { pages } from '@/constant/pagelist';
+import { authPages, pages } from '@/constant/pagelist';
 import React from 'react';
 import Link from 'next/link';
 import { icons } from '@/constant/icons';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import { FiLogOut } from 'react-icons/fi';
+import { deleteCookie, getCookie } from 'cookies-next';
+import { removeAllProducts } from '@/store/Slice/product-slice';
+import { t } from 'i18next';
 
 interface ISidebar {
   isOpen: boolean;
@@ -13,7 +19,19 @@ interface ISidebar {
 
 const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
   const pathName = usePathname();
+
+  const products = useSelector(
+    (state: RootState) => state.productSlice.product,
+  );
+  const token = getCookie('token');
+  const router = useRouter();
+  const dispatch = useDispatch();
   if (!isOpen) return null;
+  const handleLogOut = () => {
+    deleteCookie('token');
+    router.push('/');
+    dispatch(removeAllProducts());
+  };
 
   return (
     <div className='md:hidden bg-primary-length p-6 absolute right-0 flex flex-col gap-y-4 top-12 w-full shadow-md z-[999]'>
@@ -29,23 +47,50 @@ const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
           </Link>
         ))}
       </div>
-
-      <div className='flex items-center gap-x-2'>
-        {icons.map((item, index) => (
-          <Link
-            href={item.link}
-            key={index}
-            onClick={setIsOpen}
-          >
-            <Image
-              alt=''
-              src={item.icon}
-              width={item.width}
-              height={item.height}
+      {token ? (
+        <div>
+          <div className='flex items-center gap-x-2 mt-4'>
+            {icons.map((item, index) => (
+              <Link
+                href={item.link}
+                key={index}
+                onClick={setIsOpen}
+                className='relative'
+              >
+                <Image
+                  alt=''
+                  src={item.icon}
+                  width={item.width}
+                  height={item.height}
+                />
+                {products && products?.length > 0 && index == 1 && (
+                  <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
+                    {products?.length}
+                  </div>
+                )}
+              </Link>
+            ))}
+            <FiLogOut
+              className='flex size-5 cursor-pointer'
+              width={24}
+              height={30}
+              onClick={handleLogOut}
             />
-          </Link>
-        ))}
-      </div>
+          </div>
+        </div>
+      ) : (
+        <div className='flex gap-x-8'>
+          {authPages.map((item, index) => (
+            <Link
+              href={item.link}
+              key={index}
+              className={`${pathName === item.link ? 'text-primary' : 'text-secondary-700'}`}
+            >
+              {t(item.text)}
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

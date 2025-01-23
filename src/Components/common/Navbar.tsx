@@ -12,8 +12,12 @@ import { urls } from '@/constant/urls';
 import Sidebar from './Sidebar';
 import { useTranslation } from 'react-i18next';
 import { getCookie } from 'cookies-next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import { FiLogOut } from 'react-icons/fi';
+import { useRouter } from 'next/navigation';
+import { deleteCookie } from 'cookies-next';
+import { removeAllProducts } from '@/store/Slice/product-slice';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +29,13 @@ const Navbar = () => {
   const products = useSelector(
     (state: RootState) => state.productSlice.product,
   );
-
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const handleLogOut = () => {
+    deleteCookie('token');
+    router.push('/');
+    dispatch(removeAllProducts());
+  };
   return (
     <div className='flex bg-primary-length justify-between items-center py-3 px-6 md:px-12 xl:px-24 z-50 shadow-md sticky top-0'>
       <Link href={urls.home}>
@@ -55,27 +65,34 @@ const Navbar = () => {
       </div>
 
       {token ? (
-        <div className='hidden md:flex items-center gap-x-3'>
+        <div className={'hidden md:flex items-center gap-x-3  '}>
           {icons.map((item, index) => (
             <Link
               href={item.link}
               key={index}
-              className='relative '
+              className={`relative`}
             >
               <Image
                 alt=''
                 src={item.icon}
                 width={item.width}
                 height={item.height}
+                className={``}
               />
 
               {products && products?.length > 0 && index == 1 && (
-                <div className='!size-3 text-[10px] flex items-center justify-center absolute rounded-full bg-primary top-0 -right-1'>
+                <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
                   {products?.length}
                 </div>
               )}
             </Link>
           ))}
+          <FiLogOut
+            className='flex size-5 cursor-pointer'
+            width={24}
+            height={30}
+            onClick={handleLogOut}
+          />
         </div>
       ) : (
         <div className='hidden md:flex gap-x-8'>
