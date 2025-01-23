@@ -40,9 +40,12 @@ const productSlice = createSlice({
         );
       }
     },
+    removeAllProducts: state => {
+      state.product = null;
+    },
   },
 });
-export const { addProduct, updateProduct, removeProduct } =
+export const { addProduct, updateProduct, removeProduct, removeAllProducts } =
   productSlice.actions;
 
 export default productSlice.reducer;

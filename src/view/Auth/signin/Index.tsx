@@ -5,7 +5,6 @@ import CheckBox from '@/Components/common/checkbox';
 import Heading from '@/Components/common/heading';
 import Input from '@/Components/inputs/input';
 import Paragraph from '@/Components/common/paragraph';
-
 import { CheckBoxData, SignInData } from '@/constant/Signin';
 import { urls } from '@/constant/urls';
 import { LoginSchema } from '@/schema/login-schema';
