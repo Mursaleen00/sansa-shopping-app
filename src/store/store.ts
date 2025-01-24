@@ -5,8 +5,8 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+import likedProductSlice from './Slice/like-product-slice';
 import productSlice from './Slice/product-slice';
-import likedProductSlice from './Slice/liked-product-slice';
 
 const reducers = combineReducers({
   productSlice,
