@@ -13,7 +13,7 @@ const BackButton = () => {
   return (
     <button
       onClick={() => router.back()}
-      className='flex gap-x-1 text-secondary-700 cursor-pointer items-center'
+      className='flex gap-x-1 text-secondary-700 cursor-pointer items-center w-fit'
     >
       <IoArrowBack size={20} />
       <p className='text-lg font-medium'>Back</p>

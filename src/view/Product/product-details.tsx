@@ -28,7 +28,7 @@ const ProductDetails = ({ id }: { id: string }) => {
             width={300}
             height={300}
           />
-          <div className='grid grid-cols-2 sm:grid-cols-4  gap-x-3 gap-2 m-auto'>
+          <div className='grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-2 m-auto'>
             {data?.images.map(item => (
               <Image
                 key={item}
@@ -39,19 +39,20 @@ const ProductDetails = ({ id }: { id: string }) => {
                 className={` border border-secondary-600 max-h-[300px] cursor-pointer rounded-xl p-4 ${
                   img === item && 'bg-primary-length'
                 }`}
-                onMouseEnter={() => setImg(item)}
+                onClick={() => setImg(item)}
               />
             ))}
           </div>
         </div>
         {/* 2nd section  */}
         <SingleProductDetails
-        // setStep={() => setStep(step >= 2 ? step : step + 1)}
-        // title ={img.thumbnail}
-        // description={data?.images.description}
-        // quantities={data}
-        // products={products}
-        // price={data?.images.price}
+          description={data?.description || ''}
+          price={data?.price || 0}
+          ratings={data?.rating || 0}
+          title={data?.title || ''}
+          totalReviews={data?.reviews.length || 0}
+          thumbnail={data?.thumbnail || ''}
+          id={data?.id || 0}
         />
       </div>
     </div>
