@@ -2,7 +2,6 @@
 import ProductCard from '@/Components/cards/product-card';
 import ProductNotfound from '@/Components/common/not-found';
 import Input from '@/Components/inputs/input';
-import { urls } from '@/constant/urls';
 import { RootState } from '@/store/store';
 import { Fragment, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -45,7 +44,6 @@ const FavoriteView = () => {
               <ProductCard
                 {...item}
                 key={i}
-                link={urls.productDetails(item.id)}
               />
             ))}
           </div>

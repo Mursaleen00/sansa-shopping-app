@@ -1,5 +1,6 @@
 'use client';
 
+import { urls } from '@/constant/urls';
 import {
   addToLikeProduct,
   removeToLikeProduct,
@@ -20,7 +21,6 @@ interface ProductCardProps {
   thumbnail: string;
   discount?: number;
   className?: string;
-  link?: string;
   id: number;
 }
 
@@ -31,7 +31,6 @@ const ProductCard = ({
   price,
   discount,
   className,
-  link,
   id,
 }: ProductCardProps) => {
   const products = useSelector(
@@ -101,7 +100,7 @@ const ProductCard = ({
         </button>
       </div>
       <Link
-        href={link || ''}
+        href={urls.productDetails(id)}
         className='bg-white'
       >
         <Image

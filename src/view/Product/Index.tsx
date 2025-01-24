@@ -1,10 +1,9 @@
 'use client';
 import ProductCard from '@/Components/cards/product-card';
-import Input from '@/Components/inputs/input';
 import Loader from '@/Components/common/loader';
 import ProductNotfound from '@/Components/common/not-found';
 import Pagination from '@/Components/common/pagination';
-import { urls } from '@/constant/urls';
+import Input from '@/Components/inputs/input';
 import { useGetAllProductsHook } from '@/services/products/get-all-products';
 import { useSearchParams } from 'next/navigation';
 import { Fragment, useState } from 'react';
@@ -72,7 +71,6 @@ const ProductView = () => {
                 <ProductCard
                   {...item}
                   key={i}
-                  link={urls.productDetails(item.id)}
                 />
               ))}
             </div>

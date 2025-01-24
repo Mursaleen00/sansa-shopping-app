@@ -7,6 +7,7 @@ export type ProductState = {
   price: number;
   thumbnail: string;
   description: string;
+  quantities?: number;
 };
 
 const initialState: {
