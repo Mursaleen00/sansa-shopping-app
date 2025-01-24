@@ -1,9 +1,9 @@
 'use client';
 
 import {
-  addLikedProduct,
-  removeLikedProduct,
-} from '@/store/Slice/liked-product-slice';
+  addToLikeProduct,
+  removeToLikeProduct,
+} from '@/store/Slice/like-product-slice';
 import { addProduct, removeProduct } from '@/store/Slice/product-slice';
 import { RootState } from '@/store/store';
 import Image from 'next/image';
@@ -37,10 +37,9 @@ const ProductCard = ({
   const products = useSelector(
     (state: RootState) => state.productSlice.product,
   );
-  // console.log(products);
 
   const likedProducts = useSelector(
-    (state: RootState) => state.likedProductSlice.likedProducts,
+    (state: RootState) => state.likedProductSlice.product,
   );
 
   const dispatch = useDispatch();
@@ -58,9 +57,9 @@ const ProductCard = ({
 
   const handleLikeProduct = () => {
     if (!isProductLiked) {
-      dispatch(addLikedProduct({ id, title, description, thumbnail, price }));
+      dispatch(addToLikeProduct({ id, title, description, thumbnail, price }));
     } else {
-      dispatch(removeLikedProduct(id));
+      dispatch(removeToLikeProduct(id));
     }
   };
 
