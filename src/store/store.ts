@@ -48,6 +48,7 @@ const store = configureStore({
 export default store;
 
 export type RootState = ReturnType<typeof reducers>;
+export type LikedState = ReturnType<typeof reducers>;
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

@@ -13,11 +13,13 @@ import Sidebar from './Sidebar';
 import { useTranslation } from 'react-i18next';
 import { getCookie } from 'cookies-next';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import { LikedState, RootState } from '@/store/store';
 import { FiLogOut } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import { deleteCookie } from 'cookies-next';
 import { removeAllProducts } from '@/store/Slice/product-slice';
+// import { LikedState } from '@/store/Slice/like-product-slice';
+// import likedProductSlice from './Slice/like-product-slice';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +30,9 @@ const Navbar = () => {
 
   const products = useSelector(
     (state: RootState) => state.productSlice.product,
+  );
+  const likedProducts = useSelector(
+    (state: LikedState) => state.likedProductSlice.product,
   );
   const router = useRouter();
   const dispatch = useDispatch();
@@ -70,7 +75,7 @@ const Navbar = () => {
             <Link
               href={item.link}
               key={index}
-              className={`relative`}
+              className={`relative text-blue-700 ${pathname === item.link ? 'text-primary' : 'text-secondary-700'} `}
             >
               <Image
                 alt=''
@@ -79,7 +84,13 @@ const Navbar = () => {
                 height={item.height}
                 className={``}
               />
-
+              {likedProducts?.length &&
+                likedProducts?.length > 0 &&
+                index == 0 && (
+                  <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
+                    {likedProducts?.length}
+                  </div>
+                )}
               {products && products?.length > 0 && index == 1 && (
                 <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
                   {products?.length}
