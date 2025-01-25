@@ -10,8 +10,6 @@ const ProductDetails = ({ id }: { id: string }) => {
     id,
   });
 
-  console.log('🚀 ~ ProductDetails ~ data:', data);
-
   const [img, setImg] = useState(data?.images[0] || '/');
 
   useEffect(() => {
