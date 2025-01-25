@@ -7,42 +7,46 @@ export const cardData = [
   {
     name: 'Card',
     icon: Card,
+    value: 'card',
   },
   {
     name: 'Paypal',
     icon: Paypal,
+    value: 'paypal',
   },
   {
     name: 'Google Pay',
     icon: GooglePay,
+    value: 'googlePay',
   },
   {
     name: 'Apple Pay',
     icon: ApplePay,
+    value: 'ApplePay',
   },
 ];
 
 export const ShoppingBagPaymentData = [
   {
-    name: 'CardName',
+    name: 'cardName',
     type: 'text',
     placeholder: 'Enter on Card Name',
     label: 'Name on Card',
   },
   {
-    name: 'ExpiredDate',
+    name: 'expiredDate',
     type: 'number',
     placeholder: 'Enter on Card name',
     label: 'Expired date',
   },
   {
-    name: 'CardNumber',
+    name: 'cardNumber',
     type: 'Number',
     placeholder: 'Enter Number',
     label: 'Card Number ',
   },
   {
-    name: 'Cvv',
+    name: 'cvv',
     type: 'text',
     placeholder: 'Enter CVV ',
     label: 'CVV',

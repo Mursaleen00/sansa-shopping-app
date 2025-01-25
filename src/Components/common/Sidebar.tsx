@@ -6,11 +6,12 @@ import { icons } from '@/constant/icons';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import { LikedState, RootState } from '@/store/store';
 import { FiLogOut } from 'react-icons/fi';
 import { deleteCookie, getCookie } from 'cookies-next';
 import { removeAllProducts } from '@/store/Slice/product-slice';
 import { t } from 'i18next';
+import { urls } from '@/constant/urls';
 
 interface ISidebar {
   isOpen: boolean;
@@ -23,13 +24,21 @@ const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
   const products = useSelector(
     (state: RootState) => state.productSlice.product,
   );
+
+  const likedProducts = useSelector(
+    (state: LikedState) => state.likedProductSlice.product,
+  );
   const token = getCookie('token');
+
   const router = useRouter();
+
   const dispatch = useDispatch();
+
   if (!isOpen) return null;
+
   const handleLogOut = () => {
     deleteCookie('token');
-    router.push('/');
+    router.push(urls.home);
     dispatch(removeAllProducts());
   };
 
@@ -63,6 +72,11 @@ const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
                   width={item.width}
                   height={item.height}
                 />
+                {likedProducts && likedProducts?.length > 0 && index == 0 && (
+                  <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
+                    {likedProducts?.length}
+                  </div>
+                )}
                 {products && products?.length > 0 && index == 1 && (
                   <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
                     {products?.length}

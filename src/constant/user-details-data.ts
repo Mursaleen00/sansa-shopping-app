@@ -27,13 +27,13 @@ export const UserDetails = [
 
 export const ShippingAddress = [
   {
-    name: 'Address',
+    name: 'address',
     label: 'your address',
     type: 'email',
     placeholder: 'Enter Address',
   },
   {
-    name: 'City',
+    name: 'city',
     label: 'City Name',
     type: 'text',
     placeholder: 'Enter City Name ',
@@ -51,7 +51,7 @@ export const ShippingAddress = [
     placeholder: 'Enter country',
   },
   {
-    name: 'ZipCode',
+    name: 'zipCode',
     label: 'Enter Code',
     type: 'text',
     placeholder: 'Enter zip code',

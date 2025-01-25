@@ -47,6 +47,7 @@ const SingleProductDetails: FC<SingleProductProps> = ({
   const dispatch = useDispatch();
 
   const isAdded = products?.find(product => product.id === id);
+
   const isProductLiked = likedProducts?.find(product => product.id === id);
 
   const handleAddProduct = () => {
@@ -118,7 +119,7 @@ const SingleProductDetails: FC<SingleProductProps> = ({
         </p>
       </div>
 
-      <div className='text-2xl font-bold'>{price} USD</div>
+      <div className='text-2xl font-bold'> {price} USD</div>
       <div className='flex gap-2 items-center'>
         Quantity :
         <button
@@ -137,7 +138,7 @@ const SingleProductDetails: FC<SingleProductProps> = ({
       </div>
 
       {/* button */}
-      <div className='grid grid-cols-2 gap-5 px-9'>
+      <div className='grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2  gap-5 px-9'>
         <Button
           className='w-full'
           text={!isAdded ? 'Add to card' : 'Go to card'}

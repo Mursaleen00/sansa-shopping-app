@@ -1,32 +1,15 @@
 'use client';
 import { ShippingAddress, UserDetails } from '@/constant/user-details-data';
-import { UserDetailsSchema } from '@/schema/details-schema';
-import { useFormik } from 'formik';
+import { FC } from 'react';
 import Input from '../inputs/input';
-import Button from '../buttons/button';
+import { AddToCardOnboardingType } from '@/types/products/add-to-card';
 
-const initialValues = {
-  email: '',
-  contact: '',
-  firstName: '',
-  lastName: '',
-  Address: '',
-  City: '',
-  state: '',
-  country: '',
-  ZipCode: '',
-  prefix: '',
-};
+interface Props {
+  formik: AddToCardOnboardingType;
+}
 
-const Details = () => {
-  const formik = useFormik({
-    initialValues,
-    validationSchema: UserDetailsSchema,
-
-    onSubmit: () => {},
-  });
-
-  const { values, errors, touched, handleChange, handleSubmit } = formik;
+const Details: FC<Props> = ({ formik }) => {
+  const { values, errors, touched, handleChange, handleBlur } = formik;
 
   return (
     <div>
@@ -38,14 +21,26 @@ const Details = () => {
           <div className='grid sm:grid-cols-2 gap-3'>
             {UserDetails.map((item, index) => (
               <Input
+                {...item}
+                name={'personalDetails.' + item.name}
                 value={
-                  values[item.name as keyof typeof values] as string | number
+                  values.personalDetails?.[
+                    item.name as keyof typeof values.personalDetails
+                  ] as string | number
                 }
                 onChange={handleChange}
                 key={index}
-                {...item}
-                error={errors[item.name as keyof typeof errors]}
-                touched={touched[item.name as keyof typeof touched]}
+                error={
+                  errors.personalDetails?.[
+                    item.name as keyof typeof errors.personalDetails
+                  ]
+                }
+                touched={
+                  touched.personalDetails?.[
+                    item.name as keyof typeof touched.personalDetails
+                  ]
+                }
+                onBlur={handleBlur}
               />
             ))}
           </div>
@@ -57,20 +52,28 @@ const Details = () => {
           <div className='grid sm:grid-cols-2 gap-3 '>
             {ShippingAddress.map((item, index) => (
               <Input
+                {...item}
                 key={index}
                 onChange={handleChange}
-                value={values[item.name as keyof typeof values]}
-                error={errors[item.name as keyof typeof errors]}
-                touched={touched[item.name as keyof typeof touched]}
-                {...item}
+                name={'personalDetails.' + item.name}
+                value={
+                  values.personalDetails?.[
+                    item.name as keyof typeof values.personalDetails
+                  ]
+                }
+                error={
+                  errors.personalDetails?.[
+                    item.name as keyof typeof errors.personalDetails
+                  ]
+                }
+                touched={
+                  touched.personalDetails?.[
+                    item.name as keyof typeof touched.personalDetails
+                  ]
+                }
+                onBlur={handleBlur}
               />
             ))}
-
-            <Button
-              text='Submit'
-              onClick={handleSubmit}
-            />
-            {/* [item.name as keyof typeof values] as string | number}  */}
           </div>
         </div>
       </div>

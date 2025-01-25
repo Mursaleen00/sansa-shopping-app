@@ -2,25 +2,19 @@ import {
   cardData,
   ShoppingBagPaymentData,
 } from '@/constant/shopping-Bag-Payment-Data';
-import { useFormik } from 'formik';
+import { AddToCardOnboardingType } from '@/types/products/add-to-card';
+import { FC } from 'react';
 import Input from '../inputs/input';
 import Radio from '../inputs/radio';
-import Button from '../buttons/button';
-import { SoppingBagPaymentSchema } from '@/schema/sopping-bag-payment-schema';
 
-const initialValues = {
-  CardName: '',
-  ExpiredDate: '',
-  CardNumber: '',
-  Cvv: '',
-};
-const ShoppingBagPayment = () => {
-  const formik = useFormik({
-    initialValues,
-    validationSchema: SoppingBagPaymentSchema,
-    onSubmit: () => {},
-  });
-  const { values, errors, touched, handleChange, handleSubmit } = formik;
+interface Props {
+  formik: AddToCardOnboardingType;
+}
+
+const ShoppingBagPayment: FC<Props> = ({ formik }) => {
+  const { values, touched, handleChange, handleBlur, errors } = formik;
+
+  const { bankDetails } = values;
 
   return (
     <div className='flex flex-col md:flex-row gap-y-4 sm:gap-x-4 justify-around w-full '>
@@ -36,34 +30,42 @@ const ShoppingBagPayment = () => {
               <Radio
                 label={item.name}
                 image={item.icon}
+                onChange={handleChange}
+                name={'bankDetails.selectedCard'}
+                checked={item.value === bankDetails.selectedCard}
+                value={item.value}
               />
             </div>
           ))}
         </div>
-        <div>
+
+        {bankDetails.selectedCard == 'card' && (
           <div className='grid gap-y-2 pt-5'>
-            {ShoppingBagPaymentData.map((item, i) => (
-              <div key={i}>
-                <Input
-                  {...item}
-                  onChange={handleChange}
-                  value={values[item.name as keyof typeof values]}
-                  error={errors[item.name as keyof typeof errors]}
-                  touched={touched[item.name as keyof typeof touched]}
-                />
-              </div>
-            ))}
+            {ShoppingBagPaymentData.map((item, i) => {
+              return (
+                <div key={i}>
+                  <Input
+                    {...item}
+                    onChange={handleChange}
+                    name={'bankDetails.' + item.name}
+                    value={bankDetails[item.name as keyof typeof bankDetails]}
+                    error={
+                      errors.bankDetails?.[
+                        item.name as keyof typeof errors.bankDetails
+                      ]
+                    }
+                    touched={
+                      touched.bankDetails?.[
+                        item.name as keyof typeof touched.bankDetails
+                      ]
+                    }
+                    onBlur={handleBlur}
+                  />
+                </div>
+              );
+            })}
           </div>
-          <Button
-            text='Submit'
-            onClick={handleSubmit}
-          />
-          <div className='flex flex-col sm:flex-row justify-end sm:gap-x-2 py-1'>
-            <p>Where is Card number?</p>
-            <p>Where is Expired date?</p>
-            <p>Where is my CVV?</p>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
