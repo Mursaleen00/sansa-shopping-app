@@ -1,6 +1,6 @@
 'use client';
 import { profileData } from '@/constant/profile-data';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useGetMeHook } from '@/services/user/get-all-products';
 import { MeTypes } from '@/types/users/me';
@@ -8,6 +8,7 @@ import Button from '@/Components/buttons/button';
 import Input from '@/Components/inputs/input';
 import { useFormik } from 'formik';
 import { profileSchema } from '@/schema/profile-schema';
+
 const initialValues = {
   firstName: '',
   lastName: '',
@@ -18,6 +19,7 @@ const initialValues = {
   age: '',
   password: '',
 };
+
 const ProfileView = () => {
   const { data } = useGetMeHook();
 
@@ -34,13 +36,28 @@ const ProfileView = () => {
     age,
     password,
   });
+
   const formik = useFormik({
     initialValues,
     validationSchema: profileSchema,
     onSubmit: () => {},
   });
 
-  const { values, errors, touched, handleChange, handleSubmit } = formik;
+  const { values, errors, touched, handleChange, handleSubmit, setFieldValue } =
+    formik;
+
+  useEffect(() => {
+    if (data) {
+      setFieldValue('firstName', firstName);
+      setFieldValue('lastName', lastName);
+      setFieldValue('email', email);
+      setFieldValue('address', address?.address);
+      setFieldValue('city', address?.city);
+      setFieldValue('contact', phone);
+      setFieldValue('age', age);
+      setFieldValue('password', password);
+    }
+  }, [data]);
 
   return (
     <div>
@@ -50,8 +67,8 @@ const ProfileView = () => {
       <div className='grid items-center gap-y-4 sm:p-10 p-6 border-2 py-9 sm:mx-14 rounded-3xl border-gray'>
         <div className='grid sm:grid-flow-col sm:gap-x-14 justify-between items-center'>
           <p className=' flex text-secondary-700 text-3xl sm:order-1 order-2 justify-center'>
-            Name : {data?.firstName}
-            <br /> ID : {data?.id}
+            Name : {data?.firstName} {data?.lastName}
+            {/* <br /> ID : {data?.id} */}
           </p>
           <div className='flex justify-around sm:order-2 order-1'>
             <Image

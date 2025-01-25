@@ -28,7 +28,7 @@ const FavoriteView = () => {
         <div className='text-[#B3B7B1]'>Home</div>/<div>Favorite</div>
       </div>
       <div className='flex justify-between items-center'>
-        <p className='text-secondary-700 text-3xl'>All Product Categories</p>
+        <p className='text-secondary-700 text-3xl'>All Favorite Categories</p>
         <Input
           placeholder='Search all assets'
           type='text'
