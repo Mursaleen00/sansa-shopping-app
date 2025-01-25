@@ -6,12 +6,43 @@ import ShoppingBagCard from '@/Components/shopping-bag-page/shopping-bag-card';
 import ShoppingBagPayment from '@/Components/shopping-bag-page/shopping-bag-payment';
 import StepBar from '@/Components/shopping-bag-page/step-bar';
 import Details from '@/Components/user-details/your-details';
+import {
+  bankDetailSchema,
+  personalDetailSchema,
+} from '@/schema/details-schema';
+import { removeAllProducts } from '@/store/Slice/product-slice';
 import { RootState } from '@/store/store';
+import { AddToCardOnboardingT } from '@/types/products/add-to-card';
+import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { FaArrowLeft } from 'react-icons/fa6';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+const initialValues: AddToCardOnboardingT = {
+  personalDetails: {
+    email: '',
+    contact: '',
+    firstName: '',
+    lastName: '',
+    address: '',
+    city: '',
+    state: '',
+    country: '',
+    zipCode: '',
+    prefix: '',
+  },
+
+  bankDetails: {
+    cardName: '',
+    expiredDate: '',
+    cardNumber: '',
+    cvv: '',
+    selectedCard: '',
+  },
+};
 
 const CartView = () => {
   const [step, setStep] = useState(0);
@@ -35,6 +66,32 @@ const CartView = () => {
 
   const [price, setPrice] = useState<number>(totalPrice || 0);
 
+  useEffect(() => setPrice(totalPrice || 0), [totalPrice]);
+
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema:
+      step == 1 ? personalDetailSchema : step == 2 ? bankDetailSchema : null,
+    onSubmit: () => {
+      toast.success('Order placed successfully');
+      router.push('/');
+      dispatch(removeAllProducts());
+    },
+  });
+
+  const { handleSubmit, validateForm } = formik;
+
+  const handleNext = async () => {
+    const isValid = await validateForm();
+
+    if (Object.values(isValid).length === 0) {
+      if (step != 2) setStep(step >= 2 ? step : step + 1);
+      else handleSubmit();
+    } else toast.error('Please fill all the fields');
+  };
+
   return (
     <div>
       {step !== 0 && (
@@ -45,6 +102,7 @@ const CartView = () => {
           <FaArrowLeft /> Back
         </button>
       )}
+
       <StepBar step={step} />
 
       {products && products?.length > 0 ? (
@@ -60,12 +118,12 @@ const CartView = () => {
             />
           )}
 
-          {step == 1 && <Details />}
+          {step == 1 && <Details formik={formik} />}
 
-          {step == 2 && <ShoppingBagPayment />}
+          {step == 2 && <ShoppingBagPayment formik={formik} />}
 
           <PriceSection
-            setStep={() => setStep(step >= 2 ? step : step + 1)}
+            setStep={handleNext}
             totalItems={products?.length}
             quantities={quantities}
             products={products}
@@ -80,6 +138,7 @@ const CartView = () => {
             width={195}
             height={203}
           />
+
           <div>
             <h3 className='text-secondary-700 text-2xl text-center'>
               No product in Bag
