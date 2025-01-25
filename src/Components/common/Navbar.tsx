@@ -18,12 +18,12 @@ import { FiLogOut } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import { deleteCookie } from 'cookies-next';
 import { removeAllProducts } from '@/store/Slice/product-slice';
-// import { LikedState } from '@/store/Slice/like-product-slice';
-// import likedProductSlice from './Slice/like-product-slice';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const pathname = usePathname();
+
   const { t } = useTranslation();
 
   const token = getCookie('token');
@@ -35,12 +35,15 @@ const Navbar = () => {
     (state: LikedState) => state.likedProductSlice.product,
   );
   const router = useRouter();
+
   const dispatch = useDispatch();
+
   const handleLogOut = () => {
     deleteCookie('token');
-    router.push('/');
+    router.push(urls.home);
     dispatch(removeAllProducts());
   };
+
   return (
     <div className='flex bg-primary-length justify-between items-center py-3 px-6 md:px-12 xl:px-24 z-50 shadow-md sticky top-0'>
       <Link href={urls.home}>
@@ -75,7 +78,7 @@ const Navbar = () => {
             <Link
               href={item.link}
               key={index}
-              className={`relative text-blue-700 ${pathname === item.link ? 'text-primary' : 'text-secondary-700'} `}
+              className={`relative } `}
             >
               <Image
                 alt=''
@@ -84,13 +87,11 @@ const Navbar = () => {
                 height={item.height}
                 className={``}
               />
-              {likedProducts?.length &&
-                likedProducts?.length > 0 &&
-                index == 0 && (
-                  <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
-                    {likedProducts?.length}
-                  </div>
-                )}
+              {likedProducts && likedProducts?.length > 0 && index == 0 && (
+                <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
+                  {likedProducts?.length}
+                </div>
+              )}
               {products && products?.length > 0 && index == 1 && (
                 <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
                   {products?.length}

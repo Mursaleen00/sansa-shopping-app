@@ -23,6 +23,7 @@ const ShoppingBagCard = ({
   setQuantities,
 }: Props) => {
   const [code, setCode] = useState<number>(0);
+
   const [applied, setApplied] = useState<boolean>(false);
 
   const handleApplyCode = () => {
