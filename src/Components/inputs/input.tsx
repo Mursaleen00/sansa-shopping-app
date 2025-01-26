@@ -1,6 +1,7 @@
 'use client';
 import { cn } from '@/lib/cn-utils';
 import React, { Fragment, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 interface InputProps {
@@ -21,14 +22,16 @@ const Input = ({
   const [isVisible, setIsVisible] = useState(false);
   const isError = error && touched;
 
+  const { t } = useTranslation();
+
   return (
     <label
       htmlFor='input'
       className='space-y-1 '
     >
       {label && (
-        <p className='text-secondary-700 text-sm font-normal capitalize'>
-          {label}
+        <p className='text-secondary-700 text-sm font-normal capitalize line-clamp-1'>
+          {t(label)}
           {required && <span className='text-red'>*</span>}
         </p>
       )}

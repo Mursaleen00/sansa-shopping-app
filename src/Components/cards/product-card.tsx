@@ -14,6 +14,7 @@ import { GoHeart } from 'react-icons/go';
 import { IoMdHeart } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 import { useDispatch, useSelector } from 'react-redux';
+
 interface ProductCardProps {
   title: string;
   description: string;
@@ -48,7 +49,9 @@ const ProductCard = ({
 
   const handleAddProduct = () => {
     if (!isAdded) {
-      dispatch(addProduct({ id, title, description, thumbnail, price }));
+      dispatch(
+        addProduct({ id, title, description, thumbnail, price, quantity: 1 }),
+      );
     } else {
       dispatch(removeProduct(id));
     }
@@ -129,7 +132,7 @@ const ProductCard = ({
           {discount
             ? calculateDiscountedPrice(price, discount)
             : Math.round(price)}{' '}
-          USD
+          USD{' '}
           {discount && calculateDiscountedPrice(price, discount) && (
             <s className='text-secondary-300  text-base font-normal'>
               {Math.round(price)} USD

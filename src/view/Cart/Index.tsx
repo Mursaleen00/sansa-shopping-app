@@ -1,11 +1,11 @@
 'use client';
-import EmptyCard from '@/../public/image/empty-card.svg';
-import Button from '@/Components/buttons/button';
+import NoProduct from '@/Components/common/no-product';
 import PriceSection from '@/Components/shopping-bag-page/price-section';
 import ShoppingBagCard from '@/Components/shopping-bag-page/shopping-bag-card';
 import ShoppingBagPayment from '@/Components/shopping-bag-page/shopping-bag-payment';
 import StepBar from '@/Components/shopping-bag-page/step-bar';
 import Details from '@/Components/user-details/your-details';
+import { urls } from '@/constant/urls';
 import {
   bankDetailSchema,
   personalDetailSchema,
@@ -14,10 +14,10 @@ import { removeAllProducts } from '@/store/Slice/product-slice';
 import { RootState } from '@/store/store';
 import { AddToCardOnboardingT } from '@/types/products/add-to-card';
 import { useFormik } from 'formik';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -52,10 +52,12 @@ const CartView = () => {
   );
 
   const [quantities, setQuantities] = useState<number[]>(
-    products?.map(() => {
-      return 1;
+    products?.map(item => {
+      return item.quantities || 1;
     }) || [],
   );
+
+  const { t } = useTranslation();
 
   const totalPrice = products?.reduce(
     (acc, item, i) => acc + item.price * quantities?.[i],
@@ -76,7 +78,7 @@ const CartView = () => {
       step == 1 ? personalDetailSchema : step == 2 ? bankDetailSchema : null,
     onSubmit: () => {
       toast.success('Order placed successfully');
-      router.push('/');
+      router.push(urls.home);
       dispatch(removeAllProducts());
     },
   });
@@ -99,7 +101,7 @@ const CartView = () => {
           onClick={() => setStep(step >= 0 ? step : step - 1)}
           className='flex gap-2 items-center'
         >
-          <FaArrowLeft /> Back
+          <FaArrowLeft /> {t('Back')}
         </button>
       )}
 
@@ -128,32 +130,14 @@ const CartView = () => {
             quantities={quantities}
             products={products}
             price={price}
+            step={step}
           />
         </div>
       ) : (
-        <div className='flex flex-col justify-center items-center gap-y-10 pt-10'>
-          <Image
-            alt=''
-            src={EmptyCard}
-            width={195}
-            height={203}
-          />
-
-          <div>
-            <h3 className='text-secondary-700 text-2xl text-center'>
-              No product in Bag
-            </h3>
-            <p className='text-secondary-500 text-center'>
-              Ordered product will appear here
-            </p>
-          </div>
-
-          <Button
-            text='Go to shopping'
-            className='w-full max-w-[400px]'
-            onClick={() => router.push('/product')}
-          />
-        </div>
+        <NoProduct
+          title='No product in Bag'
+          description='Ordered product will appear here'
+        />
       )}
     </div>
   );

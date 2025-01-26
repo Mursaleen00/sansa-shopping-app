@@ -8,7 +8,7 @@ export const SignUpData = [
     type: 'email',
     placeholder: 'Enter Email',
     icon: Email.src,
-    label: 'email',
+    label: 'Email',
     name: 'email',
   },
   {
@@ -16,7 +16,7 @@ export const SignUpData = [
     type: 'text',
     placeholder: 'Enter Your Name',
     icon: Name.src,
-    label: 'name',
+    label: 'Name',
     name: 'name',
   },
   {
@@ -24,7 +24,7 @@ export const SignUpData = [
     type: 'password',
     placeholder: 'Create a password',
     icon: Password.src,
-    label: 'password',
+    label: 'Password',
     name: 'password',
   },
   {
@@ -32,7 +32,7 @@ export const SignUpData = [
     type: 'password',
     placeholder: 'Confirm Password',
     icon: Password.src,
-    label: 'confirm-password',
+    label: 'Confirm Password',
     name: 'confirmPassword',
   },
 ];

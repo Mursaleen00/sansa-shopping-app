@@ -1,8 +1,16 @@
+import BreadCrumb from '@/Components/common/bread-crumb';
+import { urls } from '@/constant/urls';
+
 const AboutView = () => {
   return (
     <div>
       <div className='flex gap-1'>
-        <div className='text-[#B3B7B1]'>Home</div>/<div>About us</div>
+        <BreadCrumb
+          items={[
+            { name: 'Home', link: urls.home },
+            { name: 'About Us', link: urls.about },
+          ]}
+        />
       </div>
     </div>
   );

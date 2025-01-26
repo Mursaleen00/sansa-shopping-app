@@ -44,7 +44,7 @@ export const profileData = ({
     name: 'address',
     type: 'text,number',
     placeholder: 'Your address',
-    label: 'Conform Address ',
+    label: 'Conform Address',
     value: address,
   },
   {

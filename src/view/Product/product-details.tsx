@@ -4,6 +4,8 @@ import { useGetSingleProductsHook } from '@/services/products/get-single-product
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import SingleProductDetails from './single-product-price';
+import BreadCrumb from '@/Components/common/bread-crumb';
+import { urls } from '@/constant/urls';
 
 const ProductDetails = ({ id }: { id: string }) => {
   const { data } = useGetSingleProductsHook({
@@ -18,7 +20,16 @@ const ProductDetails = ({ id }: { id: string }) => {
 
   return (
     <div className='flex flex-col gap-y-10 px-6 md:px-10 xl:px-24 py-10'>
-      <BackButton />
+      <div className='flex gap-3 flex-col'>
+        <BreadCrumb
+          items={[
+            { name: 'Home', link: urls.home },
+            { name: 'Products', link: urls.product },
+            { name: data?.title || '', link: '' },
+          ]}
+        />
+        <BackButton />
+      </div>
       <div className='grid md:grid-cols-2 gap-5'>
         {/* 1st Section */}
         <div className='flex flex-col rounded-3xl bg-[#FBFBFB] gap-y-6 p-10 items-center'>

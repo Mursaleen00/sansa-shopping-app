@@ -13,6 +13,6 @@ export const pages: PageT[] = [
 ];
 
 export const authPages: PageT[] = [
-  { text: 'Login', link: urls.signin },
+  { text: 'Sign In', link: urls.signin },
   { text: 'Sign Up', link: urls.signup },
 ];
