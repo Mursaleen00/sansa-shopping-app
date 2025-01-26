@@ -1,21 +1,14 @@
-import Password from '@/../public/icons/password.svg';
-import Email from '@/../public/icons/email.svg';
-
 export const SignInData = [
   {
-    legend: 'username',
     type: 'username',
     placeholder: 'Enter username',
-    icon: Email.src,
-    label: 'username',
+    label: 'Username',
     name: 'username',
   },
   {
-    legend: 'Password',
     type: 'password',
     placeholder: 'Create a password',
-    icon: Password.src,
-    label: 'password',
+    label: 'Password',
     name: 'password',
   },
 ];

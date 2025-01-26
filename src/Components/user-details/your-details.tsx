@@ -3,6 +3,7 @@ import { ShippingAddress, UserDetails } from '@/constant/user-details-data';
 import { FC } from 'react';
 import Input from '../inputs/input';
 import { AddToCardOnboardingType } from '@/types/products/add-to-card';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   formik: AddToCardOnboardingType;
@@ -10,6 +11,7 @@ interface Props {
 
 const Details: FC<Props> = ({ formik }) => {
   const { values, errors, touched, handleChange, handleBlur } = formik;
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -17,7 +19,7 @@ const Details: FC<Props> = ({ formik }) => {
       <div className=' bg-gray rounded-xl px-5 py-4 gap-y-6'>
         {/* user details  */}
         <div className='grid p-4'>
-          <h1 className=' text-2xl pb-3'>Enter your details</h1>
+          <h1 className=' text-2xl pb-3'>{t('Enter your details')}</h1>
           <div className='grid sm:grid-cols-2 gap-3'>
             {UserDetails.map((item, index) => (
               <Input
@@ -48,7 +50,7 @@ const Details: FC<Props> = ({ formik }) => {
 
         {/* Shipping Address   */}
         <div className='grid p-4'>
-          <h1 className='text-2xl pb-3'>Shipping Address </h1>
+          <h1 className='text-2xl pb-3'>{t('Shipping Address')}</h1>
           <div className='grid sm:grid-cols-2 gap-3 '>
             {ShippingAddress.map((item, index) => (
               <Input

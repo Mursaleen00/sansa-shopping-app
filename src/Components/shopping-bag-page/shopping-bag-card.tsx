@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from '../buttons/button';
 import AddToCard from '../cards/add-to-card';
 import Input from '../inputs/input';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   products: ProductState[];
@@ -25,6 +26,8 @@ const ShoppingBagCard = ({
   const [code, setCode] = useState<number>(0);
 
   const [applied, setApplied] = useState<boolean>(false);
+
+  const { t } = useTranslation();
 
   const handleApplyCode = () => {
     if (code === 12345) {
@@ -66,7 +69,7 @@ const ShoppingBagCard = ({
             onClick={handleApplyCode}
             disabled={applied || code === 0}
           />
-          <p>Your promotion code to get a 10% discount is: 12345</p>
+          <p>{t('Your promotion code to get a 10% discount is:')} 12345</p>
         </div>
       </div>
     </div>

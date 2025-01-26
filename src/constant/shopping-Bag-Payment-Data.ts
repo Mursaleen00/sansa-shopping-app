@@ -43,7 +43,7 @@ export const ShoppingBagPaymentData = [
     name: 'cardNumber',
     type: 'Number',
     placeholder: 'Enter Number',
-    label: 'Card Number ',
+    label: 'Card Number',
   },
   {
     name: 'cvv',

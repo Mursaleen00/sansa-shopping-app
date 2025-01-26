@@ -15,6 +15,7 @@ import { useFormik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   username: '',
@@ -24,6 +25,8 @@ const initialValues = {
 const SignInView = () => {
   const { mutateAsync, isPending } = useLoginMutation();
   const router = useRouter();
+
+  const { t } = useTranslation();
 
   const formik = useFormik({
     initialValues,
@@ -86,8 +89,8 @@ const SignInView = () => {
               />
             ))}
           </div>
-          <p>Username: jamesd</p>
-          <p>Password: jamesdpass</p>
+          <p>{t('Username')}: jamesd</p>
+          <p>{t('Password')}: jamesdpass</p>
         </div>
         <Button
           text='Sign In'
@@ -97,12 +100,12 @@ const SignInView = () => {
         />
       </div>
       <p className='md:text-base text-sm'>
-        Have not had account yet?{' '}
+        {t('Have not had account yet?')}{' '}
         <Link
           href={urls.signup}
           className='text-primary'
         >
-          Sign Up
+          {t('Sign Up')}
         </Link>
       </p>
     </div>

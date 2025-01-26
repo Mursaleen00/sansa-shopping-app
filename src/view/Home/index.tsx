@@ -53,7 +53,7 @@ const HomeView = () => {
         'description',
         'discountPercentage',
       ],
-      skip: 100,
+      skip: 56,
     });
 
   const products = data?.products;
