@@ -67,7 +67,7 @@ const Navbar = () => {
             key={index}
             className={`${pathname === item.link ? 'text-primary' : 'text-secondary-700'}`}
           >
-            {t(item.text)}
+            <p>{t(item.text)}</p>
           </Link>
         ))}
       </div>
@@ -85,7 +85,6 @@ const Navbar = () => {
                 src={item.icon}
                 width={item.width}
                 height={item.height}
-                className={``}
               />
               {likedProducts && likedProducts?.length > 0 && index == 0 && (
                 <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>

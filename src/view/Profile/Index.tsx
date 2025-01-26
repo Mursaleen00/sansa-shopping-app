@@ -2,7 +2,7 @@
 import { profileData } from '@/constant/profile-data';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { useGetMeHook } from '@/services/user/get-all-products';
+import { useGetMeHook } from '@/services/user/get-me';
 import { MeTypes } from '@/types/users/me';
 import Button from '@/Components/buttons/button';
 import Input from '@/Components/inputs/input';

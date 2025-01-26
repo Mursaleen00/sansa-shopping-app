@@ -52,7 +52,7 @@ const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
             onClick={setIsOpen}
             className={`${pathName == item.link ? 'text-primary' : 'text-secondary-700'}`}
           >
-            <p>{item.text}</p>
+            <p>{t(item.text)}</p>
           </Link>
         ))}
       </div>
