@@ -8,6 +8,9 @@ import Button from '@/Components/buttons/button';
 import Input from '@/Components/inputs/input';
 import { useFormik } from 'formik';
 import { profileSchema } from '@/schema/profile-schema';
+import BreadCrumb from '@/Components/common/bread-crumb';
+import { urls } from '@/constant/urls';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   firstName: '',
@@ -58,16 +61,21 @@ const ProfileView = () => {
       setFieldValue('password', password);
     }
   }, [data]);
+  const { t } = useTranslation();
 
   return (
-    <div>
-      <div className='flex gap-1 sm:p-9 p-4'>
-        <div className='text-[#B3B7B1]  '>Home</div>/<div>Profile</div>
-      </div>
+    <div className='flex flex-col gap-y-10'>
+      <BreadCrumb
+        items={[
+          { name: 'Home', link: urls.home },
+          { name: 'Profile', link: urls.profile },
+        ]}
+      />
+
       <div className='grid items-center gap-y-4 sm:p-10 p-6 border-2 py-9 sm:mx-14 rounded-3xl border-gray'>
         <div className='grid sm:grid-flow-col sm:gap-x-14 justify-between items-center'>
           <p className=' flex text-secondary-700 text-3xl sm:order-1 order-2 justify-center'>
-            Name : {data?.firstName} {data?.lastName}
+            {t('Name')}: {data?.firstName} {data?.lastName}
             {/* <br /> ID : {data?.id} */}
           </p>
           <div className='flex justify-around sm:order-2 order-1'>

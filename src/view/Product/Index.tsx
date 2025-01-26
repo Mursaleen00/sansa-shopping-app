@@ -1,12 +1,15 @@
 'use client';
 import ProductCard from '@/Components/cards/product-card';
+import BreadCrumb from '@/Components/common/bread-crumb';
 import Loader from '@/Components/common/loader';
 import ProductNotfound from '@/Components/common/not-found';
 import Pagination from '@/Components/common/pagination';
 import Input from '@/Components/inputs/input';
+import { urls } from '@/constant/urls';
 import { useGetAllProductsHook } from '@/services/products/get-all-products';
 import { useSearchParams } from 'next/navigation';
 import { Fragment, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'use-debounce';
 
 const ProductView = () => {
@@ -43,14 +46,21 @@ const ProductView = () => {
 
   const totalPage = data ? Math.round(data?.total / 16) : 10;
 
+  const { t } = useTranslation();
+
   return (
     <div className='px-6 md:px-12 xl:px-24 flex flex-col gap-y-10 py-10'>
       {/* All Product Categories */}
-      <div className='flex gap-1'>
-        <div className='text-[#B3B7B1]'>Home</div>/<div>Product</div>
-      </div>
+      <BreadCrumb
+        items={[
+          { name: 'Home', link: urls.home },
+          { name: 'Products', link: urls.product },
+        ]}
+      />
       <div className='flex justify-between items-center'>
-        <p className='text-secondary-700 text-3xl'>All Product Categories</p>
+        <p className='text-secondary-700 text-3xl'>
+          {t('All Product Categories')}
+        </p>
         <Input
           placeholder='Search all assets'
           type='text'

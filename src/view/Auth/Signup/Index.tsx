@@ -13,6 +13,7 @@ import { useRegisterMutation } from '@/services/auth/sign-up';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   email: '',
@@ -41,6 +42,8 @@ const SignUpView = () => {
       }
     },
   });
+
+  const { t } = useTranslation();
 
   const { errors, handleBlur, handleChange, values, handleSubmit, touched } =
     formik;
@@ -82,19 +85,19 @@ const SignUpView = () => {
           </div>
         </div>
         <Button
-          text='Sign up'
+          text='Sign Up'
           className='w-full border-none'
           onClick={handleSubmit}
           disabled={isPending}
         />
       </div>
       <p className='md:text-base text-sm'>
-        Already have account?{' '}
+        {t('Already have account?')}{' '}
         <Link
           href={urls.signin}
           className='text-primary'
         >
-          Sign In
+          {t('Sign In')}
         </Link>
       </p>
     </div>

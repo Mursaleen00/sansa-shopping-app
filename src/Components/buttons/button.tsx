@@ -1,6 +1,7 @@
 'use client';
 // React & next Imports
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 interface IButton {
   text: string;
@@ -21,6 +22,8 @@ const Button = ({
   disabled,
   icon,
 }: IButton) => {
+  const { t } = useTranslation();
+
   return (
     <button
       disabled={disabled}
@@ -45,7 +48,7 @@ const Button = ({
           height={20}
         />
       )}
-      {text}
+      {t(text)}
     </button>
   );
 };
