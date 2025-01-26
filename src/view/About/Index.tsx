@@ -5,13 +5,14 @@ import Image from 'next/image';
 import Card from '@/../public/image/card.jpg';
 import Team from '@/../public/image/team.jpg';
 import { useGetAllUsersHook } from '@/services/user/get-all-users';
+import { useTranslation } from 'react-i18next';
 
 const AboutView = () => {
   const { data } = useGetAllUsersHook({
     limit: 5,
     select: ['image', 'firstName'],
   });
-
+  const { t } = useTranslation();
   return (
     <div>
       <div className='flex gap-1'>
@@ -24,14 +25,16 @@ const AboutView = () => {
       </div>
       {/* 1st section  */}
       <div className='flex flex-col bg-gray  justify-center items-center p-5 rounded-md '>
-        <div className='flex flex-col font-bold text-lg text-center '>
-          Control Your Finances With
+        <div className='flex flex-col font-bold text-2xl text-center '>
+          {t('Control Your Finances With')}
+
           <br />
-          <p className='text-primary'>Our SmartTool</p>
+          <p className='text-primary'>{t('Our SmartTool')}</p>
         </div>
         <div className='flex flex-col items-center justify-center text-xs p-3 text-center'>
-          Lorem ipsum dolor sit amet consectetur end of adipisicing elit <br />
-          Lorem ipsum dolor sit return
+          {t('Lorem ipsum dolor sit amet consectetur end of adipisicing elit')}
+          <br />
+          {t('Lorem ipsum dolor sit return')}
         </div>
       </div>
 
@@ -47,8 +50,8 @@ const AboutView = () => {
             height={1000}
           />
           <div className='flex flex-col gap-y-6'>
-            <h1 className='flex font-bold text-2xl'>About Us</h1>
-            <p className=''>
+            <h1 className='flex font-bold text-2xl'>{t('About Us')}</h1>
+            <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
               velit ipsum praesentium! Molestias delectus sed voluptates, ipsam
               corrupti nesciunt ? Non asperiores reprehenderit labore
@@ -64,17 +67,17 @@ const AboutView = () => {
         <div className='grid md:grid-cols-2 justify-center items-center gap-8 py-9 '>
           <div className='flex flex-col gap-y-6 order-2 md:order-1'>
             <h1 className='flex font-bold text-2xl '>
-              We are Creative Since 2025
+              {t('We are Creative Since 2025')}
             </h1>
             <p className='text-left'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
               velit ipsum praesentium! Molestias delectus sed voluptates, ipsam
-              corrupti accusamus voluptate voluptates explicabo harum omnis qui
-              culpa repudiandae dicta modi? Vel fugit sint voluptatum autem
-              necessitatibus, mollitia reprehenderit. Esse, inventore sit qui
-              porro tenetur minus voluptas exercitationem consequatur ducimus
-              officiis? Consequuntur eligendi ipsam quisquam quo amet ad ullam,
-              perferendis dolor?
+              corrupti nesciunt ? Non asperiores reprehenderit labore
+              repellendus, placeat veniam. Quos laudantium minus asperiores!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+              repudiandae maiores dolorum sit maxime, ea provident quidem enim?s
+              voluptas exercitationem consequatur ducimus officiis? Consequuntur
+              eligendi ipsam quisquam quo amet ad ullam, perferendis dolor?
             </p>
           </div>
           <Image
@@ -89,7 +92,9 @@ const AboutView = () => {
       {/* 3rd section  */}
       <div className='grid  gap-9 bg-gray p-6 rounded-xl'>
         <div className='flex flex-col items-center justify-around gap-9'>
-          <h2 className='flex font-bold text-2xl'>What our happy user says!</h2>
+          <h2 className='flex font-bold text-2xl'>
+            {t('What our happy user says!')}
+          </h2>
           <p className='text-center'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo velit
             ipsum praesentium! Molestias delectus sed voluptates, ipsam corrupti
