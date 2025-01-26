@@ -62,6 +62,13 @@ export const URLS = {
   // Me
   GET_ME: `${baseUrl}/user/me`,
 
+  // ALL user
+  GET_ALL_USER: ({ limit, select }: { limit: number; select: string[] }) => {
+    let url = `${baseUrl}/users?limit=${limit || 5}`;
+    if (select) url += `&select=${select.join(',')}`;
+    return url;
+  },
+
   // Register User
   REGISTER_USER: `${baseUrl}/users/add`,
 
