@@ -1,31 +1,45 @@
+// src\view\Home\index.tsx
 'use client';
 
-import Button from '@/Components/buttons/button';
-import OrderCard from '@/Components/cards/order-card';
-import ProductCard from '@/Components/cards/product-card';
-import ReviewCard from '@/Components/cards/review-card';
-import Loader from '@/Components/common/loader';
-import Tab from '@/Components/common/tab';
-import HeroSection from '@/Components/home/hero-section';
+// Components Imports
 import SecondaryHeading from '@/Components/secondary-heading';
+import ProductCard from '@/Components/cards/product-card';
+import HeroSection from '@/Components/home/hero-section';
+import ReviewCard from '@/Components/cards/review-card';
+import OrderCard from '@/Components/cards/order-card';
+import Button from '@/Components/buttons/button';
+import Loader from '@/Components/common/loader';
+import Input from '@/Components/inputs/input';
+import ContactView from '../Contact/Index';
+import Tab from '@/Components/common/tab';
+
+// Constants Imports
 import { orderCardData } from '@/constant/order-card';
 import { pickingData } from '@/constant/picking-data';
 import { reviewsData } from '@/constant/reviews';
 import { SignUpData } from '@/constant/signup';
-import { useGetAllProductsHook } from '@/services/products/get-all-products';
+
+// Services Imports
 import { useGetProductsByCategoryHook } from '@/services/products/get-products-by-category';
-import { getCookie } from 'cookies-next';
+import { useGetAllProductsHook } from '@/services/products/get-all-products';
+
+// Next Imports & React Imports
 import { useTranslation } from 'react-i18next';
+import { getCookie } from 'cookies-next';
 import { useState } from 'react';
+
+// Marquee Import
 import Marquee from 'react-fast-marquee';
-import ContactView from '../Contact/Index';
-import Input from '@/Components/inputs/input';
 
 const HomeView = () => {
+  // States
   const [tab, setTab] = useState(0);
   const [tab2, setTab2] = useState(0);
+
+  // Translation
   const { t } = useTranslation();
 
+  // Tabs
   const tabs = [
     'beauty',
     'groceries',
@@ -34,7 +48,8 @@ const HomeView = () => {
     'laptops',
   ];
 
-  const { data, isPending } = useGetProductsByCategoryHook({
+  // Get Products By Category
+  const { data, isLoading } = useGetProductsByCategoryHook({
     sort: 'price',
     limit: 5,
     select: ['title', 'price', 'thumbnail', 'description'],
@@ -42,7 +57,8 @@ const HomeView = () => {
     order: tab !== 0 ? 'desc' : 'asc',
   });
 
-  const { data: discountData, isPending: discountPending } =
+  // Get Discount Products
+  const { data: discountData, isLoading: discountLoading } =
     useGetAllProductsHook({
       sort: 'price',
       limit: 3,
@@ -59,6 +75,7 @@ const HomeView = () => {
   const products = data?.products;
   const discountProducts = discountData?.products;
 
+  // Get Token
   const token = getCookie('token');
 
   return (
@@ -132,7 +149,7 @@ const HomeView = () => {
           setTab={setTab2}
           tab={tab2}
         />
-        {isPending ? (
+        {isLoading ? (
           <div className='min-h-[50vh] flex items-center justify-center w-full'>
             <Loader />
           </div>
@@ -151,7 +168,7 @@ const HomeView = () => {
       {/* Discount Products */}
       <div className='bg-gray gap-y-10 flex flex-col items-center px-6 w-full md:px-10 xl:px-24 py-10'>
         <SecondaryHeading text={t('Discount Products')} />
-        {discountPending ? (
+        {discountLoading ? (
           <div className='min-h-[50vh] flex items-center justify-center w-full'>
             <Loader />
           </div>

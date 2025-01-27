@@ -1,17 +1,17 @@
 'use client';
-import { authPages, pages } from '@/constant/pagelist';
-import React from 'react';
-import Link from 'next/link';
 import { icons } from '@/constant/icons';
-import { usePathname, useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { useDispatch, useSelector } from 'react-redux';
-import { LikedState, RootState } from '@/store/store';
-import { FiLogOut } from 'react-icons/fi';
-import { deleteCookie, getCookie } from 'cookies-next';
-import { removeAllProducts } from '@/store/Slice/product-slice';
-import { t } from 'i18next';
+import { authPages, pages } from '@/constant/pagelist';
 import { urls } from '@/constant/urls';
+import { removeAllLikedProduct } from '@/store/Slice/like-product-slice';
+import { removeAllProducts } from '@/store/Slice/product-slice';
+import { LikedState, RootState } from '@/store/store';
+import { deleteCookie, getCookie } from 'cookies-next';
+import { t } from 'i18next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { FiLogOut } from 'react-icons/fi';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface ISidebar {
   isOpen: boolean;
@@ -28,6 +28,7 @@ const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
   const likedProducts = useSelector(
     (state: LikedState) => state.likedProductSlice.product,
   );
+
   const token = getCookie('token');
 
   const router = useRouter();
@@ -40,6 +41,7 @@ const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
     deleteCookie('token');
     router.push(urls.home);
     dispatch(removeAllProducts());
+    dispatch(removeAllLikedProduct());
   };
 
   return (
