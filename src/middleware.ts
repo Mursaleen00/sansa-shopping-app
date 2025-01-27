@@ -10,22 +10,12 @@ export function middleware(req: NextRequest) {
   const publicRoutes = ['/sign-in', '/sign-up'];
   const protectedRoutes = ['/cart', '/profile'];
 
-  // Redirect authenticated users away from sign-in/sign-up
-  if (token && publicRoutes.includes(pathname)) {
-    console.log('Redirecting authenticated user from public route to home');
+  if (!token && protectedRoutes.includes(pathname))
+    return NextResponse.redirect(new URL('/sign-in', req.url))
+
+  if (token && publicRoutes.includes(pathname))
     return NextResponse.redirect(new URL('/', req.url));
-  }
 
-  // Redirect unauthenticated users away from protected routes
-  if (!token && protectedRoutes.includes(pathname)) {
-    console.log(
-      'Redirecting unauthenticated user from protected route to sign-in',
-    );
-    return NextResponse.redirect(new URL('/sign-in', req.url));
-  }
-
-  // Allow the request to proceed if it's neither a public nor protected route
-  console.log('Allowing request to proceed');
   return NextResponse.next();
 }
 
