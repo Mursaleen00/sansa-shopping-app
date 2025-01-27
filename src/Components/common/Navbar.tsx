@@ -18,6 +18,7 @@ import { FiLogOut } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import { deleteCookie } from 'cookies-next';
 import { removeAllProducts } from '@/store/Slice/product-slice';
+import { removeAllLikedProduct } from '@/store/Slice/like-product-slice';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,7 @@ const Navbar = () => {
     deleteCookie('token');
     router.push(urls.home);
     dispatch(removeAllProducts());
+    dispatch(removeAllLikedProduct());
   };
 
   return (

@@ -33,8 +33,12 @@ const LikedSlice = createSlice({
         );
       }
     },
+    removeAllLikedProduct: state => {
+      state.product = null;
+    },
   },
 });
 
-export const { addToLikeProduct, removeToLikeProduct } = LikedSlice.actions;
+export const { addToLikeProduct, removeToLikeProduct, removeAllLikedProduct } =
+  LikedSlice.actions;
 export default LikedSlice.reducer;
