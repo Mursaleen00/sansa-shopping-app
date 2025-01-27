@@ -10,13 +10,11 @@ interface Props {
   products: ProductState[];
   totalPrice: number;
   setPrice: React.Dispatch<React.SetStateAction<number>>;
-  price: number;
   quantities: number[];
   setQuantities: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 const ShoppingBagCard = ({
-  price,
   totalPrice,
   setPrice,
   products,
@@ -31,7 +29,7 @@ const ShoppingBagCard = ({
 
   const handleApplyCode = () => {
     if (code === 12345) {
-      setPrice(price - price * 0.1);
+      setPrice(totalPrice * 0.9);
       setApplied(true);
     } else setPrice(totalPrice);
   };

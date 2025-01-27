@@ -42,6 +42,7 @@ const Sidebar = ({ isOpen, setIsOpen }: ISidebar) => {
     router.push(urls.home);
     dispatch(removeAllProducts());
     dispatch(removeAllLikedProduct());
+    router.refresh();
   };
 
   return (
