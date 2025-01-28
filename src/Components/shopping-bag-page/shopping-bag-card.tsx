@@ -10,9 +10,11 @@ import Button from '../buttons/button';
 // Card Import
 import AddToCard from '../cards/add-to-card';
 
-// React Import
+// React Imports
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+// Input Import
 import Input from '../inputs/input';
 
 // Use interface Props

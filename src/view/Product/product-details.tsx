@@ -47,8 +47,10 @@ const ProductDetails = ({ id }: { id: string }) => {
         <BackButton />
       </div>
       {/* Sections  */}
+
       <div className='grid md:grid-cols-2 gap-5'>
         {/* 1st Section */}
+
         <div className='flex flex-col rounded-3xl bg-[#FBFBFB] gap-y-6 p-10 items-center'>
           <Image
             alt=''
@@ -72,6 +74,7 @@ const ProductDetails = ({ id }: { id: string }) => {
             ))}
           </div>
         </div>
+
         {/* 2nd section  */}
         <SingleProductDetails
           description={data?.description || ''}

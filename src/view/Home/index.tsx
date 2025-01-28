@@ -151,6 +151,7 @@ const HomeView = () => {
           setTab={setTab2}
           tab={tab2}
         />
+        {/* Loader   */}
         {isLoading ? (
           <div className='min-h-[50vh] flex items-center justify-center w-full'>
             <Loader />

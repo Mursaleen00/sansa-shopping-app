@@ -11,7 +11,7 @@ export function middleware(req: NextRequest) {
   const protectedRoutes = ['/cart', '/profile'];
 
   if (!token && protectedRoutes.includes(pathname))
-    return NextResponse.redirect(new URL('/sign-in', req.url))
+    return NextResponse.redirect(new URL('/sign-in', req.url));
 
   if (token && publicRoutes.includes(pathname))
     return NextResponse.redirect(new URL('/', req.url));
