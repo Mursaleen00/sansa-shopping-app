@@ -1,3 +1,6 @@
+// src/constant/user-details-data.ts
+
+// --------------------------Export  UserDetails-----------------------
 export const UserDetails = [
   {
     name: 'email',
@@ -24,7 +27,7 @@ export const UserDetails = [
     placeholder: 'Enter Last Name',
   },
 ];
-
+// --------------------- Export ShippingAddress ---------------------------
 export const ShippingAddress = [
   {
     name: 'address',

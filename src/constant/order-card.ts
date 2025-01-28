@@ -1,7 +1,11 @@
+// src/constant/order-card.ts
+
+// Images import
 import product from '@/../public/image/product.png';
 import location from '@/../public/image/location.png';
 import pickUp from '@/../public/image/pick up.png';
 
+// export orderCardData
 export const orderCardData = [
   {
     title: 'Select Product',

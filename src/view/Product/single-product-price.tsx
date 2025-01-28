@@ -1,18 +1,28 @@
+// src/view/Product/single-product-price.tsx
 'use client';
-import { urls } from '@/constant/urls';
+
+// Component Import
+import Button from '@/Components/buttons/button';
+
+// Constant Import
+import { urls } from '@/constant/urls-data';
+
+// Store Import
 import {
   addToLikeProduct,
   removeToLikeProduct,
 } from '@/store/Slice/like-product-slice';
 import { addProduct, updateProduct } from '@/store/Slice/product-slice';
 import { RootState } from '@/store/store';
+
+// React Import & Next Import
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import { useRouter } from 'next/navigation';
 import { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '../../Components/buttons/button';
 
+// Use interface  SingleProductProps
 interface SingleProductProps {
   title: string;
   description: string;
@@ -32,24 +42,32 @@ const SingleProductDetails: FC<SingleProductProps> = ({
   thumbnail,
   id,
 }) => {
+  // State
   const [quantity, setQuantity] = useState(1);
 
+  // Selector
   const products = useSelector(
     (state: RootState) => state.productSlice.product,
   );
 
+  //  Router
   const router = useRouter();
 
+  // Selector
   const likedProducts = useSelector(
     (state: RootState) => state.likedProductSlice.product,
   );
 
+  // dispatch
   const dispatch = useDispatch();
 
+  // is added
   const isAdded = products?.find(product => product.id === id);
 
+  // isProductLiked
   const isProductLiked = likedProducts?.find(product => product.id === id);
 
+  // handleAddProduct
   const handleAddProduct = () => {
     if (isAdded) router.push(urls.cart);
     else {
@@ -66,12 +84,14 @@ const SingleProductDetails: FC<SingleProductProps> = ({
     }
   };
 
+  // handleLikeProduct
   const handleLikeProduct = () => {
     if (!isProductLiked) {
       dispatch(addToLikeProduct({ id, title, description, thumbnail, price }));
     } else dispatch(removeToLikeProduct(id));
   };
 
+  // handleChangeQuantity
   const handleChangeQuantity = (operator: 'add' | 'remove') => {
     const updateQuant = (quantity: number) =>
       dispatch(
@@ -93,18 +113,14 @@ const SingleProductDetails: FC<SingleProductProps> = ({
       updateQuant(quantity - 1);
     }
   };
-
+  // useEffect
   useEffect(() => {
     if (isAdded) setQuantity(isAdded.quantities || 1);
   }, []);
 
   return (
     <div className='grid border border-gray  items-center rounded-2xl gap-y-5 md:gap-y-3 p-6'>
-      <h1 className='font-bold text-2xl'>
-        {/* {(data.images.(item.title)=>{})} */}
-        {/* dat?.images.(item.title)) */}
-        {title}
-      </h1>
+      <h1 className='font-bold text-2xl'>{title}</h1>
       <p className='flex text-md'>{description}</p>
       {/* star */}
       <div className='flex items-center gap-x-1'>
@@ -118,8 +134,9 @@ const SingleProductDetails: FC<SingleProductProps> = ({
           ({ratings.toFixed(1)}) ({totalReviews}) reviews
         </p>
       </div>
-
+      {/* price  */}
       <div className='text-2xl font-bold'> {price} USD</div>
+      {/* Quantity  */}
       <div className='flex gap-2 items-center'>
         Quantity :
         <button

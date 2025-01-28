@@ -1,9 +1,19 @@
-import { ShoppingData } from '@/constant/shoppingData';
+// src/Components/shopping-bag-page/price-section.tsx
+
+// Constant Import
+import { ShoppingData } from '@/constant/shopping-data';
+
+// Store Import
 import { ProductState } from '@/store/Slice/product-slice';
+
+// React Import & Next Import
 import Image from 'next/image';
-import Button from '../buttons/button';
 import { useTranslation } from 'react-i18next';
 
+// Button Import
+import Button from '../buttons/button';
+
+// Use interface PriceSectionProps
 interface PriceSectionProps {
   totalItems?: number;
   setStep: () => void;
@@ -21,6 +31,7 @@ const PriceSection = ({
   price,
   step,
 }: PriceSectionProps) => {
+  // Translation
   const { t } = useTranslation();
 
   return (

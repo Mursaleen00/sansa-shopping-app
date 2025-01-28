@@ -1,7 +1,13 @@
+// src/Components/inputs/radio.tsx
+
+// lib Import
 import { cn } from '@/lib/cn-utils';
+
+// React Imports
 import Image from 'next/image';
 import React from 'react';
 
+// Use interface InputProps
 interface InputProps {
   label?: string;
   image: string;
@@ -14,6 +20,7 @@ const Radio = ({
   ...res
 }: React.InputHTMLAttributes<HTMLInputElement> & InputProps) => {
   return (
+    // Label
     <label
       htmlFor={label}
       className={cn(
@@ -27,6 +34,7 @@ const Radio = ({
       )}
     >
       <div className='flex gap-x-2'>
+        {/* Image  */}
         <Image
           alt='image'
           src={image}
@@ -35,6 +43,7 @@ const Radio = ({
         />
         <p>{label}</p>
       </div>
+      {/* Input  */}
       <input
         type={'radio'}
         id={label}

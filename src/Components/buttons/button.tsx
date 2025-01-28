@@ -1,8 +1,11 @@
+// src/Components/buttons/button.tsx
 'use client';
-// React & next Imports
+
+// React import  & Next import
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
+// Use interface IButton
 interface IButton {
   text: string;
   type?: 'submit' | 'button';
@@ -22,9 +25,11 @@ const Button = ({
   disabled,
   icon,
 }: IButton) => {
+  // Translation
   const { t } = useTranslation();
 
   return (
+    // Button
     <button
       disabled={disabled}
       onClick={onClick}
@@ -40,6 +45,7 @@ const Button = ({
         ${className}
       `}
     >
+      {/* image  */}
       {icon && (
         <Image
           alt=''
@@ -48,6 +54,7 @@ const Button = ({
           height={20}
         />
       )}
+      {/* Text  */}
       {t(text)}
     </button>
   );

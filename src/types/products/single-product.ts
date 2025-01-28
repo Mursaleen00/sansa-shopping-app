@@ -1,3 +1,6 @@
+// src/types/products/single-product.ts
+
+// Export interface ProductType
 export interface ProductType {
   id: number;
   title: string;
@@ -23,12 +26,14 @@ export interface ProductType {
   thumbnail: string;
 }
 
+// Export interface Dimensions
 export interface Dimensions {
   width: number;
   height: number;
   depth: number;
 }
 
+// Export interface Review
 export interface Review {
   rating: number;
   comment: string;
@@ -37,6 +42,7 @@ export interface Review {
   reviewerEmail: string;
 }
 
+// Export interface Meta
 export interface Meta {
   createdAt: string;
   updatedAt: string;

@@ -1,5 +1,9 @@
+// src/schema/details-schema.ts
+
+//  yup Import
 import * as yup from 'yup';
 
+// --------------------------------UserDetails Schema ---------------------------
 const UserDetailsSchema = yup.object().shape({
   email: yup.string().email().required('Email is required'),
   contact: yup
@@ -16,6 +20,7 @@ const UserDetailsSchema = yup.object().shape({
   prefix: yup.string().required('prefix is required'),
 });
 
+// --------------------------SoppingBagPaymentSchema--------------------------
 const SoppingBagPaymentSchema = yup.object().shape({
   cardName: yup.string().required('Card Name is required'),
   expiredDate: yup.string().required('Expired Name is required'),
@@ -29,10 +34,12 @@ const SoppingBagPaymentSchema = yup.object().shape({
     .required('Cvv is required'),
 });
 
+// Export personalDetailSchema
 export const personalDetailSchema = yup.object().shape({
   personalDetails: UserDetailsSchema,
 });
 
+// Export bankDetailSchema
 export const bankDetailSchema = yup.object().shape({
   bankDetails: SoppingBagPaymentSchema,
 });

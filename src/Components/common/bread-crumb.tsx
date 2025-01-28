@@ -1,8 +1,12 @@
+// src/Components/common/bread-crumb.tsx
 'use client';
+
+// React import & Next import
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+// Use interface BreadCrumbProps
 interface BreadCrumbProps {
   items: {
     name: string;
@@ -10,9 +14,11 @@ interface BreadCrumbProps {
   }[];
 }
 
+// BreadCrumb
 const BreadCrumb: React.FC<BreadCrumbProps> = ({ items }) => {
   const isLastItem = (index: number) => index === items.length - 1;
 
+  // Translation
   const { t } = useTranslation();
 
   return (

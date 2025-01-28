@@ -1,6 +1,9 @@
+// src/store/Slice/product-slice.ts
+
 // Redux Import
 import { createSlice } from '@reduxjs/toolkit';
 
+// Export Type
 export type ProductState = {
   title: string;
   id: number;
@@ -10,12 +13,14 @@ export type ProductState = {
   quantities?: number;
 };
 
+// State
 const initialState: {
   product: ProductState[] | null;
 } = {
   product: null,
 };
 
+// productSlice
 const productSlice = createSlice({
   name: 'product',
   initialState,

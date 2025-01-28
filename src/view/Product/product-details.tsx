@@ -1,17 +1,31 @@
+// src/view/Product/product-details.tsx
 'use client';
+
+// Components Imports
 import BackButton from '@/Components/buttons/back-button';
-import { useGetSingleProductsHook } from '@/services/products/get-single-product';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import SingleProductDetails from './single-product-price';
 import BreadCrumb from '@/Components/common/bread-crumb';
-import { urls } from '@/constant/urls';
+
+//  Services Import
+import { useGetSingleProductsHook } from '@/services/products/get-single-product';
+
+// Next Import
+import Image from 'next/image';
+
+// React Import
+import { useEffect, useState } from 'react';
+
+// SingleProductDetails Import
+import SingleProductDetails from './single-product-price';
+
+//  Constant Import
+import { urls } from '@/constant/urls-data';
 
 const ProductDetails = ({ id }: { id: string }) => {
+  // Data   GetSingleProductsHook
   const { data } = useGetSingleProductsHook({
     id,
   });
-
+  //  State
   const [img, setImg] = useState(data?.images[0] || '/');
 
   useEffect(() => {
@@ -20,6 +34,7 @@ const ProductDetails = ({ id }: { id: string }) => {
 
   return (
     <div className='flex flex-col gap-y-10 px-6 md:px-10 xl:px-24 py-10'>
+      {/* BreadCrumb */}
       <div className='flex gap-3 flex-col'>
         <BreadCrumb
           items={[
@@ -28,10 +43,14 @@ const ProductDetails = ({ id }: { id: string }) => {
             { name: data?.title || '', link: '' },
           ]}
         />
+        {/* BackButton  */}
         <BackButton />
       </div>
+      {/* Sections  */}
+
       <div className='grid md:grid-cols-2 gap-5'>
         {/* 1st Section */}
+
         <div className='flex flex-col rounded-3xl bg-[#FBFBFB] gap-y-6 p-10 items-center'>
           <Image
             alt=''
@@ -55,6 +74,7 @@ const ProductDetails = ({ id }: { id: string }) => {
             ))}
           </div>
         </div>
+
         {/* 2nd section  */}
         <SingleProductDetails
           description={data?.description || ''}

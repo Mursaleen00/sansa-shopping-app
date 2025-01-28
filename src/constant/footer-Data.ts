@@ -1,14 +1,20 @@
+// src/constant/FooterData.ts
+
+// Images Import
 import GooglePay from '@/../public/image/GooglePay.svg';
 import Mastercard from '@/../public/image/Mastercard.svg';
 import PayPal from '@/../public/image/PayPal.svg';
 import ApplePay from '@/../public/image/ApplePay.svg';
 import UnionPay from '@/../public/image/UnionPay.svg';
 import visa from '@/../public/image/Visa.svg';
+
+// Icons Import
 import facebook from '@/../public/icons/facebook.svg';
 import instagram from '@/../public/icons/instagram.svg';
 import twitter from '@/../public/icons/twitter.svg';
 import linkedin from '@/../public/icons/linkedin.svg';
 
+// Type
 type list = {
   title: string;
   data: {
@@ -16,6 +22,8 @@ type list = {
     icon?: string;
   }[];
 }[];
+
+// Export FooterData
 export const FooterData: list = [
   {
     title: 'Make money with us',
