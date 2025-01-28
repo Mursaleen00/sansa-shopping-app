@@ -4,9 +4,6 @@ export function middleware(req: NextRequest) {
   const token = req.cookies.get('token')?.value;
   const { pathname } = req.nextUrl.clone();
 
-  console.log('Token:', token);
-  console.log('Pathname:', pathname);
-
   const publicRoutes = ['/sign-in', '/sign-up'];
   const protectedRoutes = ['/cart', '/profile'];
 
