@@ -2,6 +2,7 @@
 
 // Component Import
 import Footer from '@/Components/common/footer';
+import Navbar from '@/Components/common/navbar';
 
 // Provider Import
 import Providers from '@/providers';
@@ -11,7 +12,6 @@ import { Metadata } from 'next';
 
 // Globals   CSS
 import './globals.css';
-import Navbar from '@/Components/common/navbar';
 
 // Export metadata
 export const metadata: Metadata = {
