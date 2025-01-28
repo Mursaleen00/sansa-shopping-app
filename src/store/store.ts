@@ -1,18 +1,25 @@
+// src/store/store.ts
 'use client';
 
-// Redux Toolkit Store Import
+// Redux Toolkit Store Imports
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+
+// React Import
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+
+// Slice Imports
 import likedProductSlice from './Slice/like-product-slice';
 import productSlice from './Slice/product-slice';
 
+// reducers
 const reducers = combineReducers({
   productSlice,
   likedProductSlice,
 });
 
+// createNoopStorage
 const createNoopStorage = () => {
   return {
     getItem() {
@@ -28,11 +35,13 @@ const createNoopStorage = () => {
   };
 };
 
+// storage
 const storage =
   typeof window !== 'undefined'
     ? createWebStorage('local')
     : createNoopStorage();
 
+// persistConfig
 const persistConfig = {
   key: 'root',
   middleware: [],
@@ -41,6 +50,8 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
+
+//  Store
 const store = configureStore({
   reducer: persistedReducer,
 });

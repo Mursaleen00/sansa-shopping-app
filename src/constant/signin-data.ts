@@ -1,3 +1,6 @@
+// src/constant/Signin.ts
+
+// Export SignIn Data
 export const SignInData = [
   {
     type: 'username',
@@ -13,6 +16,7 @@ export const SignInData = [
   },
 ];
 
+// Export  CheckBox Data
 export const CheckBoxData = [
   {
     text: 'Remember me',

@@ -1,5 +1,9 @@
+// src/schema/profile-schema.ts
+
+// Yup Import
 import * as yup from 'yup';
 
+// Export profileSchema
 export const profileSchema = yup.object().shape({
   firstName: yup.string().required('required is firstName'),
   lastName: yup.string().required('required is lastName'),

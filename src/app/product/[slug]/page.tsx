@@ -1,3 +1,6 @@
+// src\app\product\[slug]\page.tsx
+
+// ProductDetails Import
 import ProductDetails from '@/view/Product/product-details';
 
 export default async function Page({

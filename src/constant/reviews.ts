@@ -1,9 +1,13 @@
+// src/constant/reviews.ts
+
+// Images import
 import avatar from '@/../public/image/avatar.png';
 import avatar1 from '@/../public/image/avatar1.png';
 import avatar2 from '@/../public/image/avatar2.jpg';
 import avatar3 from '@/../public/image/avatar3.jpg';
 import avatar4 from '@/../public/image/avatar4.jpg';
 
+// export reviewsData
 export const reviewsData = [
   {
     name: 'John Smith',

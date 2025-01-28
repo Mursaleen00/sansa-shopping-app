@@ -1,3 +1,9 @@
+// src/types/products/all-products.ts
+
+// Review Import
+import { Review } from './single-product';
+
+// Export interface AllProductType
 export interface AllProductType {
   products: Product[];
   total: number;
@@ -5,6 +11,7 @@ export interface AllProductType {
   limit: number;
 }
 
+// Export interface Product
 export interface Product {
   id: number;
   title: string;
@@ -30,13 +37,15 @@ export interface Product {
   thumbnail: string;
 }
 
+// Export interface Dimensions
 export interface Dimensions {
   width: number;
   height: number;
   depth: number;
 }
 
-export interface Review {
+// Export interface Dimensions
+export interface Dimensions {
   rating: number;
   comment: string;
   date: string;
@@ -44,6 +53,7 @@ export interface Review {
   reviewerEmail: string;
 }
 
+// Export interface Meta
 export interface Meta {
   createdAt: string;
   updatedAt: string;

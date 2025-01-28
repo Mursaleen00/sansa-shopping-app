@@ -1,3 +1,6 @@
+// src/constant/urls.ts
+
+// export urls
 export const urls = {
   home: '/',
   signup: '/sign-up',

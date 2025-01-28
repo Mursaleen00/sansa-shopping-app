@@ -10,14 +10,16 @@ import OrderCard from '@/Components/cards/order-card';
 import Button from '@/Components/buttons/button';
 import Loader from '@/Components/common/loader';
 import Input from '@/Components/inputs/input';
-import ContactView from '../Contact/Index';
 import Tab from '@/Components/common/tab';
+
+//  Contact page Import
+import ContactView from '../Contact/Index';
 
 // Constants Imports
 import { orderCardData } from '@/constant/order-card';
 import { pickingData } from '@/constant/picking-data';
 import { reviewsData } from '@/constant/reviews';
-import { SignUpData } from '@/constant/signup';
+import { SignUpData } from '@/constant/signup-data';
 
 // Services Imports
 import { useGetProductsByCategoryHook } from '@/services/products/get-products-by-category';

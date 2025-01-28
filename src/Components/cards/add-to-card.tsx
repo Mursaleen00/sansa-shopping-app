@@ -1,10 +1,17 @@
+// src/Components/cards/add-to-card.tsx
 'use client';
+
+// Store Import
 import { removeProduct } from '@/store/Slice/product-slice';
+// Next Import
 import Image from 'next/image';
+
+// React Imports
 import React, { FC, useEffect, useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 
+// Use interface Props
 interface Props {
   thumbnail: string;
   title: string;
@@ -26,10 +33,12 @@ const AddToCard: FC<Props> = ({
   quantities,
   setQuantities,
 }) => {
+  // State
   const [quantity, setQuantity] = useState(quantities[index] || 1);
 
+  // dispatch
   const dispatch = useDispatch();
-
+  //  remove
   const remove = () => {
     dispatch(removeProduct(id));
     setQuantities(prevQuantities => {
@@ -39,6 +48,7 @@ const AddToCard: FC<Props> = ({
     });
   };
 
+  // handleChangeQuantity
   const handleChangeQuantity = (operator: 'add' | 'remove') => {
     if (operator === 'add') {
       setQuantity(quantity < 5 ? quantity + 1 : quantity);
@@ -59,6 +69,7 @@ const AddToCard: FC<Props> = ({
     }
   };
 
+  // useEffect
   useEffect(() => setQuantity(quantities[index] || 1), [quantities]);
 
   return (
@@ -76,6 +87,7 @@ const AddToCard: FC<Props> = ({
         <h2 className='flex font-medium text-lg '>{price} USD</h2>
         <p className='line-clamp-2'>{description}</p>
         <div className='flex items-center justify-between pt-1'>
+          {/* quantity */}
           <div className='flex gap-x-2 items-center'>
             Qty:
             <button
@@ -94,6 +106,7 @@ const AddToCard: FC<Props> = ({
               +
             </button>
           </div>
+          {/* remove Small Screen  */}
           <div className='flex items-center md:hidden '>
             <FaTrash
               className='flex size-5 justify-end items-end  text-error cursor-pointer '
@@ -102,7 +115,7 @@ const AddToCard: FC<Props> = ({
           </div>
         </div>
       </div>
-      {/* remove  */}
+      {/* remove medium Screen  */}
       <div className='md:flex items-end justify-end hidden md:mb-32'>
         <FaTrash
           className='flex size-5 justify-end items-end  text-error cursor-pointer '

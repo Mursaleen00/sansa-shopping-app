@@ -1,9 +1,20 @@
+// src/Components/common/footer.tsx
 'use client';
+
+//  Image Import
 import Sansa from '@/../public/image/Sansa.png';
-import { FooterData } from '@/constant/FooterData';
-import { urls } from '@/constant/urls';
-import { languagesType } from '@/types/language';
+
+//  Constant Import
+import { FooterData } from '@/constant/footer-Data';
+import { urls } from '@/constant/urls-data';
+
+// Switch Import
 import { switchLanguage } from '@/utils/switch-language';
+
+//  Type Import
+import { languagesType } from '@/types/language';
+
+// Next Import & React Import
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -44,7 +55,7 @@ const Footer = () => {
           <p>Spanish</p>
         </div>
       </div>
-
+      {/* Middle section  */}
       <div className='grid sm:grid-cols-3 gap-y-9'>
         {FooterData.map((item, i) => (
           <div

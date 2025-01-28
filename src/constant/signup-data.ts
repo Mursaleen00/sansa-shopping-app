@@ -1,7 +1,11 @@
+// src/constant/signup.ts
+
+//  Icons import
 import Email from '@/../public/icons/email.svg';
 import Name from '@/../public/icons/name.svg';
 import Password from '@/../public/icons/password.svg';
 
+// export SignUpData
 export const SignUpData = [
   {
     legend: 'Email',
@@ -37,6 +41,7 @@ export const SignUpData = [
   },
 ];
 
+// export CheckBoxData
 export const CheckBoxData = [
   {
     text: 'Remember me',

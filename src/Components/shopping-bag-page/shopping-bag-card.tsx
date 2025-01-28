@@ -1,11 +1,21 @@
+// src/Components/shopping-bag-page/shopping-bag-card.tsx
 'use client';
-import { ProductState } from '@/store/Slice/product-slice';
-import { useState } from 'react';
-import Button from '../buttons/button';
-import AddToCard from '../cards/add-to-card';
-import Input from '../inputs/input';
-import { useTranslation } from 'react-i18next';
 
+// Store Import
+import { ProductState } from '@/store/Slice/product-slice';
+
+// Button Import
+import Button from '../buttons/button';
+
+// Card Import
+import AddToCard from '../cards/add-to-card';
+
+// React Import
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Input from '../inputs/input';
+
+// Use interface Props
 interface Props {
   products: ProductState[];
   totalPrice: number;
@@ -23,12 +33,15 @@ const ShoppingBagCard = ({
   quantities,
   setQuantities,
 }: Props) => {
+  // State
   const [code, setCode] = useState<number>(0);
 
   const [applied, setApplied] = useState<boolean>(false);
 
+  // Translation
   const { t } = useTranslation();
 
+  // handleApplyCode
   const handleApplyCode = () => {
     if (code === 12345) {
       setPrice(price - price * 0.1);
@@ -40,7 +53,6 @@ const ShoppingBagCard = ({
     <div>
       <div className='grid grid-row bg-gray w-full  h-fit rounded-2xl py-6 gap-y-5'>
         {/* image */}
-
         <div className='flex flex-col gap-y-5 w-full max-h-[45dvh] overflow-y-auto'>
           {products.map((item, i) => (
             <AddToCard
@@ -55,6 +67,7 @@ const ShoppingBagCard = ({
 
         {/* border */}
         <div className='flex border border-[#dddddc] items-center mx-7'></div>
+
         {/* Input */}
         <div className='grid px-6 gap-y-3'>
           <Input
@@ -64,6 +77,7 @@ const ShoppingBagCard = ({
             className='w-full'
             onChange={e => setCode(Number(e.target.value))}
           />
+          {/* Button  */}
           <Button
             text='Apply'
             onClick={handleApplyCode}

@@ -1,3 +1,6 @@
+// src/Components/common/pagination.tsx
+
+// React Imports
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css';
 import { FaAnglesRight, FaAnglesLeft } from 'react-icons/fa6';

@@ -1,11 +1,18 @@
+// src\services\base-urls.ts
+
+// isLive
 const isLive = true;
 
+// api Url
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
+// ----------------localhost --------------------
 const localhost = 'http://localhost:3000';
 
+// Base Url
 const baseUrl = isLive ? apiUrl : localhost;
 
+//  Use interface filters
 interface filters {
   search?: string;
   limit?: number;
@@ -15,6 +22,8 @@ interface filters {
   order?: 'asc' | 'desc';
   slug?: string;
 }
+
+//               ===================================URLS==================================
 
 export const URLS = {
   // ---------------------------------- Products ------------------------------------

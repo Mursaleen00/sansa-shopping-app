@@ -1,3 +1,6 @@
+// src/types/users/me.ts
+
+// Export interface MeTypes
 export interface MeTypes {
   id: number;
   firstName: string;
@@ -29,11 +32,13 @@ export interface MeTypes {
   role: string;
 }
 
+// Export interface Hair
 export interface Hair {
   color: string;
   type: string;
 }
 
+// Export interface Address
 export interface Address {
   address: string;
   city: string;
@@ -44,11 +49,13 @@ export interface Address {
   country: string;
 }
 
+// Export interface Coordinates
 export interface Coordinates {
   lat: number;
   lng: number;
 }
 
+// Export interface Bank
 export interface Bank {
   cardExpire: string;
   cardNumber: string;
@@ -57,6 +64,7 @@ export interface Bank {
   iban: string;
 }
 
+// Export interface Company
 export interface Company {
   department: string;
   name: string;
@@ -64,6 +72,7 @@ export interface Company {
   address: Address2;
 }
 
+// Export interface Address2
 export interface Address2 {
   address: string;
   city: string;
@@ -74,11 +83,13 @@ export interface Address2 {
   country: string;
 }
 
+// Export interface Coordinates2
 export interface Coordinates2 {
   lat: number;
   lng: number;
 }
 
+// Export interface Crypto
 export interface Crypto {
   coin: string;
   wallet: string;
