@@ -2,7 +2,7 @@
 
 // Component Import
 import Footer from '@/Components/common/footer';
-import Navbar from '@/Components/common/navbar';
+import Navbar from '@/Components/common/nav';
 
 // Provider Import
 import Providers from '@/providers';
