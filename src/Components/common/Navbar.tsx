@@ -70,6 +70,7 @@ const Navbar = () => {
     router.push(urls.home);
     dispatch(removeAllProducts());
     dispatch(removeAllLikedProduct());
+    router.refresh();
   };
 
   return (

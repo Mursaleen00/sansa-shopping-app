@@ -140,7 +140,6 @@ const CartView = () => {
           {step == 0 && (
             <ShoppingBagCard
               products={products || []}
-              price={price}
               totalPrice={totalPrice || 0}
               setPrice={setPrice}
               quantities={quantities}
