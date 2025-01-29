@@ -1,9 +1,19 @@
-import Footer from '@/Components/common/footer';
-import Navbar from '@/Components/common/Navbar';
+// src\app\layout.tsx
+
+// Component Import
+import Footer from '@/Components/layout/footer';
+import Navbar from '@/Components/layout/navbar';
+
+// Provider Import
 import Providers from '@/providers';
+
+// Next Import
 import { Metadata } from 'next';
+
+// Globals   CSS
 import './globals.css';
 
+// Export metadata
 export const metadata: Metadata = {
   title: 'Sansa',
   description: 'Best Shopping App',
@@ -19,12 +29,15 @@ export default function RootLayout({
       <body
         className={`antialiased flex h-full w-full flex-col min-h-screen justify-between scroll-smooth`}
       >
+        {/* Provider  */}
         <Providers>
           <div
             className={`antialiased flex h-full w-full flex-col min-h-screen justify-between`}
           >
+            {/* Navbar  */}
             <Navbar />
             <div className='!h-full min-h-[60dvh]'>{children}</div>
+            {/* Footer  */}
             <Footer />
           </div>
         </Providers>

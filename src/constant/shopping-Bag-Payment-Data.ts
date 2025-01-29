@@ -1,8 +1,12 @@
+// src/constant/shopping-Bag-Payment-Data.ts
+
+// Images Imports
 import ApplePay from '@/../public/image/ApplePay.svg';
 import GooglePay from '@/../public/image/GooglePay.svg';
 import Card from '@/../public/image/Id card.svg';
 import Paypal from '@/../public/image/PayPal.svg';
 
+// Export cardData
 export const cardData = [
   {
     name: 'Card',
@@ -26,6 +30,7 @@ export const cardData = [
   },
 ];
 
+// Export ShoppingBagPaymentData
 export const ShoppingBagPaymentData = [
   {
     name: 'cardName',

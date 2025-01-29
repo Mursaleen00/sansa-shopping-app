@@ -1,5 +1,9 @@
+// src/schema/register-schema.ts
+
+// yup Import
 import * as yup from 'yup';
 
+// Export  SignUpSchema
 export const SignUpSchema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email is required'),
   name: yup.string().required('Name is required'),

@@ -1,3 +1,6 @@
+// src/types/users/login-user.ts
+
+// Export interface LoginType
 export interface LoginType {
   accessToken: string;
   refreshToken: string;

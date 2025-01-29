@@ -1,15 +1,26 @@
+// src/view/Product/Index.tsx
 'use client';
+
+// Components imports
 import ProductCard from '@/Components/cards/product-card';
 import BreadCrumb from '@/Components/common/bread-crumb';
 import Loader from '@/Components/common/loader';
 import ProductNotfound from '@/Components/common/not-found';
 import Pagination from '@/Components/common/pagination';
 import Input from '@/Components/inputs/input';
-import { urls } from '@/constant/urls';
+
+// Constant import
+import { urls } from '@/constant/urls-data';
+
+// Services
 import { useGetAllProductsHook } from '@/services/products/get-all-products';
+
+// React imports & Next import
 import { useSearchParams } from 'next/navigation';
 import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+// useDebounce import
 import { useDebounce } from 'use-debounce';
 
 const ProductView = () => {

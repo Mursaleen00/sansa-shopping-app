@@ -1,6 +1,8 @@
+// src/store/Slice/like-product-slice.tsx
+
 // Redux Import
 import { createSlice } from '@reduxjs/toolkit';
-
+// Export type
 export type LikedState = {
   title: string;
   id: number;
@@ -8,13 +10,13 @@ export type LikedState = {
   thumbnail: string;
   description: string;
 };
-
+// State
 const initialState: {
   product: LikedState[] | null;
 } = {
   product: null,
 };
-
+//  Like Slice
 const LikedSlice = createSlice({
   name: 'product',
   initialState,

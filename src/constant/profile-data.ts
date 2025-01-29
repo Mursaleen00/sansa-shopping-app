@@ -1,3 +1,6 @@
+// src/constant/profile-data.ts
+
+// Use interface Props
 interface Props {
   firstName?: string;
   lastName?: string;
@@ -9,6 +12,7 @@ interface Props {
   password?: string;
 }
 
+// Export profileData
 export const profileData = ({
   firstName,
   lastName,

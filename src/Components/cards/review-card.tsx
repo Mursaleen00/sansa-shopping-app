@@ -1,9 +1,17 @@
+// src/Components/cards/review-card.tsx
 'use strict';
+
+// React imports
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
+
+// Moment import
 import moment from 'moment';
+
+//  Image import
 import Image from 'next/image';
 
+// Use interface IReviewCard
 interface IReviewCard {
   name: string;
   review: string;
@@ -21,6 +29,7 @@ const ReviewCard = ({
 }: IReviewCard) => {
   return (
     <div className='border border-secondary-100 rounded-lg p-6 flex flex-col gap-y-6 max-w-[300px] sm:max-w-[400px]'>
+      {/* image  */}
       <div className='flex items-center gap-x-3'>
         <Image
           alt=''
@@ -39,7 +48,7 @@ const ReviewCard = ({
         </div>
       </div>
       <p className='text-secondary-600'>{review}</p>
-
+      {/* Rating  */}
       <div className='flex items-center gap-x-1'>
         <Rating
           style={{ maxWidth: 80 }}

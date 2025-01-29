@@ -1,12 +1,18 @@
-'use client';
+// src/Components/cards/product-card.tsx
 
-import { urls } from '@/constant/urls';
+'use client';
+// Constant import
+import { urls } from '@/constant/urls-data';
+
+//  Store imports
 import {
   addToLikeProduct,
   removeToLikeProduct,
 } from '@/store/Slice/like-product-slice';
 import { addProduct, removeProduct } from '@/store/Slice/product-slice';
 import { RootState } from '@/store/store';
+
+// React imports & Next imports
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiPlus } from 'react-icons/fi';
@@ -15,6 +21,7 @@ import { IoMdHeart } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 import { useDispatch, useSelector } from 'react-redux';
 
+// use interface ProductCardProps
 interface ProductCardProps {
   title: string;
   description: string;
@@ -37,16 +44,19 @@ const ProductCard = ({
   const products = useSelector(
     (state: RootState) => state.productSlice.product,
   );
-
+  // Like Product
   const likedProducts = useSelector(
     (state: RootState) => state.likedProductSlice.product,
   );
-
-  const dispatch = useDispatch();
-
-  const isAdded = products?.some(product => product.id === id);
   const isProductLiked = likedProducts?.some(product => product.id === id);
 
+  //  dispatch
+  const dispatch = useDispatch();
+
+  // is added
+  const isAdded = products?.some(product => product.id === id);
+
+  // handle Add Product
   const handleAddProduct = () => {
     if (!isAdded) {
       dispatch(
@@ -57,6 +67,7 @@ const ProductCard = ({
     }
   };
 
+  //  handle Like Product
   const handleLikeProduct = () => {
     if (!isProductLiked) {
       dispatch(addToLikeProduct({ id, title, description, thumbnail, price }));
@@ -65,6 +76,7 @@ const ProductCard = ({
     }
   };
 
+  // discount price
   const calculateDiscountedPrice = (
     price: number,
     discountPercentage: number,

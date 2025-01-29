@@ -1,3 +1,5 @@
+// src/services/auth/login.ts
+
 // React Query Imports
 import { useMutation, UseMutationResult } from '@tanstack/react-query';
 
@@ -7,8 +9,11 @@ import { POST } from '@/services/axios-request-handler';
 // Custom Types Imports
 import { CustomAxiosErrorType } from '@/types/shared.types';
 import { LoginType } from '@/types/users/login-user';
+
+// Base URLS
 import { URLS } from '../base-urls';
 
+// Export interface payload
 export interface payload {
   username: string;
   password: string;
@@ -21,6 +26,7 @@ export const useLoginMutation = (): UseMutationResult<
   payload
 > => {
   const LoginFn = async (payload: payload): Promise<LoginType> => {
+    // response
     const response = await POST(URLS.LOGIN_USER, payload);
     return response as LoginType;
   };

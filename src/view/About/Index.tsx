@@ -1,20 +1,34 @@
 'use client';
+
+// Component import
 import BreadCrumb from '@/Components/common/bread-crumb';
-import { urls } from '@/constant/urls';
+
+// Constant  import
+import { urls } from '@/constant/urls-data';
+
+// React import & Next import
 import Image from 'next/image';
-import Card from '@/../public/image/card.jpg';
-import Team from '@/../public/image/team.jpg';
-import { useGetAllUsersHook } from '@/services/user/get-all-users';
 import { useTranslation } from 'react-i18next';
 
+// Images import
+import Card from '@/../public/image/card.jpg';
+import Team from '@/../public/image/team.jpg';
+
+// Services
+import { useGetAllUsersHook } from '@/services/user/get-all-users';
+
 const AboutView = () => {
+  // Data  GetAllUsersHook
   const { data } = useGetAllUsersHook({
     limit: 5,
     select: ['image', 'firstName'],
   });
+
+  // Translation
   const { t } = useTranslation();
   return (
     <div>
+      {/* BreadCrumb  */}
       <div className='flex gap-1'>
         <BreadCrumb
           items={[
@@ -106,7 +120,7 @@ const AboutView = () => {
             perferendis dolor?
           </p>
         </div>
-
+        {/* 3rd Section  */}
         <div className='flex text-center justify-around items-center p-6'>
           {data?.users.map((item, i) => {
             return (
@@ -128,9 +142,3 @@ const AboutView = () => {
 };
 
 export default AboutView;
-
-{
-  /* <div className='flex gap-1'>
-    <div className='text-[#B3B7B1]'>Home</div>/<div>About us</div>
-  </div> */
-}
