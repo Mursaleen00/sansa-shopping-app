@@ -1,8 +1,8 @@
 // src\app\layout.tsx
 
 // Component Import
-import Footer from '@/Components/common/footer';
-import Navbar from '@/Components/common/nav';
+import Footer from '@/Components/layout/footer';
+import Navbar from '@/Components/layout/navbar';
 
 // Provider Import
 import Providers from '@/providers';
